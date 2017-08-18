@@ -8,9 +8,10 @@ import { COLORS } from '../../config/';
 const { width, height } = Dimensions.get('window');
 export const styles = StyleSheet.create({
     post: {
+        flex:1,
         marginTop: 20,
-        // backgroundColor: COLORS.WHITE,
-        backgroundColor: COLORS.BLUE,
+        backgroundColor: COLORS.WHITE,
+        // backgroundColor: 'red',
         borderRadius: 4,
         borderWidth: 0.8,
         borderColor: COLORS.GRAY,
@@ -51,5 +52,24 @@ export const styles = StyleSheet.create({
 
     userBlockRight: {
 
+    },
+
+    image:{
+        height: 200,
+        resizeMode: 'cover',
+    },
+
+    dot: {
+        backgroundColor: COLORS.GRAY,
+        width: 5,
+        height: 5,
+        marginRight:2,
+        marginLeft:2,
+    },
+
+    activeDot: {
+        width: 7,
+        height: 7,
+        backgroundColor: COLORS.BLUE,
     },
 })
