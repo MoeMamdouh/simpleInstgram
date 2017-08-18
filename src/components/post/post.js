@@ -127,7 +127,7 @@ export default class Post extends Component {
 					{/*description*/}
 					<View style={styles.description}>
 						<Text>
-							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username}</Text>
+							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username} </Text>
 							{description}
 						</Text>
 					</View>

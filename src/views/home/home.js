@@ -19,6 +19,7 @@ import  Post from '../../components/post/post';
 import Toast from 'react-native-simple-toast';
 
 const posts = require('./../../data/posts');
+const ADD = require('../../../images/icons/add.png');
 const ds = new ListView.DataSource({
     rowHasChanged: (r1, r2) => r1 !== r2
 })
@@ -49,14 +50,18 @@ export default class Home extends Component {
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<View style={styles.container}>
-				<View style={{height:60, backgroundColor:'red'}}></View>
+				<View style={styles.topBar}></View>
 				<ListView
 					style={styles.posts}
 					removeClippedSubviews={false}
 					dataSource={postsDataSource}
 					renderRow={this.renderRow.bind(this)}
 				/>
-				<View style={{height:44, backgroundColor:'#efefef'}}></View>
+				<View style={styles.bottomBar}>
+					<TouchableOpacity>
+						<Image style={styles.addPost} source={ADD} />
+					</TouchableOpacity>
+				</View>
 			</View>
 		)
 	}

@@ -13,7 +13,26 @@ export const styles = StyleSheet.create({
 		backgroundColor: COLORS.APP_BG,
 	},
 
+    topBar: {
+        height:60,
+        backgroundColor:'red'
+    },
+
+    bottomBar: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height:54,
+        backgroundColor:'#efefef',
+        borderTopWidth: 1,
+        borderTopColor: COLORS.GRAY,
+    },
+
     posts: {
 
     },
+
+    addPost: {
+        height: 40,
+        width: 40,
+    }
 })
