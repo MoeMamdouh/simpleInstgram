@@ -43,29 +43,17 @@ export const textStyles = StyleSheet.create({
 		fontWeight: '500',
 	},
 
-	ModalMediumBlack: {
-		fontSize: 18,
-		color: COLORS.BLACK,
-	},
-
-	ModalSmallBlack: {
-		fontSize: 12,
-		color: COLORS.BLACK,
-	},
-
-	CancelButton: {
-		fontSize: 15,
-		color: COLORS.BLACK,
-		fontWeight: '500',
-		textDecorationLine: 'underline',
-	},
-
 	BoldBlackMedium: {
 		fontSize: 16,
 		color: COLORS.BLACK,
 		fontWeight: 'bold',
 	},
 	
+	Blacksmall: {
+		fontSize: 14,
+		color: COLORS.BLACK,
+		fontWeight: 'bold',
+	},
 
 	/**
 	 * grays colors

@@ -12,4 +12,8 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: COLORS.APP_BG,
 	},
+
+    posts: {
+        paddingBottom: 20,
+    },
 })

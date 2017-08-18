@@ -8,8 +8,9 @@ import { COLORS } from '../../config/';
 const { width, height } = Dimensions.get('window');
 export const styles = StyleSheet.create({
     post: {
-        flex:1,
-        marginTop: 20,
+        flex: 1,
+        marginBottom: 10,
+        paddingBottom:10,
         backgroundColor: COLORS.WHITE,
         // backgroundColor: 'red',
         borderRadius: 4,
@@ -43,8 +44,8 @@ export const styles = StyleSheet.create({
         borderRadius: 15,
         borderWidth: 1,
         borderColor: COLORS.GRAY,
-    }, 
-    
+    },
+
     username: {
         justifyContent: 'center',
     },
@@ -53,7 +54,7 @@ export const styles = StyleSheet.create({
 
     },
 
-    imagePost:{
+    imagePost: {
         height: 300,
         resizeMode: 'cover',
     },
@@ -62,8 +63,8 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.GRAY,
         width: 5,
         height: 5,
-        marginRight:2,
-        marginLeft:2,
+        marginRight: 2,
+        marginLeft: 2,
     },
 
     activeDot: {
@@ -72,6 +73,10 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.BLUE,
     },
 
+    postBody: {
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
     actions: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -87,5 +92,14 @@ export const styles = StyleSheet.create({
         width: 50,
         height: 50,
         resizeMode: 'contain'
+    },
+
+    likes: {
+        flexDirection: 'row',
+        marginBottom: 7,
+    },
+
+    description: {
+        flexDirection: 'row',
     },
 })

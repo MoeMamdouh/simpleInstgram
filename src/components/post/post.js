@@ -40,7 +40,7 @@ export default class Post extends Component {
 
 	render() {
 		let { postObject } = this.state;
-		let { username, avatar, images, isLiked } = postObject;
+		let { username, avatar, images, isLiked, numOfLikes, description } = postObject;
 
 		return (
 			<View style={styles.post}>
@@ -89,29 +89,49 @@ export default class Post extends Component {
 				</Swiper>
 				{/*End Of Images*/}
 
-				{/*actions buttons*/}
-				<View style={styles.actions}>
-					<View style={styles.actionsLeft}>
-						<TouchableOpacity onPress={() => this.toggleLikePost(postObject)}>
-							<Image style={[styles.actionIcon, styles.likeIcon]} source={isLiked ? LIKE_ACTIVE_ICON : LIKE_ICON} />
-						</TouchableOpacity>
+				{/*Post Body*/}
+				<View style={styles.postBody}>
+					{/*actions buttons*/}
+					<View style={styles.actions}>
+						<View style={styles.actionsLeft}>
+							<TouchableOpacity onPress={() => this.toggleLikePost(postObject)}>
+								<Image style={[styles.actionIcon, styles.likeIcon]} source={isLiked ? LIKE_ACTIVE_ICON : LIKE_ICON} />
+							</TouchableOpacity>
 
-						<TouchableOpacity onPress={() => alert('comment')}>
-							<Image style={[styles.actionIcon, styles.commentIcon]} source={COMMENT_ICON} />
-						</TouchableOpacity>
+							<TouchableOpacity onPress={() => alert('comment')}>
+								<Image style={[styles.actionIcon, styles.commentIcon]} source={COMMENT_ICON} />
+							</TouchableOpacity>
 
-						<TouchableOpacity onPress={() => alert('send to')}>
-							<Image style={[styles.actionIcon, styles.sendIcon]} source={SEND_ICON} />
-						</TouchableOpacity>
+							<TouchableOpacity onPress={() => alert('send to')}>
+								<Image style={[styles.actionIcon, styles.sendIcon]} source={SEND_ICON} />
+							</TouchableOpacity>
+						</View>
+
+						<View style={styles.actionsRight}>
+							<TouchableOpacity onPress={() => alert('save')}>
+								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
+							</TouchableOpacity>
+						</View>
 					</View>
+					{/*End actions btns*/}
 
-					<View style={styles.actionsRight}>
-						<TouchableOpacity onPress={() => alert('save')}>
-							<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
-						</TouchableOpacity>
+					{/*Likes*/}
+					<View style={styles.likes}>
+						<Text style={[textStyles.Blacksmall, styles.numOfLikes]}>{numOfLikes}</Text>
+						<Text style={[textStyles.Blacksmall, styles.likesText]}> likes</Text>
 					</View>
+					{/*End Likes*/}
+
+					{/*description*/}
+					<View style={styles.description}>
+						<Text>
+							<Text style={[textStyles.Blacksmall, styles.usernameText]}>mohamed mamdouh </Text>
+							{description}
+						</Text>
+					</View>
+					{/*End description*/}
 				</View>
-				{/*End actions btns*/}
+				{/*End Post Body*/}
 			</View>
 		)
 	}

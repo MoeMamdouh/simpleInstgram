@@ -51,10 +51,12 @@ export default class Home extends Component {
 			<View style={styles.container}>
 				<View style={{height:60, backgroundColor:'red'}}></View>
 				<ListView
+					style={styles.posts}
 					removeClippedSubviews={false}
 					dataSource={postsDataSource}
 					renderRow={this.renderRow.bind(this)}
 				/>
+				<View style={{height:44, backgroundColor:'white'}}></View>
 			</View>
 		)
 	}
