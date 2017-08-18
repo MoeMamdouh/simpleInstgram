@@ -14,15 +14,33 @@ import Swiper from 'react-native-swiper';
 
 const { width, height } = Dimensions.get('window');
 
+const
+	LIKE_ICON = require('../../../images/icons/like.png'),
+	LIKE_ACTIVE_ICON = require('../../../images/icons/like_active.png'),
+	COMMENT_ICON = require('../../../images/icons/comment.png'),
+	SEND_ICON = require('../../../images/icons/send.png'),
+	SAVE_ICON = require('../../../images/icons/save.png');
+
 export default class Post extends Component {
 
 	constructor(props) {
 		super(props)
+		this.state = {
+			postObject: this.props.postObject
+		}
+	}
+	
+	toggleLikePost() {
+		let { postObject } = this.state;
+		postObject.isLiked = !postObject.isLiked
+		this.setState({
+			postObject
+		})
 	}
 
 	render() {
-		let { data } = this.props;
-		let { username, avatar, images } = data;
+		let { postObject } = this.state;
+		let { username, avatar, images, isLiked } = postObject;
 
 		return (
 			<View style={styles.post}>
@@ -46,6 +64,7 @@ export default class Post extends Component {
 
 				{/*Images*/}
 				<Swiper
+					height={320}
 					scrollEnabled={true}
 					showsButtons={false}
 					index={0}
@@ -55,6 +74,7 @@ export default class Post extends Component {
 					autoplay={false}
 					horizontal={true}
 					showsPagination={true}
+					paginationStyle={{ bottom: 0 }}
 					dotStyle={styles.dot}
 					activeDotStyle={[styles.dot, styles.activeDot]}
 					ref={(swiper) => { this._swiper = swiper; }}
@@ -62,12 +82,36 @@ export default class Post extends Component {
 					{images.map(function (image, index) {
 						return (
 							<View>
-								<Image style={styles.image} source={{ uri: image }} />
+								<Image style={styles.imagePost} source={{ uri: image }} />
 							</View>
 						)
 					})}
 				</Swiper>
 				{/*End Of Images*/}
+
+				{/*actions buttons*/}
+				<View style={styles.actions}>
+					<View style={styles.actionsLeft}>
+						<TouchableOpacity onPress={() => this.toggleLikePost(postObject)}>
+							<Image style={[styles.actionIcon, styles.likeIcon]} source={isLiked ? LIKE_ACTIVE_ICON : LIKE_ICON} />
+						</TouchableOpacity>
+
+						<TouchableOpacity onPress={() => alert('comment')}>
+							<Image style={[styles.actionIcon, styles.commentIcon]} source={COMMENT_ICON} />
+						</TouchableOpacity>
+
+						<TouchableOpacity onPress={() => alert('send to')}>
+							<Image style={[styles.actionIcon, styles.sendIcon]} source={SEND_ICON} />
+						</TouchableOpacity>
+					</View>
+
+					<View style={styles.actionsRight}>
+						<TouchableOpacity onPress={() => alert('save')}>
+							<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
+						</TouchableOpacity>
+					</View>
+				</View>
+				{/*End actions btns*/}
 			</View>
 		)
 	}

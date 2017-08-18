@@ -42,7 +42,7 @@ export default class Home extends Component {
 	 * render event item
 	 */
 	renderRow(rowData, sectionID, rowID, highlightRow) {
-		return <Post data={rowData}/>
+		return <Post postObject={rowData}/>
 	}
 
 	render() {

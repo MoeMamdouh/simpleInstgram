@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 0.8,
         borderColor: COLORS.GRAY,
-        height: 300,
     },
 
     userBlock: {
@@ -54,8 +53,8 @@ export const styles = StyleSheet.create({
 
     },
 
-    image:{
-        height: 200,
+    imagePost:{
+        height: 300,
         resizeMode: 'cover',
     },
 
@@ -71,5 +70,22 @@ export const styles = StyleSheet.create({
         width: 7,
         height: 7,
         backgroundColor: COLORS.BLUE,
+    },
+
+    actions: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+
+    actionsLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    actionIcon: {
+        width: 50,
+        height: 50,
+        resizeMode: 'contain'
     },
 })

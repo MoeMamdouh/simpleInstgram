@@ -26,7 +26,7 @@
         ],
         "description": "New personal best!",
         "location": "location",
-        "isLiked": false,
+        "isLiked": true,
         "numOfLikes": 5,
         "created_time": "2017-01-09T08:20:15+0000"
     }
