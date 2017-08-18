@@ -20,7 +20,7 @@ export default class Post extends Component {
         let { data } = this.props;
         return (
             <View style={{margin:10}}>
-                <Text style={[textStyles.ButtonText, styles.btnText]}>{data.user}</Text>
+                <Text style={[textStyles.ButtonText, styles.btnText]}>{data.username}</Text>
             </View>
         )
     }

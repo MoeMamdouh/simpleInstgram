@@ -18,6 +18,7 @@ import { rawDataHelper } from '../../lib/index';
 import  Post from '../../components/post/post';
 import Toast from 'react-native-simple-toast';
 
+const posts = require('./../../data/posts');
 const ds = new ListView.DataSource({
     rowHasChanged: (r1, r2) => r1 !== r2
 })
@@ -45,28 +46,6 @@ export default class Home extends Component {
 	}
 
 	render() {
-		let posts = [
-			{
-				id:1,
-				post: 'post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1',
-				images: ['location'],
-				user: 'user1',
-				location: 'location',
-				isLiked: false,
-				numOfLikes: 5,
-				date: 5,
-			},
-			{
-				id:1,
-				post: 'post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1 post1',
-				images: ['location'],
-				user: 'user1',
-				location: 'location',
-				isLiked: false,
-				numOfLikes: 5,
-				date: 5,
-			},
-		]
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<View style={styles.container}>
