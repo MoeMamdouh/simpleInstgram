@@ -31,9 +31,9 @@ export default class Post extends Component {
 						</View>
 					</View>
 					<View style={styles.userBlockRight}>
-						<View style={styles.avatar}>
-							<Image style={styles.avatarImage} source={{ uri: data.avatar }}/>
-						</View>
+						<TouchableOpacity>
+							<Text style={textStyles.grayMedium}>...</Text>
+						</TouchableOpacity>
 					</View>
 				</View>
 				{/*End user*/}

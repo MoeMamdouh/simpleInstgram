@@ -65,36 +65,13 @@ export const textStyles = StyleSheet.create({
 		color: COLORS.BLACK,
 		fontWeight: 'bold',
 	},
-	/**
-	 * Blue Colors
-	 */
-	ModalTitle: {
-		fontSize: 23,
-		color: COLORS.BLUE,
-		fontWeight: 'bold',
-	},
-
-	ModalMediumBlue: {
-		fontSize: 18,
-		color: COLORS.BLUE,
-	},
-
-	ModalSmallBlue: {
-		fontSize: 10,
-		color: COLORS.BLUE,
-	},
+	
 
 	/**
 	 * grays colors
 	 */
-	Cell: {
-		fontSize: 17,
-		color: COLORS.off_GRAY,
-		fontWeight: '600',
-	},
-
 	grayMedium: {
-		fontSize: 15,
+		fontSize: 16,
 		color: COLORS.off_GRAY,
 		fontWeight: 'bold',
 	},
@@ -103,29 +80,5 @@ export const textStyles = StyleSheet.create({
 		fontSize: 11,
 		color: COLORS.off_GRAY,
 	},
-
-	/**
-	 * Orange Colors
-	 */
-	OrangeTitle: {
-		color: COLORS.LIGHT_ORANGE,
-		fontSize: 18,
-		fontWeight: 'bold',
-	},
-
-	OrangeSmallText: {
-		color: COLORS.LIGHT_ORANGE,
-		fontSize: 13,
-		fontWeight: 'bold',
-	},
-
-	/**
-	 * standard text
-	 */
-	standard: {
-		color: COLORS.BLACK,
-		fontSize: 10,
-		fontWeight: 'normal'
-	}
 
 })

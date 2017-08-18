@@ -34,15 +34,15 @@ export const styles = StyleSheet.create({
 
 
     avatar: {
-        borderRadius: 20,
-        borderWidth: 1,
-        borderColor: COLORS.GRAY,
         marginRight: 7
     },
 
     avatarImage: {
         height: 30,
         width: 30,
+        borderRadius: 15,
+        borderWidth: 1,
+        borderColor: COLORS.GRAY,
     }, 
     
     username: {
