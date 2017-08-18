@@ -7,14 +7,49 @@ import { COLORS } from '../../config/';
 
 const { width, height } = Dimensions.get('window');
 export const styles = StyleSheet.create({
-    btn: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 42,
-        borderRadius: 35,
+    post: {
+        marginTop: 20,
+        // backgroundColor: COLORS.WHITE,
+        backgroundColor: COLORS.BLUE,
+        borderRadius: 4,
+        borderWidth: 0.8,
+        borderColor: COLORS.GRAY,
+        height: 300,
     },
+
+    userBlock: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingLeft: 10,
+        paddingRight: 10,
+        // backgroundColor: 'red',
+        height: 50
+    },
+
+    userBlockLeft: {
+        // backgroundColor: 'green',
+        flexDirection: 'row',
+    },
+
+
+    avatar: {
+        borderRadius: 20,
+        borderWidth: 1,
+        borderColor: COLORS.GRAY,
+        marginRight: 7
+    },
+
+    avatarImage: {
+        height: 30,
+        width: 30,
+    }, 
     
-    btnText: {
-        backgroundColor:'transparent'
-    }
+    username: {
+        justifyContent: 'center',
+    },
+
+    userBlockRight: {
+
+    },
 })

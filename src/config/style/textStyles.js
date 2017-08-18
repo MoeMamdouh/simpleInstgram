@@ -61,7 +61,7 @@ export const textStyles = StyleSheet.create({
 	},
 
 	BoldBlackMedium: {
-		fontSize: 17,
+		fontSize: 16,
 		color: COLORS.BLACK,
 		fontWeight: 'bold',
 	},

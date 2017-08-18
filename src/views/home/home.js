@@ -42,7 +42,7 @@ export default class Home extends Component {
 	 * render event item
 	 */
 	renderRow(rowData, sectionID, rowID, highlightRow) {
-		return <Post data={rowData}></Post>
+		return <Post data={rowData}/>
 	}
 
 	render() {
@@ -51,7 +51,7 @@ export default class Home extends Component {
 			<View style={styles.container}>
 				<View style={{height:60, backgroundColor:'red'}}></View>
 				<ListView
-					style={{padding:20}}
+					//style={}
 					dataSource={postsDataSource}
 					renderRow={this.renderRow.bind(this)}
 				/>

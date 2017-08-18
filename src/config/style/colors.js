@@ -1,4 +1,5 @@
 export const COLORS = {
+	APP_BG: '#fafafa',
     BLACK: '#000000',
     GRAY: '#CCCCCC',
     off_GRAY: '#666666',

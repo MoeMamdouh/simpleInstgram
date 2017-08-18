@@ -2,7 +2,7 @@
     {
         "id":1,
         "username": "user1",
-        "icon": "http://lorempixel.com/150/150/people/",
+        "avatar": "http://lorempixel.com/150/150/people/",
         "images": [
             "http://lorempixel.com/500/500/nature/",
             "http://lorempixel.com/500/500/nature/",
@@ -17,7 +17,7 @@
     {
         "id":1,
         "username": "user1",
-        "icon": "http://lorempixel.com/150/150/people/",
+        "avatar": "http://lorempixel.com/150/150/people/",
         "images": [
             "http://lorempixel.com/500/500/fashion/"
         ],
