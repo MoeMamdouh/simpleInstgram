@@ -14,6 +14,6 @@ export const styles = StyleSheet.create({
 	},
 
     posts: {
-        paddingBottom: 20,
+
     },
 })

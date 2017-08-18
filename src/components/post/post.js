@@ -10,6 +10,7 @@ import {
 
 import { styles } from './postStyle';
 import { COLORS, textStyles } from './../../config/';
+import { date } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 
 const { width, height } = Dimensions.get('window');
@@ -40,8 +41,8 @@ export default class Post extends Component {
 
 	render() {
 		let { postObject } = this.state;
-		let { username, avatar, images, isLiked, numOfLikes, description } = postObject;
-
+		let { username, avatar, images, isLiked, numOfLikes, description, created_time } = postObject;
+		let postDate = date.getDateFormat(created_time)
 		return (
 			<View style={styles.post}>
 				{/*user*/}
@@ -51,13 +52,14 @@ export default class Post extends Component {
 							<Image style={styles.avatarImage} source={{ uri: avatar }} />
 						</View>
 						<View style={styles.username}>
-							<Text style={[textStyles.BoldBlackMedium, styles.usernameText]}>{username}</Text>
+							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username}</Text>
 						</View>
 					</View>
 					<View style={styles.userBlockRight}>
-						<TouchableOpacity>
+						<Text style={textStyles.graySmall}>{postDate}</Text>
+						{/*<TouchableOpacity>
 							<Text style={textStyles.grayMedium}>...</Text>
-						</TouchableOpacity>
+						</TouchableOpacity>*/}
 					</View>
 				</View>
 				{/*End user*/}
@@ -125,7 +127,7 @@ export default class Post extends Component {
 					{/*description*/}
 					<View style={styles.description}>
 						<Text>
-							<Text style={[textStyles.Blacksmall, styles.usernameText]}>mohamed mamdouh </Text>
+							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username}</Text>
 							{description}
 						</Text>
 					</View>

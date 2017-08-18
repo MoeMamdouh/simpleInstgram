@@ -52,7 +52,7 @@ export const textStyles = StyleSheet.create({
 	Blacksmall: {
 		fontSize: 14,
 		color: COLORS.BLACK,
-		fontWeight: 'bold',
+		fontWeight: '500',
 	},
 
 	/**
@@ -65,8 +65,8 @@ export const textStyles = StyleSheet.create({
 	},
 
 	graySmall: {
-		fontSize: 11,
-		color: COLORS.off_GRAY,
+		fontSize: 10,
+		color: COLORS.GRAY,
 	},
 
 })

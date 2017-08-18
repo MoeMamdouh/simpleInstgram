@@ -56,7 +56,7 @@ export default class Home extends Component {
 					dataSource={postsDataSource}
 					renderRow={this.renderRow.bind(this)}
 				/>
-				<View style={{height:44, backgroundColor:'white'}}></View>
+				<View style={{height:44, backgroundColor:'#efefef'}}></View>
 			</View>
 		)
 	}
