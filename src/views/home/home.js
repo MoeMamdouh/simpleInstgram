@@ -18,7 +18,7 @@ import { COLORS, textStyles, config } from '../../config/';
 import { rawDataHelper } from '../../lib/index';
 import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
-import NewPostModal from '../../modals/newPost/newPost';
+import NewPostModal from '../../modals/newPost/newPostModal';
 
 const posts = require('./../../data/posts');
 const ADD = require('../../../images/icons/add.png');

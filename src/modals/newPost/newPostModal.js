@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { Container, Button, Text } from 'native-base';
 import Modal from 'react-native-modalbox';
-import { styles } from './newPostStyle';
+import { styles } from './newPostModalStyle';
 import { i18n } from '../../lib/';
 import { textStyles } from '../../config/';
 export default class NewPost extends Component {
