@@ -49,10 +49,16 @@ export const textStyles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	
-	Blacksmall: {
+	BlackBoldSmall: {
 		fontSize: 14,
 		color: COLORS.BLACK,
 		fontWeight: '500',
+	},
+
+	Blacksmall: {
+		fontSize: 12,
+		color: COLORS.BLACK,
+		fontWeight: '300',
 	},
 
 	/**

@@ -14,8 +14,8 @@ export const styles = StyleSheet.create({
 	},
 
     topBar: {
-        height:60,
-        backgroundColor:'red'
+        height:66,
+        backgroundColor: COLORS.BRAND_COLOR
     },
 
     bottomBar: {

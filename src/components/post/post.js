@@ -30,7 +30,7 @@ export default class Post extends Component {
 			postObject: this.props.postObject
 		}
 	}
-	
+
 	toggleLikePost() {
 		let { postObject } = this.state;
 		postObject.isLiked = !postObject.isLiked
@@ -52,7 +52,7 @@ export default class Post extends Component {
 							<Image style={styles.avatarImage} source={{ uri: avatar }} />
 						</View>
 						<View style={styles.username}>
-							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username}</Text>
+							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username}</Text>
 						</View>
 					</View>
 					<View style={styles.userBlockRight}>
@@ -119,15 +119,15 @@ export default class Post extends Component {
 
 					{/*Likes*/}
 					<View style={styles.likes}>
-						<Text style={[textStyles.Blacksmall, styles.numOfLikes]}>{numOfLikes}</Text>
-						<Text style={[textStyles.Blacksmall, styles.likesText]}> likes</Text>
+						<Text style={[textStyles.BlackBoldSmall, styles.numOfLikes]}>{numOfLikes ? numOfLikes : 0}</Text>
+						<Text style={[textStyles.BlackBoldSmall, styles.likesText]}> likes</Text>
 					</View>
 					{/*End Likes*/}
 
 					{/*description*/}
 					<View style={styles.description}>
 						<Text>
-							<Text style={[textStyles.Blacksmall, styles.usernameText]}>{username} </Text>
+							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username} </Text>
 							{description}
 						</Text>
 					</View>

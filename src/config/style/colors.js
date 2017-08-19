@@ -11,5 +11,5 @@ export const COLORS = {
     LIGHT_ORANGE: '#ed8e28',
     OFF_ORANGE: '#e67428',
     BLUE: '#00aeef',
-    BRAND_COLOR:'#e67428'
+    BRAND_COLOR:'#00aeef'
 }
