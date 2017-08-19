@@ -6,6 +6,7 @@ import {
 	TouchableOpacity,
 	Easing,
 	TextInput,
+	Image,
 } from 'react-native'
 import { Container, Button, Text } from 'native-base';
 import Modal from 'react-native-modalbox';
@@ -33,17 +34,31 @@ export default class NewPost extends Component {
 	 * create post
 	 */
 	createPost() {
-		let { description } = this.state;
+		console.log('hay ')
+		let { description, uploadedPhoto } = this.state;
 		let { showModal, closeModal, createPost } = this.props;
 
-		createPost({ description });
-
-		//reset description text
-		this.setState({
-			description: ''
-		})
+		//if set descrption and upload photo Enable to create the post
+		if(description && uploadedPhoto) {
+			let post = {
+				description,
+				images: [uploadedPhoto],
+			}
+			createPost(post);
+			this.resetPostData();
+		}
 	}
 
+	/**
+	 * reset post Data
+	 */
+	resetPostData() {
+		//reset description text
+		this.setState({
+			description: '',
+			uploadedPhoto: '',
+		})
+	}
 	/**
 	 * upoad photo
 	 */
@@ -69,21 +84,21 @@ export default class NewPost extends Component {
 				console.log('User tapped custom button: ', response.customButton);
 			}
 			else {
-				let source = { uri: response.uri };
+				// let source = { uri: response.uri };
 
 				// You can also display the image using data:
 				// let source = { uri: 'data:image/jpeg;base64,' + response.data };
 
-				// this.setState({
-				// 	avatarSource: source
-				// });
+				this.setState({
+					uploadedPhoto: response.uri
+				});
 			}
 		});
 	}
 
 	render() {
 		let { showModal, closeModal, createPost } = this.props;
-		let { description } = this.state;
+		let { description, uploadedPhoto } = this.state;
 
 		return (
 			<Modal
@@ -104,6 +119,7 @@ export default class NewPost extends Component {
 						onPress={() => this.uploadPhoto()}
 					>
 						<Text>Upoad Photo</Text>
+						<Image source={{ uri: uploadedPhoto }} style={styles.uploadedPhoto} />
 					</TouchableOpacity>
 					<View style={styles.description}>
 						<TextInput

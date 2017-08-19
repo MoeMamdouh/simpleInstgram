@@ -22,6 +22,11 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between'
 	},
 
+	uploadedPhoto: {
+		height: 200,
+		width: 200,
+	},
+
 	description: {
 
 	},

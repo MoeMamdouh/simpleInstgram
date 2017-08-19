@@ -30,7 +30,7 @@ export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			allPosts: posts,
+			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
 		}
@@ -67,7 +67,6 @@ export default class Home extends Component {
 		postObject.id = 5;
 		postObject.username = 'Mohamed Mamdouh';
 		postObject.avatar = 'http://lorempixel.com/150/150/people/';
-		postObject.images = ["http://lorempixel.com/500/500/nature/",];
 		//postObject.created_time = "2017-01-09T08:20:15+0000";
 
 		allPosts.push(postObject);
@@ -75,6 +74,7 @@ export default class Home extends Component {
 		// posts.reverse()
 		// posts.unshift(postObject)
 		// posts.splice(0, 0, postObject);
+		console.log(posts, allPosts )
 		this.updateAllPosts(allPosts)
 		this.updatePosts(posts)
 		this.closeNewPostModal()
