@@ -11,6 +11,7 @@ import {
 	ScrollView,
 	ListView,
 	LayoutAnimation,
+	RefreshControl,
 } from 'react-native'
 import _ from 'lodash';
 import { styles } from './homeStyle';
@@ -42,6 +43,7 @@ export default class Home extends Component {
 			showNewPostModal: false,
 			isSearchBar: false,
 			isNewPostAded: false,
+			isRefreshing: false,
 		}
 	}
 
@@ -154,13 +156,28 @@ export default class Home extends Component {
 		})
 	}
 	
+	/**
+	 * scroll to down of list
+	 */
 	scrollDown() {
 		let { isNewPostAded } = this.state;
 		if(isNewPostAded) {
 			this.scrollView.scrollToEnd({ animated: true });
 		}
 	}
-	
+
+	/**
+	 * on pull to refresh all posts data and close search bar
+	 */
+	onRefresh() {
+		this.showAllPosts();
+		this.setState({
+			isSearchBar: false,
+			isNewPostAded: false,
+			isRefreshing:false,
+		});
+	}
+
 	render() {
 		let { showNewPostModal, posts, isSearchBar } = this.state;
 		let postsDataSource = ds.cloneWithRows(posts);
@@ -177,6 +194,12 @@ export default class Home extends Component {
 
 					{/*posts list*/}
 					<ListView
+						refreshControl={
+							<RefreshControl
+								refreshing={this.state.isRefreshing}
+								onRefresh={this.onRefresh.bind(this)}
+							/>
+						}
 						ref={ref => this.scrollView = ref}
 						style={styles.posts}
 						removeClippedSubviews={false}
