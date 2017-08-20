@@ -31,12 +31,18 @@ export default class Post extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const { postObject } = nextProps;
+
+		this.setState({ postObject });
+	}
+
 	/**
 	 * click on like button
 	 */
 	toggleLikePost() {
 		let { isLiked } = this.state.postObject;
-		if(isLiked == false) {
+		if (isLiked == false) {
 			this.like();
 		} else {
 			this.disLike();
