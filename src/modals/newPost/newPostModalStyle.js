@@ -35,9 +35,11 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: 200,
+		height: 150,
 		borderWidth: 0.5,
 		borderStyle: 'dashed',
 		borderColor: COLORS.GRAY,
+		
 	},
 
 	selectPhotoText: {
