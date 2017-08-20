@@ -34,11 +34,11 @@ const ds = new ListView.DataSource({
 export default class Home extends Component {
 	constructor(props) {
 		super(props);
+		posts = rawDataHelper.dateSort(posts, 'created_time')
 		this.state = {
 			allPosts: posts.slice(),
 			posts,
-			showNewPostModal: true,
-			// showNewPostModal: false,
+			showNewPostModal: false,
 			isSearchBar: false,
 		}
 	}
@@ -50,6 +50,8 @@ export default class Home extends Component {
 	componentDidMount() {
 
 	}
+
+
 
 	/**
 	 * close Modal

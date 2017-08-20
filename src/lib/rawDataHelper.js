@@ -10,6 +10,17 @@ class RawDataHelper {
         return tmpArr;
     }
 
+    /**
+     * order array of objects
+     * @param {*} array 
+     */
+    dateSort(array, attr) {
+		array.sort(function(a,b) { 
+			return new Date(a[attr]).getTime() - new Date(b[attr]).getTime() 
+		});
+		return array;
+	}
+
 }
 
 export const rawDataHelper = new RawDataHelper();
