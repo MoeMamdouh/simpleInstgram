@@ -20,6 +20,9 @@ import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
 import Tabs from '../../components/tabs/tabs';
 import NewPostModal from '../../modals/newPost/newPostModal';
+import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, StyleProvider, Text } from 'native-base';
+import getTheme from './../../../native-base-theme/components';
+import material from './../../../native-base-theme/variables/commonColor';
 
 const posts = require('./../../data/posts');
 const ADD = require('../../../images/icons/add.png');
@@ -131,8 +134,23 @@ export default class Home extends Component {
 		return (
 			<View style={styles.container}>
 				{/*header component*/}
-				<View style={styles.topBar}></View>
+				{/*<View style={styles.topBar}></View>*/}
 				{/*End header component*/}
+				<StyleProvider style={getTheme(material)}>
+					<Header>
+						<Left>
+							<Button transparent>
+							<Icon name='menu' />
+							</Button>
+						</Left>
+						<Body>
+							<Title>Light Insta</Title>
+						</Body>
+						<Right />
+					</Header>
+				</StyleProvider>
+
+
 
 				{/*search component*/}
 				<SearchInput search={(text) => this.search(text)}/>
