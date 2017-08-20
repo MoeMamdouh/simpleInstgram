@@ -34,12 +34,14 @@ const ds = new ListView.DataSource({
 export default class Home extends Component {
 	constructor(props) {
 		super(props);
+		//order posts data by 'created_time'
 		posts = rawDataHelper.dateSort(posts, 'created_time')
 		this.state = {
 			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
 			isSearchBar: false,
+			isNewPostAded: false,
 		}
 	}
 
@@ -50,8 +52,6 @@ export default class Home extends Component {
 	componentDidMount() {
 
 	}
-
-
 
 	/**
 	 * close Modal
@@ -85,10 +85,12 @@ export default class Home extends Component {
 		// posts.reverse()
 		// posts.unshift(postObject)
 		// posts.splice(0, 0, postObject);
-		console.log(posts, allPosts)
+
 		this.updateAllPosts(allPosts)
 		this.updatePosts(posts)
 		this.closeNewPostModal()
+		//update isNewPostAded in state to scrollDown and show the last Post
+		this.setState({isNewPostAded: true})
 	}
 
 	/**
@@ -151,6 +153,14 @@ export default class Home extends Component {
 			isSearchBar: !isSearchBar
 		})
 	}
+	
+	scrollDown() {
+		let { isNewPostAded } = this.state;
+		if(isNewPostAded) {
+			this.scrollView.scrollToEnd({ animated: true });
+		}
+	}
+	
 	render() {
 		let { showNewPostModal, posts, isSearchBar } = this.state;
 		let postsDataSource = ds.cloneWithRows(posts);
@@ -172,9 +182,7 @@ export default class Home extends Component {
 						removeClippedSubviews={false}
 						dataSource={postsDataSource}
 						renderRow={this.renderRow.bind(this)}
-						onContentSizeChange={(contentWidth, contentHeight) => {
-							this.scrollView.scrollToEnd({ animated: true });
-						}}
+						onContentSizeChange={() => this.scrollDown()}
 						enableEmptySections={true}
 					/>
 					{/*End posts list*/}
