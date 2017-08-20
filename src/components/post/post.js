@@ -31,13 +31,42 @@ export default class Post extends Component {
 		}
 	}
 
+	/**
+	 * click on like button
+	 */
 	toggleLikePost() {
+		let { isLiked } = this.state.postObject;
+		if(isLiked == false) {
+			this.like();
+		} else {
+			this.disLike();
+		}
+	}
+
+	/**
+	 * like post
+	 */
+	like() {
 		let { postObject } = this.state;
-		postObject.isLiked = !postObject.isLiked
+		postObject.isLiked = true;
+		postObject.numOfLikes++;
 		this.setState({
 			postObject
 		})
 	}
+
+	/**
+	 * dislike post
+	 */
+	disLike() {
+		let { postObject } = this.state;
+		postObject.isLiked = false;
+		postObject.numOfLikes--;
+		this.setState({
+			postObject
+		})
+	}
+
 
 	render() {
 		let { postObject } = this.state;

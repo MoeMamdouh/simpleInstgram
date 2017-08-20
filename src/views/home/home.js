@@ -67,6 +67,8 @@ export default class Home extends Component {
 		postObject.id = 5;
 		postObject.username = 'Mohamed Mamdouh';
 		postObject.avatar = 'http://lorempixel.com/150/150/people/';
+		postObject.numOfLikes = 0;
+		postObject.isLiked = false;
 		//postObject.created_time = "2017-01-09T08:20:15+0000";
 
 		allPosts.push(postObject);

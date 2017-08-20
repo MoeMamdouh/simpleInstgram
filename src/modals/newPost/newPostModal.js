@@ -34,7 +34,6 @@ export default class NewPost extends Component {
 	 * create post
 	 */
 	createPost() {
-		console.log('hay ')
 		let { description, uploadedPhoto } = this.state;
 		let { showModal, closeModal, createPost } = this.props;
 

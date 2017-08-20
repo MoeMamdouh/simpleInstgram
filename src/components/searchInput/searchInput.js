@@ -22,7 +22,7 @@ export default class SearchInput extends Component {
 
 	render() {
 		return (
-			<Header searchBar rounded>
+			<Header transparent searchBar rounded>
 				<Item>
 					<Icon name="ios-search" />
 					<Input
