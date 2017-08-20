@@ -18,11 +18,12 @@ import { COLORS, textStyles, config } from '../../config/';
 import { rawDataHelper } from '../../lib/index';
 import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
+import Navbar from '../../components/navbar/navbar';
 import Tabs from '../../components/tabs/tabs';
 import NewPostModal from '../../modals/newPost/newPostModal';
-import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, StyleProvider, Text } from 'native-base';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
+import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, StyleProvider, Text } from 'native-base';
 
 const posts = require('./../../data/posts');
 const ADD = require('../../../images/icons/add.png');
@@ -37,6 +38,7 @@ export default class Home extends Component {
 			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
+			isSearchBar: false,
 		}
 	}
 
@@ -80,7 +82,7 @@ export default class Home extends Component {
 		// posts.reverse()
 		// posts.unshift(postObject)
 		// posts.splice(0, 0, postObject);
-		console.log(posts, allPosts )
+		console.log(posts, allPosts)
 		this.updateAllPosts(allPosts)
 		this.updatePosts(posts)
 		this.closeNewPostModal()
@@ -109,6 +111,14 @@ export default class Home extends Component {
 	}
 
 	/**
+	 * show all posts
+	 */
+	showAllPosts() {
+		let { allPosts } = this.state;
+		this.updatePosts(allPosts)
+	}
+
+	/**
 	 * update posts state
 	 * @param {*} posts 
 	 */
@@ -127,67 +137,64 @@ export default class Home extends Component {
 			allPosts,
 		})
 	}
-	
+
+	/**
+	 * show search bar
+	 */
+	toggleSearchBar() {
+		let { isSearchBar } = this.state
+		this.showAllPosts();
+		this.setState({
+			isSearchBar: !isSearchBar
+		})
+	}
 	render() {
-		let { showNewPostModal, posts } = this.state;
+		let { showNewPostModal, posts, isSearchBar } = this.state;
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
-			<View style={styles.container}>
-				{/*header component*/}
-				{/*<View style={styles.topBar}></View>*/}
-				{/*End header component*/}
-				<StyleProvider style={getTheme(material)}>
-					<Header>
-						<Left>
-							<Button transparent>
-							<Icon name='menu' />
-							</Button>
-						</Left>
-						<Body>
-							<Title>Light Insta</Title>
-						</Body>
-						<Right />
-					</Header>
-				</StyleProvider>
+			<StyleProvider style={getTheme(material)}>
+				<View style={styles.container}>
+					{/*header component*/}
+					<Navbar toggleSearchBar={() => this.toggleSearchBar()} />
+					{/*End header component*/}
 
+					{/*search component*/}
+					{isSearchBar ? <SearchInput search={(text) => this.search(text)} /> : null}
+					{/*End Search component*/}
 
+					{/*posts list*/}
+					<ListView
+						ref={ref => this.scrollView = ref}
+						style={styles.posts}
+						removeClippedSubviews={false}
+						dataSource={postsDataSource}
+						renderRow={this.renderRow.bind(this)}
+						onContentSizeChange={(contentWidth, contentHeight) => {
+							this.scrollView.scrollToEnd({ animated: true });
+						}}
+						enableEmptySections={true}
+					/>
+					{/*End posts list*/}
 
-				{/*search component*/}
-				<SearchInput search={(text) => this.search(text)}/>
-				{/*End Search component*/}
+					{/*custome bottom bar*/}
+					{/*<View style={styles.bottomBar}>
+						<TouchableOpacity onPress={() => this.openNewPostModal()}>
+							<Image style={styles.addPost} source={ADD} />
+						</TouchableOpacity>
+					</View>*/}
+					{/*End custome bottom bar*/}
 
-				{/*posts list*/}
-				<ListView
-					ref={ref => this.scrollView = ref}
-					style={styles.posts}
-					removeClippedSubviews={false}
-					dataSource={postsDataSource}
-					renderRow={this.renderRow.bind(this)}
-					onContentSizeChange={(contentWidth, contentHeight) => {
-						this.scrollView.scrollToEnd({ animated: true });
-					}}
-					enableEmptySections={true}
-				/>
-				{/*End posts list*/}
+					{/*tabs component*/}
+					<Tabs openNewPostModal={() => this.openNewPostModal()} />
+					{/*End tabs component*/}
 
-				{/*custome bottom bar*/}
-				{/*<View style={styles.bottomBar}>
-					<TouchableOpacity onPress={() => this.openNewPostModal()}>
-						<Image style={styles.addPost} source={ADD} />
-					</TouchableOpacity>
-				</View>*/}
-				{/*End custome bottom bar*/}
-				
-				{/*tabs component*/}
-				<Tabs openNewPostModal={() => this.openNewPostModal()}/>
-				{/*End tabs component*/}
-
-				<NewPostModal
-					showModal={showNewPostModal}
-					closeModal={() => this.closeNewPostModal() }
-					createPost={(postObject) => this.createPost(postObject) }
-				/>
-			</View>
+					<NewPostModal
+						showModal={showNewPostModal}
+						closeModal={() => this.closeNewPostModal()}
+						createPost={(postObject) => this.createPost(postObject)}
+					/>
+				</View>
+			</StyleProvider>
 		)
 	}
 }

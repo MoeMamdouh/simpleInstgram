@@ -12,21 +12,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: COLORS.APP_BG,
 	},
-
-    topBar: {
-        height:66,
-        backgroundColor: COLORS.BRAND_COLOR
-    },
-
-    bottomBar: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        height:54,
-        backgroundColor:'#efefef',
-        borderTopWidth: 1,
-        borderTopColor: COLORS.GRAY,
-    },
-
+    
     posts: {
 
     },
