@@ -21,7 +21,7 @@ export default class Navbar extends Component {
 					</Button>
 				</Left>
 				<Body>
-					<Title>Light Insta</Title>
+					<Title style={{width:140}}>Light Instagram</Title>
 				</Body>
 				<Right />
 			</Header>
