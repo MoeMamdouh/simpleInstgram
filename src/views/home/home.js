@@ -122,7 +122,8 @@ export default class Home extends Component {
 	 */
 	showAllPosts() {
 		let { allPosts } = this.state;
-		this.updatePosts(allPosts)
+		let posts = allPosts.slice()
+		this.updatePosts(posts)
 	}
 
 	/**
