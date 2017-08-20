@@ -7,10 +7,10 @@ import { COLORS } from '../../config/';
 export const styles = StyleSheet.create({
 	mainContainer: {
 		width: 300,
-		height: 500,
-		backgroundColor: COLORS.BRAND_COLOR,
+		height: 440,
+		backgroundColor: COLORS.APP_BG,
 		// justifyContent: 'center',
-		//alignItems: 'center'
+		//alignItems: 'center',
 	},
 
 	content: {
@@ -18,13 +18,43 @@ export const styles = StyleSheet.create({
 		marginLeft: 10,
 		marginRight: 10,
 		marginTop: 20,
-		marginBottom: 50,
-		justifyContent: 'space-between'
+		marginBottom: 20,
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+
+	topContent: {
+		alignItems: 'center',
+	},
+
+	photoContainer: {
+		marginBottom: 20,
+	},
+
+	selectPhoto: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: 200,
+		borderWidth: 0.5,
+		borderStyle: 'dashed',
+		borderColor: COLORS.GRAY,
+	},
+
+	selectPhotoText: {
+
+	},
+
+	addIcon: {
+		fontSize: 40,
+		color: COLORS.GRAY,
 	},
 
 	uploadedPhoto: {
-		height: 200,
-		width: 200,
+		borderWidth: 4,
+		borderColor: COLORS.off_GRAY,
+		borderRadius: 4,
+		height: 150,
+		width: 150,
 	},
 
 	description: {
@@ -32,12 +62,19 @@ export const styles = StyleSheet.create({
 	},
 
 	descriptionTextArea: {
-		textAlignVertical: "top",//android iusse
-		height: 180,
-		borderColor: COLORS.WHITE,
-		borderWidth: 0.5,
+		// textAlignVertical: "top",//android iusse
+		height: 100,
+		width: 200,
+		// borderColor: COLORS.WHITE,
+		// borderWidth: 0.5,
 		padding: 15,
 		paddingTop: 15,
+	},
+	
+	btnsContainer: {
+		width: 240,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 
 	confirmBtn: {

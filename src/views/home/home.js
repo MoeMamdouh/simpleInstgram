@@ -37,7 +37,8 @@ export default class Home extends Component {
 		this.state = {
 			allPosts: posts.slice(),
 			posts,
-			showNewPostModal: false,
+			showNewPostModal: true,
+			// showNewPostModal: false,
 			isSearchBar: false,
 		}
 	}

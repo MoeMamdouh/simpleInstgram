@@ -8,17 +8,19 @@ import {
 	TextInput,
 	Image,
 } from 'react-native'
-import { Container, Button, Text } from 'native-base';
 import Modal from 'react-native-modalbox';
 import { styles } from './newPostModalStyle';
 import { i18n, nativeFunctions } from '../../lib/';
-import { textStyles } from '../../config/';
+import { textStyles, COLORS } from '../../config/';
+import { Container, Header,Button, Content, Thumbnail, Text, Form, Item, Label, Input, Textarea, Body, Title, Icon } from 'native-base';
+
 export default class NewPost extends Component {
 
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
 			description: '',
+			uploadedPhoto: '',
 		}
 	}
 
@@ -96,6 +98,15 @@ export default class NewPost extends Component {
 		});
 	}
 
+	/**
+	 * close Modal
+	 */
+	closeModal() {
+		let { closeModal } = this.props;
+		this.resetPostData();
+		closeModal();
+	}
+
 	render() {
 		let { showModal, closeModal, createPost } = this.props;
 		let { description, uploadedPhoto } = this.state;
@@ -111,34 +122,59 @@ export default class NewPost extends Component {
 				position='center'
 				backdrop={true}
 				animationDuration={500}
-				onClosed={() => closeModal()}
+				onClosed={() => this.closeModal()}
 				easing={Easing.elastic(0.8)}
 			>
+				<Header>
+					<Body>
+						<Title>Create a post..</Title>
+					</Body>
+				</Header>
+
 				<View style={styles.content}>
-					<TouchableOpacity
-						onPress={() => this.uploadPhoto()}
-					>
-						<Text>Upoad Photo</Text>
-						<Image source={{ uri: uploadedPhoto }} style={styles.uploadedPhoto} />
-					</TouchableOpacity>
-					<View style={styles.description}>
-						<TextInput
-							placeholder='description'
-							style={[textStyles.Blacksmall, styles.descriptionTextArea]}
-							multiline={true}
-							onChangeText={(text) => { this.setState({ description: text }) }}
-							maxLength={120}
-							value={description}
-							numberOfLines={8}
-						/>
+					<View style={styles.topContent}>
+						<View style={styles.photoContainer}>
+							<TouchableOpacity onPress={() => this.uploadPhoto()}>
+								{
+									uploadedPhoto?<Thumbnail large square source={{uri: uploadedPhoto}} style={styles.uploadedPhoto} />
+									:
+									<View style={styles.selectPhoto}>
+										<Text style={[textStyles.graySmall, styles.selectPhotoText]}>Select photo</Text>
+										<Icon  style={styles.addIcon} name='add-circle' />
+									</View> 
+								}
+							</TouchableOpacity>
+						</View>
+
+						<View style={styles.description}>
+							{/*<TextInput
+								placeholder='description'
+								style={[textStyles.Blacksmall, styles.descriptionTextArea]}
+								multiline={true}
+								onChangeText={(text) => { this.setState({ description: text }) }}
+								maxLength={120}
+								value={description}
+								numberOfLines={8}
+							/>*/}
+							<Item regular>
+								<Textarea
+									style={[textStyles.Blacksmall, styles.descriptionTextArea]}
+									placeholder='Write a caption...'
+									onChangeText={(text) => { this.setState({ description: text }) }}
+									value={description}
+								/>
+							</Item>
+						</View>
 					</View>
+					 
 
 					{/*<TouchableOpacity onPress={() => createPost({aa:"aa"})} style={styles.confirmBtn}>
 						<Text style={textStyles.BoldBlackMedium}> Create </Text>
 					</TouchableOpacity>*/}
-					<Button block danger onPress={() => this.createPost()}>
-						<Text>Create</Text>
-					</Button>
+					<View style={styles.btnsContainer}>
+						<Button danger onPress={() => this.closeModal()}><Text> Cancel </Text></Button>
+						<Button success onPress={() => this.createPost()}><Text> Create </Text></Button>
+					</View>
 				</View>
 			</Modal>
 		);
