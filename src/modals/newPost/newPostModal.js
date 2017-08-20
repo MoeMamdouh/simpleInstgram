@@ -45,6 +45,8 @@ export default class NewPost extends Component {
 			}
 			createPost(post);
 			this.resetPostData();
+		} else {
+			nativeFunctions.toast('sorry, you have to fill the data!')
 		}
 	}
 
@@ -71,13 +73,12 @@ export default class NewPost extends Component {
 		};
 
 		nativeFunctions.pickImage(options, (response) => {
-			console.log('Response = ', response);
-
+			// console.log('Response = ', response);
 			if (response.didCancel) {
-				console.log('User cancelled image picker');
+				nativeFunctions.toast('cancelled chossing the photo ')
 			}
 			else if (response.error) {
-				console.log('ImagePicker Error: ', response.error);
+				nativeFunctions.toast('Error in chossing the photo')
 			}
 			else if (response.customButton) {
 				console.log('User tapped custom button: ', response.customButton);

@@ -10,7 +10,7 @@ import {
 
 import { styles } from './postStyle';
 import { COLORS, textStyles } from './../../config/';
-import { date } from './.././../lib/';
+import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 
 const { width, height } = Dimensions.get('window');
@@ -129,17 +129,17 @@ export default class Post extends Component {
 								<Image style={[styles.actionIcon, styles.likeIcon]} source={isLiked ? LIKE_ACTIVE_ICON : LIKE_ICON} />
 							</TouchableOpacity>
 
-							<TouchableOpacity onPress={() => alert('comment')}>
+							<TouchableOpacity onPress={() => nativeFunctions.toast('comments will be added soon ')}>
 								<Image style={[styles.actionIcon, styles.commentIcon]} source={COMMENT_ICON} />
 							</TouchableOpacity>
 
-							<TouchableOpacity onPress={() => alert('send to')}>
+							<TouchableOpacity onPress={() => nativeFunctions.toast('send posts will be added soon ')}>
 								<Image style={[styles.actionIcon, styles.sendIcon]} source={SEND_ICON} />
 							</TouchableOpacity>
 						</View>
 
 						<View style={styles.actionsRight}>
-							<TouchableOpacity onPress={() => alert('save')}>
+							<TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}>
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>
 						</View>
