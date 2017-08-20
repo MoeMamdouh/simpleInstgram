@@ -122,9 +122,11 @@ export default class Post extends Component {
 				>
 					{images.map(function (image, index) {
 						return (
-							<DoubleClick onClick={() => that.toggleLikePost(postObject)}>
-								<Image style={styles.imagePost} source={{ uri: image }} />
-							</DoubleClick>
+							<View>
+								{/*<DoubleClick onClick={() => that.toggleLikePost(postObject)}>*/}
+									<Image style={styles.imagePost} source={{ uri: image }} />
+								{/*</DoubleClick>*/}
+							</View>
 						)
 					})}
 				</Swiper>

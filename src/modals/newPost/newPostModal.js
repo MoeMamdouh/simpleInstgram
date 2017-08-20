@@ -130,7 +130,7 @@ export default class NewPost extends Component {
 					easing={Easing.elastic(0.8)}
 				>
 					
-					{/*<KeyboardAwareScrollView>*/}
+					<KeyboardAwareScrollView>
 					<Header>
 						<Body>
 							<Title>Create a post..</Title>
@@ -138,7 +138,7 @@ export default class NewPost extends Component {
 					</Header>
 
 					<View style={styles.content}>
-						{/*<ScrollView>*/}
+						<ScrollView>
 						<View style={styles.topContent}>
 							<View style={styles.photoContainer}>
 								<TouchableOpacity onPress={() => this.uploadPhoto()}>
@@ -174,7 +174,7 @@ export default class NewPost extends Component {
 								</Item>
 							</View>
 						</View>
-						{/*</ScrollView>*/}
+						</ScrollView>
 
 						{/*<TouchableOpacity onPress={() => createPost({aa:"aa"})} style={styles.confirmBtn}>
 							<Text style={textStyles.BoldBlackMedium}> Create </Text>
@@ -185,7 +185,7 @@ export default class NewPost extends Component {
 						</View>
 					</View>
 					{/*<KeyboardSpacer topSpacing={50}/>*/}
-					{/*</KeyboardAwareScrollView>*/}
+					</KeyboardAwareScrollView>
 				</Modal>
 			
 		);
