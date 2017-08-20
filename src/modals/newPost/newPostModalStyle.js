@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
 
 	topContent: {
 		alignItems: 'center',
+		marginBottom: 20,
 	},
 
 	photoContainer: {
