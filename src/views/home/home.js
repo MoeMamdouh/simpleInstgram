@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import {
 	View,
-	Text,
+	//Text,
 	Image,
 	TouchableOpacity,
 	TextInput,
@@ -18,6 +18,7 @@ import { COLORS, textStyles, config } from '../../config/';
 import { rawDataHelper } from '../../lib/index';
 import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
+import Tabs from '../../components/tabs/tabs';
 import NewPostModal from '../../modals/newPost/newPostModal';
 
 const posts = require('./../../data/posts');
@@ -101,7 +102,7 @@ export default class Home extends Component {
 			return isContain;
 		});
 		this.updatePosts(posts)
-		console.log(key, posts)
+		// console.log(key, posts)
 	}
 
 	/**
@@ -129,8 +130,15 @@ export default class Home extends Component {
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<View style={styles.container}>
+				{/*header component*/}
 				<View style={styles.topBar}></View>
+				{/*End header component*/}
+
+				{/*search component*/}
 				<SearchInput search={(text) => this.search(text)}/>
+				{/*End Search component*/}
+
+				{/*posts list*/}
 				<ListView
 					ref={ref => this.scrollView = ref}
 					style={styles.posts}
@@ -142,11 +150,19 @@ export default class Home extends Component {
 					}}
 					enableEmptySections={true}
 				/>
-				<View style={styles.bottomBar}>
+				{/*End posts list*/}
+
+				{/*custome bottom bar*/}
+				{/*<View style={styles.bottomBar}>
 					<TouchableOpacity onPress={() => this.openNewPostModal()}>
 						<Image style={styles.addPost} source={ADD} />
 					</TouchableOpacity>
-				</View>
+				</View>*/}
+				{/*End custome bottom bar*/}
+				
+				{/*tabs component*/}
+				<Tabs openNewPostModal={() => this.openNewPostModal()}/>
+				{/*End tabs component*/}
 
 				<NewPostModal
 					showModal={showNewPostModal}
