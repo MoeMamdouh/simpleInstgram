@@ -12,6 +12,7 @@ import { styles } from './postStyle';
 import { COLORS, textStyles } from './../../config/';
 import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
+import DoubleClick from 'react-native-double-click';
 
 const { width, height } = Dimensions.get('window');
 
@@ -77,6 +78,7 @@ export default class Post extends Component {
 
 
 	render() {
+		let that = this;
 		let { postObject } = this.state;
 		let { username, avatar, images, isLiked, numOfLikes, description, created_time } = postObject;
 		let postDate = date.getDateFormat(created_time)
@@ -120,9 +122,9 @@ export default class Post extends Component {
 				>
 					{images.map(function (image, index) {
 						return (
-							<View>
+							<DoubleClick onClick={() => that.toggleLikePost(postObject)}>
 								<Image style={styles.imagePost} source={{ uri: image }} />
-							</View>
+							</DoubleClick>
 						)
 					})}
 				</Swiper>
