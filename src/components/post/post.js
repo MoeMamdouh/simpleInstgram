@@ -53,6 +53,7 @@ export default class Post extends Component {
 		this.setState({
 			postObject
 		})
+		nativeFunctions.toast('liked!')
 	}
 
 	/**
@@ -65,6 +66,7 @@ export default class Post extends Component {
 		this.setState({
 			postObject
 		})
+		nativeFunctions.toast('dislike!')
 	}
 
 
