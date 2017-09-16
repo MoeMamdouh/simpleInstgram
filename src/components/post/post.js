@@ -76,7 +76,12 @@ export default class Post extends Component {
 		nativeFunctions.toast('dislike!')
 	}
 
+	sharePost() {
+		let { postObject } = this.state;
+		let { description, images } = postObject;
+		nativeFunctions.share(description, images[0])
 
+	}
 	render() {
 		let that = this;
 		let { postObject } = this.state;
@@ -145,7 +150,7 @@ export default class Post extends Component {
 								<Image style={[styles.actionIcon, styles.commentIcon]} source={COMMENT_ICON} />
 							</TouchableOpacity>
 
-							<TouchableOpacity onPress={() => nativeFunctions.toast('send posts will be added soon ')}>
+							<TouchableOpacity onPress={() => this.sharePost()}>
 								<Image style={[styles.actionIcon, styles.sendIcon]} source={SEND_ICON} />
 							</TouchableOpacity>
 						</View>

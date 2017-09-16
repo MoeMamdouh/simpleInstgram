@@ -9,7 +9,7 @@ import Communications from 'react-native-communications';
 
 class NativeFunctions {
 	
-	shareEvent(message, title) {
+	share(title, message) {
 		return Share.share({
 			title,
 			message
