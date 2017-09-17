@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
 	TouchableOpacity,
+	TouchableWithoutFeedback,
 	View,
 	Image,
 	Text,
@@ -28,7 +29,8 @@ export default class Post extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			postObject: this.props.postObject
+			postObject: this.props.postObject,
+			lastPress: 0,
 		}
 	}
 
@@ -55,12 +57,15 @@ export default class Post extends Component {
 	 */
 	like() {
 		let { postObject } = this.state;
-		postObject.isLiked = true;
-		postObject.numOfLikes++;
-		this.setState({
-			postObject
-		})
-		nativeFunctions.toast('liked!')
+		let { isLiked } = this.state.postObject;
+		if(!isLiked) {
+			postObject.isLiked = true;
+			postObject.numOfLikes++;
+			this.setState({
+				postObject
+			})
+			nativeFunctions.toast('liked!')
+		}
 	}
 
 	/**
@@ -68,18 +73,35 @@ export default class Post extends Component {
 	 */
 	disLike() {
 		let { postObject } = this.state;
-		postObject.isLiked = false;
-		postObject.numOfLikes--;
-		this.setState({
-			postObject
-		})
-		nativeFunctions.toast('dislike!')
+		let { isLiked } = this.state.postObject;
+		if(isLiked) {
+			postObject.isLiked = false;
+			postObject.numOfLikes--;
+			this.setState({
+				postObject
+			})
+			nativeFunctions.toast('dislike!')
+		}
 	}
 
 	sharePost() {
 		let { postObject } = this.state;
 		let { description, images } = postObject;
 		nativeFunctions.share(description, images[0])
+
+	}
+
+	tapOnImage(postObject) {
+		 var delta = new Date().getTime() - this.state.lastPress;
+
+		if(delta < 500) {
+			// double tap happend
+			this.like(postObject)
+		} 
+
+		this.setState({
+			lastPress: new Date().getTime()
+		})
 
 	}
 	render() {
@@ -129,7 +151,9 @@ export default class Post extends Component {
 						return (
 							<View>
 								{/*<DoubleClick onClick={() => that.toggleLikePost(postObject)}>*/}
+								<TouchableWithoutFeedback onPress={()=>that.tapOnImage(postObject)}>
 									<Image style={styles.imagePost} source={{ uri: image }} />
+								</TouchableWithoutFeedback>
 								{/*</DoubleClick>*/}
 							</View>
 						)
