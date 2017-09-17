@@ -84,6 +84,9 @@ export default class Post extends Component {
 		}
 	}
 
+	/**
+	  share post
+	 */
 	sharePost() {
 		let { postObject } = this.state;
 		let { description, images } = postObject;
@@ -91,6 +94,10 @@ export default class Post extends Component {
 
 	}
 
+	/**
+	 * handle double tap on th post
+	 * @param {*} postObject 
+	 */
 	tapOnImage(postObject) {
 		 var delta = new Date().getTime() - this.state.lastPress;
 
@@ -104,6 +111,7 @@ export default class Post extends Component {
 		})
 
 	}
+	
 	render() {
 		let that = this;
 		let { postObject } = this.state;
