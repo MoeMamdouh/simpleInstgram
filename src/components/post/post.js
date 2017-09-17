@@ -14,6 +14,7 @@ import { COLORS, textStyles } from './../../config/';
 import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 import DoubleClick from 'react-native-double-click';
+import { Thumbnail } from 'native-base';
 
 const { width, height } = Dimensions.get('window');
 
@@ -123,7 +124,7 @@ export default class Post extends Component {
 				<View style={styles.userBlock}>
 					<View style={styles.userBlockLeft}>
 						<View style={styles.avatar}>
-							<Image style={styles.avatarImage} source={{ uri: avatar }} />
+							<Thumbnail style={styles.avatarImage} source={{ uri: avatar }} />
 						</View>
 						<View style={styles.username}>
 							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username}</Text>

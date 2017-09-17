@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { } from 'react-native';
-import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import {
+	Image,
+ } from 'react-native';
+import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, Text, Thumbnail } from 'native-base';
+import { styles } from './navbarStyle';
+import { nativeFunctions } from './.././../lib/';
 
 export default class Navbar extends Component {
 
@@ -20,10 +24,16 @@ export default class Navbar extends Component {
 						<Icon name='search' />
 					</Button>
 				</Left>
+
 				<Body>
 					<Title style={{width:140}}>Light Instagram</Title>
 				</Body>
-				<Right />
+
+				<Right>
+					<Button transparent onPress={() => nativeFunctions.toast('Profile will be added soon ')}>
+						<Thumbnail style={styles.navBarProfileImage} source={{ uri: 'https://avatars0.githubusercontent.com/u/16561058?v=4&s=64' }} />
+					</Button>
+				</Right>
 			</Header>
 		)
 	}
