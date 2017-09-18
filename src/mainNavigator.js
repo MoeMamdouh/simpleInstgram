@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  AppRegistry,
-  Text,
+	View, Text, Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import Home from './views/home/home';
+import Login from './views/login/login';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    return <Text>Hello, Navigation!</Text>;
-  }
-}
+const MainNavigator = StackNavigator({
+	Login: { screen: Login },
+	Home: { screen: Home },
+},
+	// { headerMode: 'screen' } 
+);
 
-export default const SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
-});
-
-// if you are using create-react-native-app you don't need this line
-AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
+export default MainNavigator

@@ -33,9 +33,6 @@ const ds = new ListView.DataSource({
 })
 
 export default class Home extends Component {
-	// static navigationOptions = {
-	// 	header: null,
-	// };
 	constructor(props) {
 		super(props);
 		//order posts data by 'created_time'
