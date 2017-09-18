@@ -95,14 +95,15 @@ export default class Home extends Component {
 		this.updatePosts(posts)
 		this.closeNewPostModal()
 		//update isNewPostAded in state to scrollDown and show the last Post
-		this.setState({isNewPostAded: true})
+		this.setState({ isNewPostAded: true })
 	}
 
 	/**
 	 * render event item
 	 */
 	renderRow(rowData, sectionID, rowID, highlightRow) {
-		return <Post postObject={rowData} />
+		const { navigate } = this.props.navigation;
+		return <Post postObject={rowData} navigation={{navigate}} />
 	}
 
 	/**
@@ -159,13 +160,13 @@ export default class Home extends Component {
 			isSearchBar: !isSearchBar
 		})
 	}
-	
+
 	/**
 	 * scroll to down of list
 	 */
 	scrollDown() {
 		let { isNewPostAded } = this.state;
-		if(isNewPostAded) {
+		if (isNewPostAded) {
 			this.scrollView.scrollToEnd({ animated: true });
 		}
 	}
@@ -178,7 +179,7 @@ export default class Home extends Component {
 		this.setState({
 			isSearchBar: false,
 			isNewPostAded: false,
-			isRefreshing:false,
+			isRefreshing: false,
 		});
 	}
 

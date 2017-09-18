@@ -115,6 +115,7 @@ export default class Post extends Component {
 	
 	render() {
 		let that = this;
+		const { navigate } = this.props.navigation;
 		let { postObject } = this.state;
 		let { username, avatar, images, isLiked, numOfLikes, description, created_time } = postObject;
 		let postDate = date.getDateFormat(created_time)
@@ -189,7 +190,8 @@ export default class Post extends Component {
 						</View>
 
 						<View style={styles.actionsRight}>
-							<TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}>
+							<TouchableOpacity onPress={() => navigate('Tabs')}>
+							{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>
 						</View>
