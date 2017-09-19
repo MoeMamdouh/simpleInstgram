@@ -39,7 +39,8 @@ let _this = null;
 export default class Home extends Component {
 	static navigationOptions = {
 		// header: null,
-		title: <Text style={{width:140}}>Light Instagram</Text>,
+		title: 'Light Instagram',
+		headerTitleStyle: {width:140},
 		headerRight: <ProfileImageBtn/>,
 		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
 			<Icon name='search' />
