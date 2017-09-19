@@ -12,6 +12,7 @@ import {
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
+	
 } from 'react-native'
 import _ from 'lodash';
 import { styles } from './homeStyle';
@@ -21,21 +22,29 @@ import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
 import Navbar from '../../components/navbar/navbar';
 import Tabs from '../../components/tabs/tabs';
+import ProfileImageBtn from '../../components/profileImageBtn/profileImageBtn';
 import NewPostModal from '../../modals/newPost/newPostModal';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
-import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, StyleProvider, Text } from 'native-base';
-
+import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail } from 'native-base';
+console.log('styles ', styles)
 const posts = require('./../../data/posts');
 const ADD = require('../../../images/icons/add.png');
 const ds = new ListView.DataSource({
 	rowHasChanged: (r1, r2) => r1 !== r2
 })
 
+let _this = null;
+
 export default class Home extends Component {
-	// static navigationOptions = {
-	// 	header: null,
-	// };
+	static navigationOptions = {
+		// header: null,
+		title: <Text style={{width:140}}>Light Instagram</Text>,
+		headerRight: <ProfileImageBtn/>,
+		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
+			<Icon name='search' />
+		</Button>,
+	};
 	constructor(props) {
 		super(props);
 		//order posts data by 'created_time'
@@ -49,13 +58,13 @@ export default class Home extends Component {
 			isRefreshing: false,
 		}
 	}
-
+	
 	componentWillMount() {
 		LayoutAnimation.spring();
 	}
 
 	componentDidMount() {
-
+		_this = this;
 	}
 
 	/**
@@ -190,7 +199,7 @@ export default class Home extends Component {
 			<StyleProvider style={getTheme(material)}>
 				<View style={styles.container}>
 					{/*header component*/}
-					<Navbar toggleSearchBar={() => this.toggleSearchBar()} />
+					{/* <Navbar toggleSearchBar={() => this.toggleSearchBar()} /> */}
 					{/*End header component*/}
 
 					{/*search component*/}

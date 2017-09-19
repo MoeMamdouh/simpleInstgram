@@ -6,7 +6,7 @@ import { StackNavigator } from 'react-navigation';
 
 export default class Loin extends React.Component {
 	static navigationOptions = {
-		title: 'Login in',
+		title: 'Login',
 	};
 	render() {
 		const { navigate } = this.props.navigation;
