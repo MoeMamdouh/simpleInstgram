@@ -4,13 +4,12 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import tabsNavigator from './tabsNavigator';
-import Home from './../views/home/home';
 import Login from './../views/login/login';
 
 const MainNavigator = StackNavigator({
 	Login: { screen: Login },
-	Home: { screen: Home },
-	Tabs: { screen: tabsNavigator },
+	Home: { screen: tabsNavigator },
+	// Tabs: { screen: tabsNavigator },
 },
 	// { headerMode: 'screen' } 
 );

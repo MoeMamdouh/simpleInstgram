@@ -27,7 +27,6 @@ import NewPostModal from '../../modals/newPost/newPostModal';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail } from 'native-base';
-console.log('styles ', styles)
 const posts = require('./../../data/posts');
 const ADD = require('../../../images/icons/add.png');
 const ds = new ListView.DataSource({
@@ -39,7 +38,7 @@ let _this = null;
 export default class Home extends Component {
 	static navigationOptions = {
 		// header: null,
-		title: <Text style={{width:140}}>Light Instagram</Text>,
+		title: 'Light Instagram',
 		headerRight: <ProfileImageBtn/>,
 		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
 			<Icon name='search' />
