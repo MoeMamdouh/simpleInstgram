@@ -233,7 +233,7 @@ export default class Home extends Component {
 					{/*End custome bottom bar*/}
 
 					{/*tabs component*/}
-					<Tabs openNewPostModal={() => this.openNewPostModal()} />
+					{/* <Tabs openNewPostModal={() => this.openNewPostModal()} /> */}
 					{/*End tabs component*/}
 
 					<NewPostModal

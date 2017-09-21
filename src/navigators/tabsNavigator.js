@@ -10,63 +10,57 @@ import Add from './../views/add';
 import Notifications from './../views/notifications';
 import Profile from './../views/profile';
 
-
-const tabsNavigator = TabNavigator(
-	{
-		home: {
-			screen: Home,
-			navigationOptions: {
-				tabBarLabel: 'Home',
-				tabBarIcon:  <Icon name="home" />
-			},
+let RouteConfigs = {
+	home: {
+		screen: Home,
+		navigationOptions: {
+			tabBarLabel: 'Home',
+			tabBarIcon: ({ tintColor }) => <Icon name="home" style={{color:tintColor}}/>,
 		},
-		search: {
-			screen: Search,
-			navigationOptions: {
-				tabBarLabel: 'search',
-				tabBarIcon: ({ tintColor }) =>
-					<Icon
-						name="search"
-						color={tintColor}
-			
-					/>,
-			},
+	},
+	search: {
+		screen: Search,
+		navigationOptions: {
+			tabBarLabel: 'search',
+			tabBarIcon: ({ tintColor }) => <Icon name="search" style={{color:tintColor}}/>,
 		},
-		add: {
-			screen: Add,
-			navigationOptions: {
-				tabBarLabel: 'add',
-				tabBarIcon: <Icon name="add" />
-			},
+	},
+	add: {
+		screen: Add,
+		navigationOptions: {
+			tabBarLabel: 'add',
+			tabBarIcon: ({ tintColor }) => <Icon name="add" style={{color:tintColor}}/>,
 		},
-		notifications: {
-			screen: Notifications,
-			navigationOptions: {
-				tabBarLabel: 'notifications',
-				tabBarIcon: <Icon name="heart"/>
-			},
+	},
+	notifications: {
+		screen: Notifications,
+		navigationOptions: {
+			tabBarLabel: 'notifications',
+			tabBarIcon: ({ tintColor }) => <Icon name="heart" style={{color:tintColor}}/>,
 		},
-		profile: {
-			screen: Profile,
-			navigationOptions: {
-				tabBarLabel: 'profile',
-				tabBarIcon: <Icon
-				reverse
-				name='person'
-			  />
-			},
-		}
-	}, {
-		tabBarComponent: TabBarBottom,
-		tabBarPosition: 'bottom',
-		// animationEnabled: true,
-		tabBarOptions: {
-			activeTintColor: '#007aff',
-			showLabel: false,
-			style: {backgroundColor: COLORS.BRAND_COLOR},
-			iconStyle: {backgroundColor: '#fff'}
-		}
+	},
+	profile: {
+		screen: Profile,
+		navigationOptions: {
+			tabBarLabel: 'profile',
+		 	 tabBarIcon: ({ tintColor }) => <Icon name="person" style={{color:tintColor}}/>,
+		},
 	}
-);
+}
+
+let TabNavigatorConfig = {
+	tabBarComponent: TabBarBottom,
+	tabBarPosition: 'bottom',
+	animationEnabled: true,
+	tabBarOptions: {
+		activeTintColor: COLORS.GRAY,
+		// activeTintColor: '#007aff',
+		showLabel: false,
+		style: {backgroundColor: COLORS.BRAND_COLOR},
+		// iconStyle: {backgroundColor: '#fff'}
+	}
+}
+
+const tabsNavigator = TabNavigator(RouteConfigs, TabNavigatorConfig)
 
 export default tabsNavigator
