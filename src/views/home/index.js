@@ -57,8 +57,6 @@ export default class Home extends Component {
 			isNewPostAded: false,
 			isRefreshing: false,
 		}
-		const { params } = this.props.navigation.state;
-		console.log('####', this.props.navigation, params)
 	}
 	
 	componentWillMount() {

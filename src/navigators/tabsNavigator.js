@@ -13,10 +13,10 @@ import Profile from './../views/profile';
 let RouteConfigs = {
 	home: {
 		screen: Home,
-		navigationOptions: {
+		navigationOptions: (navigation) =>({
 			tabBarLabel: 'Home',
-			tabBarIcon: ({ tintColor }) => <Icon name="ios-home" style={{color:tintColor}}/>,
-		},
+			tabBarIcon: ({ tintColor }) => <Icon name="ios-home" style={{color:tintColor}}/>
+		}),
 	},
 	search: {
 		screen: Search,
@@ -44,11 +44,12 @@ let RouteConfigs = {
 	},
 	profile: {
 		screen: Profile,
-		navigationOptions: {
-			title: 'profile',
+		navigationOptions: (navigation) =>
+		({
+			title: `${navigation.navigation.state.params.user}'s Profile `,
 			tabBarLabel: 'profile',
-		 	 tabBarIcon: ({ tintColor }) => <Icon name="ios-person" style={{color:tintColor}}/>,
-		},
+			tabBarIcon: ({ tintColor }) => <Icon name="ios-person" style={{color:tintColor}}/>,
+		}),
 	}
 }
 
@@ -94,7 +95,5 @@ let TabNavigatorConfig = {
 	},
 }
 
-console.log('AAAA', this.props)
 const tabsNavigator = TabNavigator(RouteConfigs, TabNavigatorConfig)
-
 export default tabsNavigator
