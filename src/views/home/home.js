@@ -39,6 +39,7 @@ export default class Home extends Component {
 	static navigationOptions = {
 		// header: null,
 		title: 'Light Instagram',
+		headerTitleStyle: {},
 		headerRight: <ProfileImageBtn/>,
 		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
 			<Icon name='search' />
