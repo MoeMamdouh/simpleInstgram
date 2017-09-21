@@ -7,8 +7,8 @@ import tabsNavigator from './tabsNavigator';
 import Login from './../views/login/login';
 
 const MainNavigator = StackNavigator({
-	Login: { screen: Login },
 	Home: { screen: tabsNavigator },
+	Login: { screen: Login },
 	// Tabs: { screen: tabsNavigator },
 },
 	// { headerMode: 'screen' } 
