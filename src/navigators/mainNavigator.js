@@ -7,11 +7,10 @@ import tabsNavigator from './tabsNavigator';
 import Login from './../views/login/login';
 
 const MainNavigator = StackNavigator({
-	Home: { screen: tabsNavigator },
 	Login: { screen: Login },
-	// Tabs: { screen: tabsNavigator },
+	Tabs: { screen: tabsNavigator },
 },
-	// { headerMode: 'screen' } 
+	// { headerMode: 'screen' }
 );
 
 export default MainNavigator

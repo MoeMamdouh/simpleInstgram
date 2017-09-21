@@ -38,7 +38,7 @@ let _this = null;
 export default class Home extends Component {
 	static navigationOptions = {
 		// header: null,
-		title: 'Light Instagram',
+		title: 'Home',
 		headerTitleStyle: {},
 		headerRight: <ProfileImageBtn/>,
 		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
@@ -57,6 +57,8 @@ export default class Home extends Component {
 			isNewPostAded: false,
 			isRefreshing: false,
 		}
+		const { params } = this.props.navigation.state;
+		console.log('####', this.props.navigation, params)
 	}
 	
 	componentWillMount() {

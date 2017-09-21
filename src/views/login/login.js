@@ -13,7 +13,7 @@ export default class Loin extends React.Component {
 		return (
 			<View>
 				<Button
-					onPress={() => navigate('Home')}
+					onPress={() => navigate('Tabs', { user: 'Moe' })}
 					title="Login"
 				/>
 			</View>
