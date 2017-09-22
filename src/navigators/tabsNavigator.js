@@ -4,16 +4,17 @@ import {TabNavigator, TabBarBottom} from "react-navigation";
 // import { Icon } from 'react-native-elements'
 import { Icon, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../config/';
-import Home from './../views/home';
+import HomeNavigator from './../navigators/homeNavigator';
 import Search from './../views/search';
 import Add from './../views/add';
 import Notifications from './../views/notifications';
 import Profile from './../views/profile';
 
 let RouteConfigs = {
-	home: {
-		screen: Home,
+	HomeNavigator: {
+		screen: HomeNavigator,
 		navigationOptions: (navigation) =>({
+			// header: null,
 			tabBarLabel: 'Home',
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-home" style={{color:tintColor}}/>
 		}),
@@ -47,7 +48,6 @@ let RouteConfigs = {
 		// screen: props => <Profile {...props} scrseenProps="ffssf" />,
 		navigationOptions: (navigation, screenProps) =>
 		({
-			title: (navigation.navigation.state.params)? navigation.navigation.state.params.user : 'Visitor',
 			// title: `${navigation.navigation.state.params.user}'s Profile `,
 			tabBarLabel: 'profile',
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-person" style={{color:tintColor}}/>,
@@ -65,9 +65,9 @@ let TabNavigatorConfig = {
 	//whether to animate when changing tabs
 	animationEnabled: true,
 	//whether to lazily render tabs as needed as opposed to rendering them upfront
-	lazy: true,
+	// lazy: true,
 	//The routeName for the initial tab route when first loading
-	initialRouteName: 'home',
+	initialRouteName: 'HomeNavigator',
 	//Array of routeNames which defines the order of the tabs
 	//order: ['home', 'profile']
 	//Should the back button cause a tab switch to the initial tab? If yes, set to initialRoute, otherwise none. Defaults to initialRoute behavior.

@@ -113,6 +113,14 @@ export default class Post extends Component {
 
 	}
 	
+	/**
+	 * open user profile
+	 */
+	openProfile(data) {
+		const { navigate } = this.props.navigation;
+		navigate('Profile', {user: data.username})
+	}
+
 	render() {
 		let that = this;
 		const { navigate } = this.props.navigation;
@@ -122,6 +130,7 @@ export default class Post extends Component {
 		return (
 			<View style={styles.post}>
 				{/*user*/}
+				<TouchableWithoutFeedback onPress={()=>this.openProfile(postObject)}>
 				<View style={styles.userBlock}>
 					<View style={styles.userBlockLeft}>
 						<View style={styles.avatar}>
@@ -138,6 +147,7 @@ export default class Post extends Component {
 						</TouchableOpacity>*/}
 					</View>
 				</View>
+				</TouchableWithoutFeedback>
 				{/*End user*/}
 
 				{/*Images*/}

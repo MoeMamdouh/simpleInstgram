@@ -17,6 +17,11 @@ import {
 
 
 export default class Profile extends Component {
+	static navigationOptions = (navigation, screenProps) => ({
+		// header: null,
+		title: (navigation.navigation.state.params)? navigation.navigation.state.params.user : 'Visitor',
+	});
+	
 	constructor(props) {
 		super(props);
 		this.state = {
