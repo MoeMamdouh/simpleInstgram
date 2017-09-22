@@ -12,8 +12,9 @@ export default class ProfileImageBtn extends Component {
 	}
 
 	render() {
+		const { navigate } = this.props.navigation;
 		return (
-			<Button transparent onPress={() => alert('Profile will be added soon ')}>
+			<Button transparent onPress={() => navigate('ProfileNavigator')}>
 				<Thumbnail style={styles.navBarProfileImage} source={{ uri: 'https://avatars0.githubusercontent.com/u/16561058?v=4&s=64' }} />
 			</Button>
 		)

@@ -22,7 +22,6 @@ import Post from '../../components/post/post';
 import SearchInput from '../../components/searchInput/searchInput';
 import Navbar from '../../components/navbar/navbar';
 import Tabs from '../../components/tabs/tabs';
-import ProfileImageBtn from '../../components/profileImageBtn/profileImageBtn';
 import NewPostModal from '../../modals/newPost/newPostModal';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
@@ -36,15 +35,7 @@ const ds = new ListView.DataSource({
 let _this = null;
 
 export default class Home extends Component {
-	static navigationOptions = {
-		// header: null,
-		title: 'Home',
-		headerTitleStyle: {},
-		headerRight: <ProfileImageBtn/>,
-		headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
-			<Icon name='search' />
-		</Button>,
-	};
+	
 	constructor(props) {
 		super(props);
 		//order posts data by 'created_time'

@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import {
-	View, Text, Button
-} from 'react-native';
+import { View, Text,} from 'react-native';
+import { Icon, Button } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 import Home from './../views/home';
 import Profile from './../views/profile';
+import ProfileImageBtn from '../components/profileImageBtn/profileImageBtn';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {
 	Home: {
 		screen: Home,
+		navigationOptions :({navigation}) => ({
+		   // header: null,
+		   title: 'Home',
+		   headerRight: <ProfileImageBtn navigation={navigation}/>,
+		   headerLeft: <Button transparent onPress={()=>_this.toggleSearchBar()}>
+			   <Icon name='search' />
+		   </Button>,
+	   }),
 	},
 	Profile: {
 		screen: Profile
