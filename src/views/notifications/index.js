@@ -21,6 +21,7 @@ export default class Notifications extends Component {
 		super(props);
 		this.state = {
 		}
+		console.log('Notifications', this.props)
 	}
 	
 	componentWillMount() {

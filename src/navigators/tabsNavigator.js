@@ -44,7 +44,8 @@ let RouteConfigs = {
 	},
 	profile: {
 		screen: Profile,
-		navigationOptions: (navigation) =>
+		// screen: props => <Profile {...props} scrseenProps="ffssf" />,
+		navigationOptions: (navigation, screenProps) =>
 		({
 			title: `${navigation.navigation.state.params.user}'s Profile `,
 			tabBarLabel: 'profile',
