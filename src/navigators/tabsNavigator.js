@@ -47,7 +47,8 @@ let RouteConfigs = {
 		// screen: props => <Profile {...props} scrseenProps="ffssf" />,
 		navigationOptions: (navigation, screenProps) =>
 		({
-			title: `${navigation.navigation.state.params.user}'s Profile `,
+			title: (navigation.navigation.state.params)? navigation.navigation.state.params.user : 'Visitor',
+			// title: `${navigation.navigation.state.params.user}'s Profile `,
 			tabBarLabel: 'profile',
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-person" style={{color:tintColor}}/>,
 		}),
