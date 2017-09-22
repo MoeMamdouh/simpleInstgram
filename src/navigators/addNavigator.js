@@ -1,0 +1,62 @@
+import React, { Component } from 'react';
+import {
+	View, Text, Button
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import Add from './../views/add';
+
+//The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
+let RouteConfigs = {
+	Add: {
+		screen: Add,
+		navigationOptions: {
+			title: 'Upload',
+		},
+	},
+}
+
+let StackNavigatorConfig = {
+	/* Options for the router: */
+
+	//Sets the default screen of the stack. Must match one of the keys in route configs.
+	initialRouteName: 'Add',
+
+	//The params for the initial route
+	//initialRouteParams
+
+	//Default navigation options to use for screens
+	// navigationOptions: ({navigation}) => ({
+	// 	title: 'Login',
+	// }),
+
+	//A mapping of overrides for the paths set in the route configs
+	// paths: ['Login',],
+
+	/* Visual options: */
+
+	//Defines the style for rendering and transitions:
+	//card - Use the standard iOS and Android screen transitions. This is the default.
+	//modal - Make the screens slide in from the bottom which is a common iOS pattern. Only works on iOS, has no effect on Android.
+	mode: 'card',
+
+	//Specifies how the header should be rendered:
+	// float - Render a single header that stays at the top and animates as screens are changed. This is a common pattern on iOS.
+	// screen - Each screen has a header attached to it and the header fades in and out together with the screen. This is a common pattern on Android.
+	// none - No header will be rendered.
+	// headerMode: 'none',
+
+	//Use this prop to override or extend the default style for an individual card in stack.
+	// cardStyle: {color: 'red'},
+
+	//Function to return an object that overrides default screen transitions.
+	// transitionConfig: 
+
+	//Function to be invoked when the card transition animation is about to start.
+	// onTransitionStart: () => alert('transition start')
+
+	//Function to be invoked once the card transition animation completes.
+	// onTransitionEnd: () => alert('transition End')
+}
+
+const AddNavigator = StackNavigator(RouteConfigs, StackNavigatorConfig)
+export default AddNavigator

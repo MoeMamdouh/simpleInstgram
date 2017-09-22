@@ -5,9 +5,10 @@ import {TabNavigator, TabBarBottom} from "react-navigation";
 import { Icon, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../config/';
 import HomeNavigator from './../navigators/homeNavigator';
-import Search from './../views/search';
-import Add from './../views/add';
-import Notifications from './../views/notifications';
+import SearchNavigator from './../navigators/searchNavigator';
+import ProfileNavigator from './../navigators/profileNavigator';
+import AddNavigator from './../navigators/addNavigator';
+import NotificationNavigator from './../navigators/notificationNavigator';
 import Profile from './../views/profile';
 
 let RouteConfigs = {
@@ -19,32 +20,29 @@ let RouteConfigs = {
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-home" style={{color:tintColor}}/>
 		}),
 	},
-	search: {
-		screen: Search,
+	SearchNavigator: {
+		screen: SearchNavigator,
 		navigationOptions: {
-			title: 'Search',
 			tabBarLabel: 'search',
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-search" style={{color:tintColor}}/>,
 		},
 	},
-	add: {
-		screen: Add,
+	AddNavigator: {
+		screen: AddNavigator,
 		navigationOptions: {
-			title: 'Upload',
 			tabBarLabel: 'add',
 			tabBarIcon: ({ tintColor }) => <Icon name="md-add-circle" style={{color:tintColor}}/>,
 		},
 	},
-	notifications: {
-		screen: Notifications,
+	NotificationNavigator: {
+		screen: NotificationNavigator,
 		navigationOptions: {
-			title: 'Notifications',
 			tabBarLabel: 'notifications',
 			tabBarIcon: ({ tintColor }) => <Icon name="ios-heart" style={{color:tintColor}}/>,
 		},
 	},
-	profile: {
-		screen: Profile,
+	ProfileNavigator: {
+		screen: ProfileNavigator,
 		// screen: props => <Profile {...props} scrseenProps="ffssf" />,
 		navigationOptions: (navigation, screenProps) =>
 		({
