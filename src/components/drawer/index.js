@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image } from 'react-native';
+import { View, ScrollView, Image, TouchableWithoutFeedback } from 'react-native';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail,List, ListItem, Switch } from 'native-base';
 import { DrawerItems } from "react-navigation";
 import { styles } from './drawerStyle';
 import { COLORS, textStyles, config } from '../../config/';
+import DrawerItem from './../drawerItem';
 
 
 export default class Drawer extends Component {
@@ -16,6 +17,8 @@ export default class Drawer extends Component {
 
 	render() {
 		let { props } = this.props;
+		console.log('props ', props)
+		let {activeTintColor, inactiveTintColor, navigation} = props
 		return (
 			<View style={styles.container}>
 				<ScrollView>
@@ -31,6 +34,11 @@ export default class Drawer extends Component {
 						</View>
 					</Image>
 					<DrawerItems {...props} />
+					<TouchableWithoutFeedback onPress={()=>navigation.navigate('Login')}>
+						<View>
+							<DrawerItem label="Logout" icon="ios-log-out" tintColor={inactiveTintColor}/>
+						</View>
+					</TouchableWithoutFeedback>
 				</ScrollView>
 			</View>
 		)

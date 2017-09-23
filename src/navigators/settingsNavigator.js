@@ -5,6 +5,7 @@ import {
 import { StackNavigator } from 'react-navigation';
 import Settings from './../views/settings';
 import { Icon, Button } from 'native-base';
+import { COLORS, textStyles, config } from '../config/';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {
