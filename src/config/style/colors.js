@@ -2,6 +2,7 @@ export const COLORS = {
 	APP_BG: '#fafafa',
     BLACK: '#000000',
     GRAY: '#CCCCCC',
+    LIGHT_GRAY: '#ededed',
     off_GRAY: '#666666',
     WHITE: '#FFFFFF',
     TRANSPARENT_BLACK: 'rgba(0, 0, 0, 0.7)',

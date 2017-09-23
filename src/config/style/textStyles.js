@@ -70,6 +70,11 @@ export const textStyles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 
+	graySmallD: {
+		fontSize: 13,
+		color: COLORS.GRAY,
+	},
+
 	graySmall: {
 		fontSize: 10,
 		color: COLORS.GRAY,

@@ -80,8 +80,8 @@ export default class Home extends Component {
 	createPost(postObject) {
 		let { allPosts, posts } = this.state
 		postObject.id = 5;
-		postObject.username = 'Mohamed Mamdouh';
-		postObject.avatar = 'https://avatars0.githubusercontent.com/u/16561058?v=4&s=64';
+		postObject.username = config.user.name;
+		postObject.avatar = config.user.avatar;
 		postObject.numOfLikes = 0;
 		postObject.isLiked = false;
 		//postObject.created_time = "2017-01-09T08:20:15+0000";

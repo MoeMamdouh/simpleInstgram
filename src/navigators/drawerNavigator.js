@@ -6,6 +6,9 @@ import { Icon, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../config/';
 import TabNav from './../navigators/tabsNavigator';
 import SettingsNavigator from './../navigators/settingsNavigator';
+import Drawer from './../components/drawer';
+import { styles } from './../components/drawer/drawerStyle';
+
 
 let RouteConfigs = {
 	Tab: {
@@ -42,13 +45,14 @@ let RouteConfigs = {
 
 let DrawerNavigatorConfig = {
 	//Width of the drawer
-	drawerWidth: 300,
+	drawerWidth: 350,
 
 	// Options are left or right. Default is left position.
 	// drawerPosition: 'right',
 
 	// Component used to render the content of the drawer, for example, navigation items. Receives the navigation prop for the drawer. Defaults to DrawerItems. For more information, see below.
-	contentComponent: props => <ScrollView><DrawerItems {...props} /></ScrollView>,
+	contentComponent: props => <Drawer props={props}/>,
+	// contentComponent: props => <ScrollView><DrawerItems {...props} /></ScrollView>,
 	
 
 	// Configure the drawer content, see below.
@@ -60,10 +64,10 @@ let DrawerNavigatorConfig = {
 		// activeItemKey: '',
 
 		// label and icon color of the active label
-		activeTintColor: 'green',
+		activeTintColor: COLORS.BLACK,
 
 		//background color of the active label
-		activeBackgroundColor: COLORS.LIGHT_ORANGE,
+		activeBackgroundColor: COLORS.LIGHT_GRAY,
 
 		// inactiveTintColor
 		// label and icon color of the inactive label
@@ -75,10 +79,10 @@ let DrawerNavigatorConfig = {
 		// onItemPress(route)
 
 		// style object for the content section
-		// style
+		// style: {height: 200, backgroundColor: 'red'},
 
 		// style object to overwrite Text style inside content section, when your label is a string
-		// labelStyle
+		labelStyle: styles.drawerLabel
 	},
 
 	// Enable native animations. Default is true.
