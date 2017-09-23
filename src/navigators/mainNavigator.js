@@ -66,7 +66,7 @@ let StackNavigatorConfig = {
 
 	//Sets the default screen of the stack. Must match one of the keys in route configs.
 	initialRouteName: 'Login',
-	// initialRouteName: 'Tabs',
+	// initialRouteName: 'Drawer',
 
 	//The params for the initial route
 	//initialRouteParams

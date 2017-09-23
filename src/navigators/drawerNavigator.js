@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import { DrawerNavigator } from "react-navigation";
+import {View, Text, ScrollView} from 'react-native';
+import { DrawerNavigator, DrawerItems } from "react-navigation";
 // import { Icon } from 'react-native-elements'
 import { Icon, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../config/';
@@ -12,7 +12,7 @@ let RouteConfigs = {
 		screen: TabNav,
 		navigationOptions: (navigation) =>({
 			// Generic title that can be used as a fallback for headerTitle and drawerLabel
-			title : 'Home',
+			// title : 'Home',
 			// String, React Element or a function that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar. When undefined, scene title is used
 			drawerLabel : 'Home',
 			// React Element or a function, that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar
@@ -48,7 +48,8 @@ let DrawerNavigatorConfig = {
 	// drawerPosition: 'right',
 
 	// Component used to render the content of the drawer, for example, navigation items. Receives the navigation prop for the drawer. Defaults to DrawerItems. For more information, see below.
-	// contentComponent
+	contentComponent: props => <ScrollView><DrawerItems {...props} /></ScrollView>,
+	
 
 	// Configure the drawer content, see below.
 	contentOptions: {
@@ -56,7 +57,7 @@ let DrawerNavigatorConfig = {
 		// items: ['Settings'],
 
 		// key identifying the active route
-		activeItemKey: 'Settingssascasc',
+		// activeItemKey: '',
 
 		// label and icon color of the active label
 		activeTintColor: 'green',
@@ -78,10 +79,25 @@ let DrawerNavigatorConfig = {
 
 		// style object to overwrite Text style inside content section, when your label is a string
 		// labelStyle
-	}
+	},
 
 	// Enable native animations. Default is true.
-	// 	useNativeAnimations
+	// useNativeAnimations
+
+	/* Several options get passed to the underlying router to modify navigation logic: */
+
+	// The routeName for the initial route.
+	// initialRouteName: 'Settings',
+
+	// Array of routeNames which defines the order of the drawer items.
+	// order: ['Settings']
+
+	// Provide a mapping of routeName to path config, which overrides the paths set in the routeConfigs.
+	// paths:
+
+	// Should the back button cause switch to the initial route? If yes, set to initialRoute, otherwise none. Defaults to initialRoute behavior.
+	// backBehavior:
+	
 }
 
 const DrawerNav = DrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
