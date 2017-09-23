@@ -3,8 +3,9 @@ import {
 	View, Text, Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import tabsNavigator from './tabsNavigator';
-import Login from './../views/login/login';
+import TabsNavigator from './tabsNavigator';
+import DrawerNav from './drawerNavigator';
+import Login from './../views/login';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {
@@ -49,12 +50,13 @@ let RouteConfigs = {
 			// headerPressColorAndroid 
 
 			// Whether you can use gestures to dismiss this screen. Defaults to true on iOS, false on Android.
-			// gesturesEnabled : true
+			// gesturesEnabled : false
 		}),
 	},
-	Tabs: { 
-		screen: tabsNavigator,
+	Drawer: { 
+		screen: DrawerNav,
 		navigationOptions: ({navigation}) => ({
+			// gesturesEnabled : false
 		}),
 	},
 }
@@ -70,9 +72,9 @@ let StackNavigatorConfig = {
 	//initialRouteParams
 
 	//Default navigation options to use for screens
-	// navigationOptions: ({navigation}) => ({
-	// 	title: 'Login',
-	// }),
+	navigationOptions: ({navigation}) => ({
+		gesturesEnabled : false
+	}),
 
 	//A mapping of overrides for the paths set in the route configs
 	// paths: ['Login',],

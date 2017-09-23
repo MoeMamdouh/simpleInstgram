@@ -200,7 +200,7 @@ export default class Post extends Component {
 						</View>
 
 						<View style={styles.actionsRight}>
-							<TouchableOpacity onPress={() => navigate('Tabs')}>
+							<TouchableOpacity onPress={() => navigate('Tab')}>
 							{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>

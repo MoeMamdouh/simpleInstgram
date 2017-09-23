@@ -48,6 +48,7 @@ export default class Home extends Component {
 			isNewPostAded: false,
 			isRefreshing: false,
 		}
+		// this.props.navigation.navigate('DrawerOpen');
 	}
 	
 	componentWillMount() {

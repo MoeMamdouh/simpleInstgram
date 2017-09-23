@@ -95,5 +95,5 @@ let TabNavigatorConfig = {
 	},
 }
 
-const tabsNavigator = TabNavigator(RouteConfigs, TabNavigatorConfig)
-export default tabsNavigator
+const TabNav = TabNavigator(RouteConfigs, TabNavigatorConfig)
+export default TabNav

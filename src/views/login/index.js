@@ -8,9 +8,9 @@ export default class Loin extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
+			<View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
 				<Button
-					onPress={() => navigate('Tabs', { user: 'Moe' })}
+					onPress={() => navigate('Drawer', { user: 'Moe' })}
 					title="Login"
 				/>
 			</View>
