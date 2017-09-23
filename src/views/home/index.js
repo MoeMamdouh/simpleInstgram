@@ -191,6 +191,11 @@ export default class Home extends Component {
 		return (
 			<StyleProvider style={getTheme(material)}>
 				<View style={styles.container}>
+					<TouchableOpacity onPress={() => this.props.navigation.setParams({user: 'Lucy'})}>
+						<Text>
+							asd
+						</Text>
+					</TouchableOpacity>
 					{/*header component*/}
 					{/* <Navbar toggleSearchBar={() => this.toggleSearchBar()} /> */}
 					{/*End header component*/}
