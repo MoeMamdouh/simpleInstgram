@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text,} from 'react-native';
 import { Icon, Button } from 'native-base';
 import { StackNavigator } from 'react-navigation';
+import { COLORS, textStyles, config } from '../config/';
 import Home from './../views/home';
 import Profile from './../views/profile';
 import ProfileImageBtn from '../components/profileImageBtn/profileImageBtn';
@@ -17,7 +18,8 @@ let RouteConfigs = {
 		   headerLeft:
 			<Button transparent onPress={()=>navigation.navigate('DrawerOpen')}>
 			{/* <Button transparent onPress={()=>_this.toggleSearchBar()}> */}
-				<Icon name='search' />
+				{/*<Icon name='search' style={{color: COLORS.BLACK}}/>*/}
+				<Icon name='ios-menu' style={{color: COLORS.BLACK}}/>
 			</Button>,
 	   }),
 	},

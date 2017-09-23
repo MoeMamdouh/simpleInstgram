@@ -44,6 +44,7 @@ export default class Home extends Component {
 			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
+			// isSearchBar: true,
 			isSearchBar: false,
 			isNewPostAded: false,
 			isRefreshing: false,

@@ -69,8 +69,8 @@ let DrawerNavigatorConfig = {
 		//background color of the active label
 		activeBackgroundColor: COLORS.LIGHT_GRAY,
 
-		// inactiveTintColor
 		// label and icon color of the inactive label
+		inactiveTintColor: COLORS.off_GRAY,
 
 		// background color of the inactive label
 		// inactiveBackgroundColor
@@ -82,7 +82,7 @@ let DrawerNavigatorConfig = {
 		// style: {height: 200, backgroundColor: 'red'},
 
 		// style object to overwrite Text style inside content section, when your label is a string
-		labelStyle: styles.drawerLabel
+		labelStyle: styles.drawerLabel,
 	},
 
 	// Enable native animations. Default is true.

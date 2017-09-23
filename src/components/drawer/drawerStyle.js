@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
 	},
 
 	drawerLabel: {
-		color: COLORS.BLACK,
+		// color: COLORS.BLACK,
 		fontSize: 12,
 		fontWeight: '500'
 	}
