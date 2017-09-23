@@ -15,7 +15,6 @@ export default class Drawer extends Component {
 	}
 
 	render() {
-		console.log('config ', config)
 		let { props } = this.props;
 		return (
 			<View style={styles.container}>

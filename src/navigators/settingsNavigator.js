@@ -14,7 +14,7 @@ let RouteConfigs = {
 			title: 'Settings',
 			headerLeft:
 			<Button transparent onPress={()=>navigation.navigate('DrawerOpen')}>
-				<Icon name='search' />
+				<Icon name='ios-menu' style={{color: COLORS.BLACK}}/>
 			</Button>,
 		}),
 	},

@@ -7,6 +7,7 @@ import { COLORS, textStyles, config } from '../config/';
 import TabNav from './../navigators/tabsNavigator';
 import SettingsNavigator from './../navigators/settingsNavigator';
 import Drawer from './../components/drawer';
+import DrawerItem from './../components/drawerItem';
 import { styles } from './../components/drawer/drawerStyle';
 
 
@@ -17,11 +18,16 @@ let RouteConfigs = {
 			// Generic title that can be used as a fallback for headerTitle and drawerLabel
 			// title : 'Home',
 			// String, React Element or a function that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar. When undefined, scene title is used
-			drawerLabel : 'Home',
+			// drawerLabel : ({ focused, tintColor }  ) => (
+			// 	<View style={{flex: 1,height: 100, flexDirection:'row', justifyContent: 'space-between'}}>
+			// 		<Text>{focused} {tintColor}</Text>
+			// 		<Text> Home </Text>
+			// </View>),
+			drawerLabel : ({ focused, tintColor }  ) => <DrawerItem label="Home" icon="ios-home" tintColor={tintColor} badge={5}/>,
 			// React Element or a function, that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar
-			drawerIcon : ({ tintColor }) => (
-				<Icon name="ios-home" style={{color:tintColor}}/>
-			),
+			// drawerIcon : ({ tintColor }) => (
+			// 	<Icon name="ios-home" style={{color:tintColor}}/>
+			// ),
 			// Specifies the lock mode of the drawer. This can also update dynamically by using screenProps.lockMode on your top level router.
 			drawerLockMode : true,	
 		}),
@@ -32,11 +38,11 @@ let RouteConfigs = {
 			// Generic title that can be used as a fallback for headerTitle and drawerLabel
 			// title : 'Settings',
 			// String, React Element or a function that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar. When undefined, scene title is used
-			drawerLabel : 'Settings',
+			drawerLabel : ({ focused, tintColor }  ) => <DrawerItem label="settings" icon="ios-settings" tintColor={tintColor}/>,
 			// React Element or a function, that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar
-			drawerIcon : ({ tintColor }) => (
-				<Icon name="ios-settings" style={{color:tintColor}}/>
-			),
+			// drawerIcon : ({ tintColor }) => (
+			// 	<Icon name="ios-settings" style={{color:tintColor}}/>
+			// ),
 			// Specifies the lock mode of the drawer. This can also update dynamically by using screenProps.lockMode on your top level router.
 			drawerLockMode : true,
 		}),
