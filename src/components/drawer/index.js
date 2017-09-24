@@ -17,7 +17,7 @@ export default class Drawer extends Component {
 
 	render() {
 		let { props } = this.props;
-		console.log('props ', props)
+		console.log('=>Drawer(render)props ', props)
 		let {activeTintColor, inactiveTintColor, navigation} = props
 		return (
 			<View style={styles.container}>

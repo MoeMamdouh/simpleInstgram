@@ -26,7 +26,7 @@ export default class Profile extends Component {
 		super(props);
 		this.state = {
 		}
-		console.log('Profile', this.props)
+		// console.log('Profile', this.props)
 	}
 	
 	componentWillMount() {
