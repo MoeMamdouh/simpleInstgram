@@ -246,7 +246,7 @@ class Home extends Component {
 const mapStateToProps = state => {
 	return {
 		posts: state.posts, 
-		selectedLibraryId: state.selectedLibraryId
+		// currentPost: state.currentPost
 	};
 };
   

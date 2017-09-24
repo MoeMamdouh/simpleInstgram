@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import postsReducer from './postsReducer';
-import SelectionReducer from './SelectionReducer';
+import postSelectionReducer from './postSelectionReducer';
 
 export default combineReducers({
   posts: postsReducer,
-  selectedLibraryId: SelectionReducer
+  currentPost: postSelectionReducer
 });

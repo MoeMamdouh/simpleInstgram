@@ -14,7 +14,6 @@ class Loin extends React.Component {
 	login() {
 		const { navigate } = this.props.navigation;
 		navigate('Drawer', { user: 'Moe' })
-        this.props.selectLibrary(1)
 	}
 
 	render() {
@@ -31,12 +30,11 @@ class Loin extends React.Component {
 }
 
 const mapStateToProps = state => {
-	console.log('===>mapStateToProps this.state ', state)
+	// console.log('===>mapStateToProps this.state ', state)
 	return {
 		posts: state.posts, 
-		selectedLibraryId: state.selectedLibraryId
+		// currentPost: state.currentPost
 	};
 };
   
 export default connect(mapStateToProps, actions)(Loin);
-  

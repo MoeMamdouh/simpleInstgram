@@ -1,7 +1,7 @@
-export const selectLibrary = (libraryId) => {
-    console.log('==>Action creator function, libraryId: ', libraryId)
+export const selectUser = (post) => {
+    console.log('==>Action creator function, post: ', post)
   return {
-    type: 'select_library',
-    payload: libraryId
+    type: 'select_user',
+    payload: post
   };
 };

@@ -15,6 +15,8 @@ import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 import DoubleClick from 'react-native-double-click';
 import { Thumbnail } from 'native-base';
+import { connect } from 'react-redux';
+import * as actions from './../../actions';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,7 +27,7 @@ const
 	SEND_ICON = require('../../../images/icons/send.png'),
 	SAVE_ICON = require('../../../images/icons/save.png');
 
-export default class Post extends Component {
+class Post extends Component {
 
 	constructor(props) {
 		super(props)
@@ -116,9 +118,11 @@ export default class Post extends Component {
 	/**
 	 * open user profile
 	 */
-	openProfile(data) {
+	openProfile(post) {
 		const { navigate } = this.props.navigation;
-		navigate('Profile', {user: data.username})
+		// console.log('AAthis.props' ,this.props)
+		this.props.selectUser(post)
+		navigate('Profile', {user: post.username})
 	}
 
 	render() {
@@ -229,3 +233,12 @@ export default class Post extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		posts: state.posts, 
+		currentPost: state.currentPost
+	};
+};
+  
+export default connect(mapStateToProps, actions)(Post);

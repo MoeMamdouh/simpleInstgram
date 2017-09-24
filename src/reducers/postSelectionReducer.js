@@ -1,7 +1,7 @@
 export default (state = null, action) => {
-  console.log('==>selectionReducer action: ', action, 'State: ', state)
+  console.log('==>postSelectionReducer action: ', action, 'State: ', state)
   switch (action.type) {
-    case 'select_library':
+    case 'select_user':
       return action.payload;
     default:
       return state;
