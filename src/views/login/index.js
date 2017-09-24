@@ -32,7 +32,10 @@ class Loin extends React.Component {
 
 const mapStateToProps = state => {
 	console.log('===>mapStateToProps this.state ', state)
-	return { selectedLibraryId: state.selectedLibraryId };
+	return {
+		posts: state.posts, 
+		selectedLibraryId: state.selectedLibraryId
+	};
 };
   
 export default connect(mapStateToProps, actions)(Loin);

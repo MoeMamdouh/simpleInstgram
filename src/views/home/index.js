@@ -26,7 +26,8 @@ import NewPostModal from '../../modals/newPost/newPostModal';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail } from 'native-base';
-const posts = require('./../../data/posts');
+import { connect } from 'react-redux';
+import * as actions from './../../actions';
 const ADD = require('../../../images/icons/add.png');
 const ds = new ListView.DataSource({
 	rowHasChanged: (r1, r2) => r1 !== r2
@@ -34,18 +35,19 @@ const ds = new ListView.DataSource({
 
 let _this = null;
 
-export default class Home extends Component {
+class Home extends Component {
 	
 	constructor(props) {
 		super(props);
+		let posts = this.props.posts;
 		//order posts data by 'created_time'
 		posts = rawDataHelper.dateSort(posts, 'created_time')
 		this.state = {
 			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
-			// isSearchBar: true,
-			isSearchBar: false,
+			isSearchBar: true,
+			// isSearchBar: false,
 			isNewPostAded: false,
 			isRefreshing: false,
 		}
@@ -186,6 +188,7 @@ export default class Home extends Component {
 	}
 
 	render() {
+		console.log('=>Home(render), this.props ', this.props)
 		let { showNewPostModal, posts, isSearchBar } = this.state;
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
@@ -244,3 +247,12 @@ export default class Home extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		posts: state.posts, 
+		selectedLibraryId: state.selectedLibraryId
+	};
+};
+  
+export default connect(mapStateToProps, actions)(Home);
