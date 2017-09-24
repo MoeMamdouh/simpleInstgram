@@ -46,8 +46,8 @@ class Home extends Component {
 			allPosts: posts.slice(),
 			posts,
 			showNewPostModal: false,
-			isSearchBar: true,
-			// isSearchBar: false,
+			// isSearchBar: true,
+			isSearchBar: false,
 			isNewPostAded: false,
 			isRefreshing: false,
 		}
@@ -194,11 +194,6 @@ class Home extends Component {
 		return (
 			<StyleProvider style={getTheme(material)}>
 				<View style={styles.container}>
-					<TouchableOpacity onPress={() => this.props.navigation.setParams({user: 'Lucy'})}>
-						<Text>
-							asd
-						</Text>
-					</TouchableOpacity>
 					{/*header component*/}
 					{/* <Navbar toggleSearchBar={() => this.toggleSearchBar()} /> */}
 					{/*End header component*/}
