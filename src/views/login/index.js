@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
-	View, Text, Button, TouchableWithoutFeedback,
+	View, Text, TouchableWithoutFeedback,
 } from 'react-native';
+import { Container, Header, Content, Form, Item, Input, Label, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../../config/';
 import {styles} from './loginStyle';
 import { StackNavigator } from 'react-navigation';
@@ -10,7 +11,7 @@ import * as actions from './../../actions';
 import firebase from 'firebase';
 import Spinner from '../../components/spinner/spinner';
 
-class Loin extends React.Component {
+class Login extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
@@ -64,13 +65,32 @@ class Loin extends React.Component {
 		let { showLoginBtn } = this.state
 		console.log('=>Login(render), this.props ', this.props)
 		return (
-			<View style={styles.container}>
-				{ showLoginBtn ? <Button
-					onPress={() => this.login()}
-					title="Login"
-				/> : <Spinner/>
-				}
-			</View>
+			<Container style={styles.container}>
+				<Content contentContainerStyle={styles.container}>
+					<Form>
+						<Item floatingLabel>
+							<Label>Username</Label>
+							<Input />
+						</Item>
+
+						<Item floatingLabel last>
+							<Label>Password</Label>
+							<Input secureTextEntry={true} />
+						</Item>
+				
+						<Button block style={styles.btn}>
+							<Text>Login</Text>
+						</Button>
+
+						{ showLoginBtn ?
+							<Button block style={styles.btn} warning onPress={() => this.login()}>
+								<Text>Moe Login</Text>
+							</Button>
+							: <Spinner/>
+						}
+					</Form>
+				</Content>
+		  </Container>
 		);
 	}
 }
@@ -83,4 +103,4 @@ const mapStateToProps = state => {
 	};
 };
   
-export default connect(mapStateToProps, actions)(Loin);
+export default connect(mapStateToProps, actions)(Login);
