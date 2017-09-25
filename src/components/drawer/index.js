@@ -5,14 +5,23 @@ import { DrawerItems } from "react-navigation";
 import { styles } from './drawerStyle';
 import { COLORS, textStyles, config } from '../../config/';
 import DrawerItem from './../drawerItem';
-
-
+import firebase from 'firebase';
 export default class Drawer extends Component {
 
 	constructor(props) {
 		super(props)
 		this.state = {
 		}
+	}
+
+	/**
+	 * logout
+	 */
+	logOut() {
+		let { props } = this.props;
+		let { navigation } = props
+		firebase.auth().signOut();
+		navigation.navigate('Login')
 	}
 
 	render() {
@@ -34,7 +43,7 @@ export default class Drawer extends Component {
 						</View>
 					</Image>
 					<DrawerItems {...props} />
-					<TouchableWithoutFeedback onPress={()=>navigation.navigate('Login')}>
+					<TouchableWithoutFeedback onPress={()=>this.logOut()}>
 						<View>
 							<DrawerItem label="Logout" icon="ios-log-out" tintColor={inactiveTintColor}/>
 						</View>

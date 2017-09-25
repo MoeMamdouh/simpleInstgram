@@ -18,6 +18,14 @@ class Loin extends React.Component {
 			showLoginBtn: true,
 		}
 	}
+
+	componentWillMount () {
+		firebase.auth().onAuthStateChanged((user) => {
+			if(user) {
+				this.enterApp();
+			}
+		});
+	}
 	
 	/**
 	 * login 
@@ -70,7 +78,7 @@ class Loin extends React.Component {
 const mapStateToProps = state => {
 	// console.log('===>mapStateToProps this.state ', state)
 	return {
-		posts: state.posts, 
+		// posts: state.posts, 
 		// currentPost: state.currentPost
 	};
 };

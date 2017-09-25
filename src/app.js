@@ -17,8 +17,8 @@ export class App extends Component {
     render() {
         return (
 			<Provider store={createStore(reducers)}>
-			<MainNavigator/>
-		  </Provider>
+				<MainNavigator/>
+			</Provider>
         );
     }
 }
