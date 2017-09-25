@@ -3,18 +3,27 @@ import {
 	View, Text, Button, TouchableWithoutFeedback,
 } from 'react-native';
 import { COLORS, textStyles, config } from '../../config/';
+import {styles} from './loginStyle';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
 import firebase from 'firebase';
+import Spinner from '../../components/spinner/spinner';
 
 class Loin extends React.Component {
 
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			showLoginBtn: true,
+		}
+	}
 	
 	/**
 	 * login 
 	 */
 	login() {
+		this.setState({showLoginBtn:false});
 		let { email, password } = config.user
 		firebase.auth().signInWithEmailAndPassword(email, password)
 		.then((data) => {
@@ -30,6 +39,7 @@ class Loin extends React.Component {
 			.catch((error)=> {
 				console.log('error in signup ', error)
 				alert(error.message)
+				this.setState({showLoginBtn:true});
 			})
 		})
 	}
@@ -43,13 +53,15 @@ class Loin extends React.Component {
 	}
 
 	render() {
+		let { showLoginBtn } = this.state
 		console.log('=>Login(render), this.props ', this.props)
 		return (
-			<View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-				<Button
+			<View style={styles.container}>
+				{ showLoginBtn ? <Button
 					onPress={() => this.login()}
 					title="Login"
-				/>
+				/> : <Spinner/>
+				}
 			</View>
 		);
 	}
