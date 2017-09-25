@@ -28,6 +28,14 @@ class Login extends React.Component {
 		});
 	}
 	
+	onEmailChange(text) {
+		this.props.emailChanged(text);
+	  }
+	
+	  onPasswordChange(text) {
+		this.props.passwordChanged(text);
+	  }
+	
 	/**
 	 * login 
 	 */
@@ -70,12 +78,19 @@ class Login extends React.Component {
 					<Form>
 						<Item floatingLabel>
 							<Label>Username</Label>
-							<Input />
+							<Input
+								onChangeText={this.onEmailChange.bind(this)}
+          						value={this.props.email}
+							/>
 						</Item>
 
 						<Item floatingLabel last>
 							<Label>Password</Label>
-							<Input secureTextEntry={true} />
+							<Input
+								secureTextEntry={true}
+								onChangeText={this.onPasswordChange.bind(this)}
+         					   value={this.props.password}
+							/>
 						</Item>
 				
 						<Button block style={styles.btn}>
@@ -99,7 +114,9 @@ const mapStateToProps = state => {
 	// console.log('===>mapStateToProps this.state ', state)
 	return {
 		// posts: state.posts, 
-		// currentPost: state.currentPost
+		// currentPost: state.currentPost,
+		email: state.auth.email,
+		password: state.auth.password
 	};
 };
   
