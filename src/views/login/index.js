@@ -39,34 +39,33 @@ class Login extends React.Component {
 	/**
 	 * login 
 	 */
-	login() {
-		this.setState({showLoginBtn:false});
-		let { email, password } = config.user
-		firebase.auth().signInWithEmailAndPassword(email, password)
-		.then((data) => {
-			console.log('login sucess ', data);
-			this.enterApp()
-		})
-		.catch(() => {
-			firebase.auth().createUserWithEmailAndPassword(email, password)
-			.then((data) => {
-				console.log('regisiter new user sucess ', data)
-				this.enterApp()
-			})
-			.catch((error)=> {
-				console.log('error in signup ', error)
-				alert(error.message)
-				this.setState({showLoginBtn:true});
-			})
-		})
-	}
+	// login() {
+	// 	this.setState({showLoginBtn:false});
+	// 	let { email, password } = config.user
+	// 	firebase.auth().signInWithEmailAndPassword(email, password)
+	// 	.then((data) => {
+	// 		console.log('login sucess ', data);
+	// 		this.enterApp()
+	// 	})
+	// 	.catch(() => {
+	// 		firebase.auth().createUserWithEmailAndPassword(email, password)
+	// 		.then((data) => {
+	// 			console.log('regisiter new user sucess ', data)
+	// 			this.enterApp()
+	// 		})
+	// 		.catch((error)=> {
+	// 			console.log('error in signup ', error)
+	// 			alert(error.message)
+	// 			this.setState({showLoginBtn:true});
+	// 		})
+	// 	})
+	// }
 
 	/**
 	 * on login button pressed
 	 */
 	onButtonPress() {
 		const { email, password } = this.props;
-
 		this.props.loginUser({ email, password });
 	}
 
@@ -80,6 +79,7 @@ class Login extends React.Component {
 
 	render() {
 		let { showLoginBtn } = this.state
+		let { loading } = this.props
 		console.log('=>Login(render), this.props ', this.props)
 		return (
 			<Container style={styles.container}>
@@ -101,17 +101,22 @@ class Login extends React.Component {
          					   value={this.props.password}
 							/>
 						</Item>
-				
-						<Button block style={styles.btn} onPress={() => this.onButtonPress()}>
-							<Text>Login</Text>
-						</Button>
 
-						{ showLoginBtn ?
-							<Button block style={styles.btn} warning onPress={() => this.login()}>
-								<Text>Moe Login</Text>
-							</Button>
-							: <Spinner/>
+						<Text style={styles.errorTextStyle}>
+							{this.props.error}
+						</Text>
+						
+						{
+							loading ? <Spinner/>
+							:
+								<Button block style={styles.btn} onPress={() => this.onButtonPress()}>
+									<Text>Login</Text>
+								</Button>
 						}
+
+						{/* <Button block style={styles.btn} warning onPress={() => this.login()}>
+							<Text>Moe Login</Text>
+						</Button> */}
 					</Form>
 				</Content>
 		  </Container>
@@ -125,7 +130,9 @@ const mapStateToProps = state => {
 		// posts: state.posts, 
 		// currentPost: state.currentPost,
 		email: state.auth.email,
-		password: state.auth.password
+		password: state.auth.password,
+		error: state.auth.error,
+		loading: state.auth.loading,
 	};
 };
   

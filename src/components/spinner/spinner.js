@@ -13,7 +13,7 @@ export default class Spinner extends Component {
 		return (
 			<ActivityIndicator
 				animating={true}
-				style={styles.centering}
+				//style={styles.centering}
 				size="large"
 			/>
 		);
