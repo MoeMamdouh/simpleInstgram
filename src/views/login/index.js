@@ -30,37 +30,12 @@ class Login extends React.Component {
 	
 	onEmailChange(text) {
 		this.props.emailChanged(text);
-	  }
+	}
 	
 	  onPasswordChange(text) {
 		this.props.passwordChanged(text);
-	  }
+	}
 	
-	/**
-	 * login 
-	 */
-	// login() {
-	// 	this.setState({showLoginBtn:false});
-	// 	let { email, password } = config.user
-	// 	firebase.auth().signInWithEmailAndPassword(email, password)
-	// 	.then((data) => {
-	// 		console.log('login sucess ', data);
-	// 		this.enterApp()
-	// 	})
-	// 	.catch(() => {
-	// 		firebase.auth().createUserWithEmailAndPassword(email, password)
-	// 		.then((data) => {
-	// 			console.log('regisiter new user sucess ', data)
-	// 			this.enterApp()
-	// 		})
-	// 		.catch((error)=> {
-	// 			console.log('error in signup ', error)
-	// 			alert(error.message)
-	// 			this.setState({showLoginBtn:true});
-	// 		})
-	// 	})
-	// }
-
 	/**
 	 * on login button pressed
 	 */
@@ -73,8 +48,10 @@ class Login extends React.Component {
 	 * if sucess in login enter app 'home' view
 	 */
 	enterApp() {
-		const { navigate } = this.props.navigation;
-		navigate('Drawer', { user: 'Moe' })
+		// const { navigate } = this.props.navigation;
+		// navigate('Drawer', { user: 'Moe' })
+		const { dispatch } = this.props.navigation;
+		dispatch({ type: 'Drawer' })
 	}
 
 	render() {

@@ -125,6 +125,4 @@ const mapStateToProps = (state) => ({
   nav: state.nav
 });
 
-const AppWithNavigationState = connect(mapStateToProps)(App);
-
-export default AppWithNavigationState
+export const AppWithNavigationState = connect(mapStateToProps)(App);
