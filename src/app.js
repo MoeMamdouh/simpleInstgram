@@ -5,9 +5,10 @@ import {
 import { COLORS, textStyles, config } from './config/';
 import MainNavigator from './navigators/mainNavigator';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import firebase from 'firebase';
+import ReduxThunk from 'redux-thunk';
 
 export class App extends Component {
 	componentWillMount() {
@@ -15,8 +16,9 @@ export class App extends Component {
 	}
 
     render() {
+		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
         return (
-			<Provider store={createStore(reducers)}>
+			<Provider store={store}>
 				<MainNavigator/>
 			</Provider>
         );

@@ -62,6 +62,15 @@ class Login extends React.Component {
 	}
 
 	/**
+	 * on login button pressed
+	 */
+	onButtonPress() {
+		const { email, password } = this.props;
+
+		this.props.loginUser({ email, password });
+	}
+
+	/**
 	 * if sucess in login enter app 'home' view
 	 */
 	enterApp() {
@@ -93,7 +102,7 @@ class Login extends React.Component {
 							/>
 						</Item>
 				
-						<Button block style={styles.btn}>
+						<Button block style={styles.btn} onPress={() => this.onButtonPress()}>
 							<Text>Login</Text>
 						</Button>
 
