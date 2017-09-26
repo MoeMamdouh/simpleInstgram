@@ -3,7 +3,7 @@ import {
     View, Text
 } from 'react-native';
 import { COLORS, textStyles, config } from './config/';
-import MainNavigator from './navigators/mainNavigator';
+import AppWithNavigationState from './navigators/mainNavigator';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
@@ -19,7 +19,7 @@ export class App extends Component {
 		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
         return (
 			<Provider store={store}>
-				<MainNavigator/>
+				<AppWithNavigationState/>
 			</Provider>
         );
     }

@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import {
 	View, Text, Button
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import TabsNavigator from './tabsNavigator';
 import DrawerNav from './drawerNavigator';
 import Login from './../views/login';
+import { connect } from 'react-redux';
+import { combineReducers } from 'redux';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {
@@ -105,5 +107,24 @@ let StackNavigatorConfig = {
 	// onTransitionEnd: () => alert('transition End')
 }
 
-const MainNavigator = StackNavigator(RouteConfigs, StackNavigatorConfig)
-export default MainNavigator
+export const MainNavigator = StackNavigator(RouteConfigs, StackNavigatorConfig)
+
+class App extends React.Component {
+	render() {
+	  return (
+		<MainNavigator navigation={addNavigationHelpers({
+			dispatch: this.props.dispatch,
+			state: this.props.nav,
+		})} />
+	  );
+	}
+  }
+
+
+const mapStateToProps = (state) => ({
+  nav: state.nav
+});
+
+const AppWithNavigationState = connect(mapStateToProps)(App);
+
+export default AppWithNavigationState
