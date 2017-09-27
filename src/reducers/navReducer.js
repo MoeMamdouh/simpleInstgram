@@ -8,37 +8,43 @@ import {
 } from './../actions/types';
 
 import { NavigationActions } from 'react-navigation';
-import { MainNavigator } from './../navigators/mainNavigator';
+import { AppNavigator } from './../navigators/appNavigator';
 
-const initialState = MainNavigator.router.getStateForAction(MainNavigator.router.getActionForPathAndParams('Login'));
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Launch'));
 
 const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case 'Login':
-			nextState = MainNavigator.router.getStateForAction(
+			nextState = AppNavigator.router.getStateForAction(
 				NavigationActions.back(),
 				state
 			);
 			break;
 		  
 		case 'Drawer':
-			nextState = MainNavigator.router.getStateForAction(
+			nextState = AppNavigator.router.getStateForAction(
 				NavigationActions.navigate({ routeName: 'Drawer' }),
 				state
 			);
 		break;
 
 		case 'Profile':
-			nextState = MainNavigator.router.getStateForAction(
+			nextState = AppNavigator.router.getStateForAction(
 				NavigationActions.navigate({ routeName: 'Profile' }),
 				state
 			);
 		break;
-
+		
+		case 'App':
+			nextState = AppNavigator.router.getStateForAction(
+				NavigationActions.navigate({ routeName: 'App' }),
+				state
+			);
+		break;
 
 		default:
-		  nextState = MainNavigator.router.getStateForAction(action, state);
+		  nextState = AppNavigator.router.getStateForAction(action, state);
 		  break;
 	}
 
