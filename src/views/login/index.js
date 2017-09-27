@@ -48,8 +48,6 @@ class Login extends React.Component {
 	 * if sucess in login enter app 'home' view
 	 */
 	enterApp() {
-		// const { navigate } = this.props.navigation;
-		// navigate('Drawer', { user: 'Moe' })
 		const { dispatch } = this.props.navigation;
 		dispatch({ type: 'Drawer' })
 	}
@@ -57,7 +55,6 @@ class Login extends React.Component {
 	render() {
 		let { showLoginBtn } = this.state
 		let { loading } = this.props
-		console.log('=>Login(render), this.props ', this.props)
 		return (
 			<Container style={styles.container}>
 				<Content contentContainerStyle={styles.container}>
@@ -84,8 +81,7 @@ class Login extends React.Component {
 						</Text>
 						
 						{
-							loading ? <Spinner/>
-							:
+							loading ? <Spinner/> :
 								<Button block style={styles.btn} onPress={() => this.onButtonPress()}>
 									<Text>Login</Text>
 								</Button>
@@ -110,6 +106,7 @@ const mapStateToProps = state => {
 		password: state.auth.password,
 		error: state.auth.error,
 		loading: state.auth.loading,
+		user: state.auth.user,
 	};
 };
   

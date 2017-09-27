@@ -17,7 +17,7 @@ const navReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'Login':
 			nextState = AppNavigator.router.getStateForAction(
-				NavigationActions.back(),
+				NavigationActions.navigate({ routeName: 'Login' }),
 				state
 			);
 			break;

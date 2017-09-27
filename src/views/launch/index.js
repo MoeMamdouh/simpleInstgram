@@ -17,7 +17,9 @@ import {
 
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
-
+import firebase from 'firebase';
+import Spinner from '../../components/spinner/spinner';
+import { styles } from './launchStyle';
 
 class Launch extends Component {
 	constructor(props) {
@@ -26,18 +28,42 @@ class Launch extends Component {
 		}
 	}
 	
-	componentWillMount() {
+	componentWillMount () {
+		firebase.auth().onAuthStateChanged((user) => {
+			if(user) {
+				this.navigateApp();
+			} else {
+				this.navigateLogin();
+			}
+		});
 	}
 
 	componentDidMount() {
+	}
+
+	/**
+	 * if sucess in login enter app 'home' view
+	 */
+	navigateApp() {
 		const { dispatch } = this.props.navigation;
 		dispatch({ type: 'App' })
 	}
 
-	
+	/**
+	 * if sucess in login enter app 'home' view
+	 */
+	navigateLogin() {
+		const { dispatch } = this.props.navigation;
+		dispatch({ type: 'Login' })
+	}
+
 	render() {
 		return (
-			<Text>Launch</Text>
+			<View style={styles.container}>
+				<Image style={styles.image} source={require('./../../../images/launch.jpg')}>
+					<Spinner/>
+				</Image>
+			</View>
 		)
 	}
 }

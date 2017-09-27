@@ -9,10 +9,15 @@ import { COLORS } from '../../config/'
 export const styles = StyleSheet.create({
 	container: {
 		flex:1,
-		// alignItems:'center',
-		justifyContent:'center'
+		alignItems:'center',
+		justifyContent:'center',
+		backgroundColor: COLORS.WHITE
 	},
-	btn: {
-		marginTop: 10,
-	}
+
+	image: {
+		width:200,
+		height:200,
+		alignItems:'center',
+		justifyContent:'center',
+	},
 })
