@@ -5,6 +5,8 @@ import {
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import MainNavigator from './mainNavigator';
 import Launch from './../views/launch';
+import Login from './../views/login';
+import DrawerNav from './drawerNavigator';
 import { connect } from 'react-redux';
 import { combineReducers } from 'redux';
 
@@ -54,12 +56,63 @@ let RouteConfigs = {
 			// gesturesEnabled : false
 		}),
 	},
-	App: { 
-		screen: MainNavigator,
+
+	Login: {
+		screen: Login,
+		// Optional: Override the `navigationOptions` for the screen
+		navigationOptions: ({navigation}) => ({
+			// String that can be used as a fallback for headerTitle. Additionally, will be used as a fallback for tabBarLabel (if nested in a TabNavigator) or drawerLabel (if nested in a DrawerNavigator)
+			title: 'Login',
+
+			// React Element or a function that given HeaderProps returns a React Element, to display as a header. Setting to null hides header.
+			// header: null,
+
+			// String or React Element used by the header. Defaults to scene title
+			// headerTitle 
+
+			// Title string used by the back button on iOS, or null to disable label. Defaults to the previous scene's headerTitle
+			// headerBackTitle 
+
+			// Title string used by the back button when headerBackTitle doesn't fit on the screen. "Back" by default.
+			// headerTruncatedBackTitle 
+
+			// React Element to display on the right side of the header
+			// headerRight 
+
+			// React Element to display on the left side of the header
+			// headerLeft 
+
+			// Style object for the header
+			// headerStyle 
+
+			// Style object for the title component
+			// headerTitleStyle 
+
+			// Style object for the back title
+			// headerBackTitleStyle 
+
+			// Tint color for the header
+			// headerTintColor 
+
+			// Color for material ripple (Android >= 5.0 only)
+			// headerPressColorAndroid 
+
+			// Whether you can use gestures to dismiss this screen. Defaults to true on iOS, false on Android.
+			// gesturesEnabled : false
+		}),
+	},
+	Drawer: { 
+		screen: DrawerNav,
 		navigationOptions: ({navigation}) => ({
 			// gesturesEnabled : false
 		}),
 	},
+	// App: { 
+	// 	screen: MainNavigator,
+	// 	navigationOptions: ({navigation}) => ({
+	// 		// gesturesEnabled : false
+	// 	}),
+	// },
 }
 
 let StackNavigatorConfig = {

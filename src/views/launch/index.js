@@ -46,7 +46,7 @@ class Launch extends Component {
 	 */
 	navigateApp() {
 		const { dispatch } = this.props.navigation;
-		dispatch({ type: 'App' })
+		dispatch({ type: 'Drawer' })
 	}
 
 	/**
