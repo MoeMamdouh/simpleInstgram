@@ -17,7 +17,7 @@ export default class Drawer extends Component {
 	/**
 	 * logout
 	 */
-	logOut() {
+	logout() {
 		let { props } = this.props;
 		let { navigation } = props
 		firebase.auth().signOut();
@@ -43,7 +43,7 @@ export default class Drawer extends Component {
 						</View>
 					</Image>
 					<DrawerItems {...props} />
-					<TouchableWithoutFeedback onPress={()=>this.logOut()}>
+					<TouchableWithoutFeedback onPress={()=>this.logout()}>
 						<View>
 							<DrawerItem label="Logout" icon="ios-log-out" tintColor={inactiveTintColor}/>
 						</View>
