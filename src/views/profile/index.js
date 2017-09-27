@@ -17,11 +17,12 @@ import {
 // import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Badge } from 'native-base';
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
+import ProfileHeaderTitle from './../../components/profileHeaderTitle'
 
 class Profile extends Component {
+	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
 	static navigationOptions = (navigation, screenProps) => ({
-		// header: null,
-		title: (navigation.navigation.state.params)? navigation.navigation.state.params.user : 'Visitor',
+		title: <ProfileHeaderTitle/>,
 	});
 	
 	constructor(props) {

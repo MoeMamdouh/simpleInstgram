@@ -106,8 +106,8 @@ class Home extends Component {
 	 * render event item
 	 */
 	renderRow(rowData, sectionID, rowID, highlightRow) {
-		const { navigate } = this.props.navigation;
-		return <Post postObject={rowData} navigation={{navigate}} />
+		let { navigation } = this.props;
+		return <Post postObject={rowData} navigation={navigation} />
 	}
 
 	/**

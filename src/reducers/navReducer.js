@@ -16,17 +16,27 @@ const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case 'Login':
-		  nextState = MainNavigator.router.getStateForAction(
-			NavigationActions.back(),
-			state
-		  );
-		  break;
+			nextState = MainNavigator.router.getStateForAction(
+				NavigationActions.back(),
+				state
+			);
+			break;
+		  
 		case 'Drawer':
-		  nextState = MainNavigator.router.getStateForAction(
-			NavigationActions.navigate({ routeName: 'Drawer' }),
-			state
-		  );
-		  break;
+			nextState = MainNavigator.router.getStateForAction(
+				NavigationActions.navigate({ routeName: 'Drawer' }),
+				state
+			);
+		break;
+
+		case 'Profile':
+			nextState = MainNavigator.router.getStateForAction(
+				NavigationActions.navigate({ routeName: 'Profile' }),
+				state
+			);
+		break;
+
+
 		default:
 		  nextState = MainNavigator.router.getStateForAction(action, state);
 		  break;

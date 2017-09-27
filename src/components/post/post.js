@@ -118,16 +118,16 @@ class Post extends Component {
 	/**
 	 * open user profile
 	 */
-	openProfile(post) {
-		const { navigate } = this.props.navigation;
+	openProfile(post){
 		// console.log('AAthis.props' ,this.props)
 		this.props.selectUser(post)
-		navigate('Profile', {user: post.username})
+		const { dispatch, setParams } = this.props.navigation;
+		dispatch({ type: 'Profile' })
+		// setParams({user: post })
 	}
 
 	render() {
 		let that = this;
-		const { navigate } = this.props.navigation;
 		let { postObject } = this.state;
 		let { username, avatar, images, isLiked, numOfLikes, description, created_time } = postObject;
 		let postDate = date.getDateFormat(created_time)
@@ -204,7 +204,7 @@ class Post extends Component {
 						</View>
 
 						<View style={styles.actionsRight}>
-							<TouchableOpacity onPress={() => navigate('Tab')}>
+							<TouchableOpacity>
 							{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>
