@@ -32,13 +32,23 @@ const navReducer = (state = initialState, action) => {
 		break;
 
 		  
+		// case 'Drawer':
+		// 	nextState = AppNavigator.router.getStateForAction(
+		// 		NavigationActions.navigate({ routeName: 'Drawer' }),
+		// 		state
+		// 	);
+		// break;
+		
 		case 'Drawer':
-			nextState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Drawer' }),
-				state
-			);
+			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
+				index:0,
+				actions: [
+					NavigationActions.navigate({ routeName: 'Drawer'})
+				]
+			}),
+			state);
 		break;
-
+		
 		case 'Profile':
 			nextState = AppNavigator.router.getStateForAction(
 				NavigationActions.navigate({ routeName: 'Profile' }),

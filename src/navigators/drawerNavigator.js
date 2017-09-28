@@ -51,7 +51,7 @@ let RouteConfigs = {
 
 let DrawerNavigatorConfig = {
 	//Width of the drawer
-	drawerWidth: 350,
+	drawerWidth: 300,
 
 	// Options are left or right. Default is left position.
 	// drawerPosition: 'right',

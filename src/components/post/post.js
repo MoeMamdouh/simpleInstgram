@@ -32,7 +32,7 @@ class Post extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			postObject: this.props.postObject,
+			postObject: { ...this.props.postObject},
 			lastPress: 0,
 		}
 	}
@@ -124,12 +124,22 @@ class Post extends Component {
 		const { dispatch, setParams } = this.props.navigation;
 		dispatch({ type: 'Profile', payload: post })
 		// setParams({user: post })
+		// this.props.navigation.navigate('Profile')
+
+	}
+
+	/**
+	 * show more description
+	 */
+	moreDesciption() {
+		let { postObject } = this.state;
+		this.setState({postObject: { ...postObject, showMore: true }})
 	}
 
 	render() {
 		let that = this;
 		let { postObject } = this.state;
-		let { username, avatar, images, isLiked, numOfLikes, description, created_time } = postObject;
+		let { username, avatar, images, isLiked, numOfLikes, description, created_time, showMore } = postObject;
 		let postDate = date.getDateFormat(created_time)
 		return (
 			<View style={styles.post}>
@@ -223,7 +233,14 @@ class Post extends Component {
 					<View style={styles.description}>
 						<Text>
 							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username} </Text>
-							{description}
+							{(showMore) ? <Text>{description}</Text> :
+								<Text>
+									<Text>{description.substring(0, 80)}</Text>
+									<TouchableWithoutFeedback onPress={() => this.moreDesciption()}>
+										<Text style={textStyles.graySmallD}> ... more</Text>
+									</TouchableWithoutFeedback>
+								</Text>
+							}
 						</Text>
 					</View>
 					{/*End description*/}

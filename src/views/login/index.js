@@ -20,15 +20,16 @@ class Login extends React.Component {
 		}
 	}
 
-	componentWillMount () {
-		firebase.auth().onAuthStateChanged((user) => {
-			if(user) {
-				this.enterApp();
-			}
-		});
-	}
+	// componentWillMount () {
+	// 	firebase.auth().onAuthStateChanged((user) => {
+	// 		if(user) {
+	// 			this.enterApp();
+	// 		}
+	// 	});
+	// }
 	
 	onEmailChange(text) {
+		// console.log("=======>", this.props)
 		this.props.emailChanged(text);
 	}
 	

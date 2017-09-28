@@ -101,6 +101,7 @@ let RouteConfigs = {
 			// gesturesEnabled : false
 		}),
 	},
+	
 	Drawer: { 
 		screen: DrawerNav,
 		navigationOptions: ({navigation}) => ({
