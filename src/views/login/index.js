@@ -9,7 +9,7 @@ import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
 import firebase from 'firebase';
-import Spinner from '../../components/spinner/spinner';
+import Spinner from '../../components/spinner';
 
 class Login extends React.Component {
 

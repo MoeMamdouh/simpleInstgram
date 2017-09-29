@@ -9,7 +9,7 @@ import {
 	Dimensions,
 } from 'react-native';
 
-import { styles } from './postStyle';
+import { styles } from './style';
 import { COLORS, textStyles } from './../../config/';
 import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';

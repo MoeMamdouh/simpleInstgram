@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {} from 'react-native';
-import { styles } from './searchInputStyle';
+import { styles } from './style';
 import { COLORS, textStyles } from './../../config/';
 import { date } from './.././../lib/';
 import Swiper from 'react-native-swiper';

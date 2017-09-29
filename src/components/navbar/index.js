@@ -3,7 +3,7 @@ import {
 	Image,
  } from 'react-native';
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, Text, Thumbnail } from 'native-base';
-import { styles } from './navbarStyle';
+import { styles } from './index';
 import { nativeFunctions } from './.././../lib/';
 
 export default class Navbar extends Component {

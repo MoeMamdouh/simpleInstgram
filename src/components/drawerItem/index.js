@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, Image } from 'react-native';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Badge } from 'native-base';
 import { DrawerItems } from "react-navigation";
-import { styles } from './drawerStyle';
+import { styles } from './style';
 import { COLORS, textStyles, config } from '../../config/';
 
 

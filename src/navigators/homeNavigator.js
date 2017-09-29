@@ -5,7 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import { COLORS, textStyles, config } from '../config/';
 import Home from './../views/home';
 import Profile from './../views/profile';
-import ProfileImageBtn from '../components/profileImageBtn/profileImageBtn';
+import ProfileImageBtn from '../components/profileImageBtn';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {} from 'react-native';
-import {styles} from './tabsStyle';
+import {styles} from './style';
 import {nativeFunctions} from './../../lib/';
 import {
 	Container,

@@ -3,7 +3,7 @@ import {
 	StyleSheet,
 	ActivityIndicator,
 } from 'react-native';
-import { styles } from './spinnerStyle';
+import { styles } from './style';
 
 export default class Spinner extends Component {
 	constructor(props, context) {

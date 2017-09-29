@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, Text, Thumbnail } from 'native-base';
-import { styles } from './profileImageBtnStyle';
+import { styles } from './style';
 
 
 export default class ProfileImageBtn extends Component {

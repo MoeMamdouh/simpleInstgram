@@ -8,7 +8,7 @@ import TabNav from './../navigators/tabsNavigator';
 import SettingsNavigator from './../navigators/settingsNavigator';
 import Drawer from './../components/drawer';
 import DrawerItem from './../components/drawerItem';
-import { styles } from './../components/drawer/drawerStyle';
+import { styles } from './../components/drawer/style';
 
 
 let RouteConfigs = {
