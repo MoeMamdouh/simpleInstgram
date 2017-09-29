@@ -39,7 +39,6 @@ class Post extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		const { postObject } = nextProps;
-
 		this.setState({ postObject });
 	}
 

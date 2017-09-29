@@ -79,5 +79,5 @@ const mapStateToProps = state => {
 		loading: state.auth.loading,
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Launch);

@@ -16,19 +16,20 @@ const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		// case 'Login':
-		// 	nextState = NavigationActions.reset({
-		// 		index: 0,
-		// 		actions: [
-		// 			NavigationActions.navigate({ routeName: 'Login' })
-		// 		],
-		// 	});
+		// 	nextState = AppNavigator.router.getStateForAction(
+		// 		NavigationActions.navigate({ routeName: 'Login' }),
+		// 		state
+		// 	);
 		// break;
 
 		case 'Login':
-			nextState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Login' }),
-				state
-			);
+			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
+				index:0,
+				actions: [
+					NavigationActions.navigate({ routeName: 'Login'})
+				]
+			}),
+			state);
 		break;
 
 		  
