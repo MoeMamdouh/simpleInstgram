@@ -15,7 +15,7 @@ import {
 	
 } from 'react-native'
 import _ from 'lodash';
-import { styles } from './homeStyle';
+import { styles } from './style';
 import { COLORS, textStyles, config } from '../../config/';
 import { rawDataHelper } from '../../lib/index';
 import Post from '../../components/post/post';

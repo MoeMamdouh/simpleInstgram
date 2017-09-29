@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../../config/';
-import {styles} from './loginStyle';
+import {styles} from './style';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
