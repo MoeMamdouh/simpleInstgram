@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import MainNavigator from './mainNavigator';
-import Launch from './../views/launch';
+import Splash from './../views/splash';
 import Login from './../views/login';
 import DrawerNav from './drawerNavigator';
 import { connect } from 'react-redux';
@@ -12,12 +12,12 @@ import { combineReducers } from 'redux';
 
 //The route configs object is a mapping from route name to a route config, which tells the navigator what to present for that route.
 let RouteConfigs = {
-	Launch: {
-		screen: Launch,
+	Splash: {
+		screen: Splash,
 		// Optional: Override the `navigationOptions` for the screen
 		navigationOptions: ({navigation}) => ({
 			// String that can be used as a fallback for headerTitle. Additionally, will be used as a fallback for tabBarLabel (if nested in a TabNavigator) or drawerLabel (if nested in a DrawerNavigator)
-			title: 'Launch',
+			title: 'Splash',
 
 			// React Element or a function that given HeaderProps returns a React Element, to display as a header. Setting to null hides header.
 			// header: null,
@@ -120,7 +120,7 @@ let StackNavigatorConfig = {
 	/* Options for the router: */
 
 	//Sets the default screen of the stack. Must match one of the keys in route configs.
-	initialRouteName: 'Launch',
+	initialRouteName: 'Splash',
 
 	//The params for the initial route
 	//initialRouteParams
@@ -131,7 +131,7 @@ let StackNavigatorConfig = {
 	}),
 
 	//A mapping of overrides for the paths set in the route configs
-	// paths: ['Launch',],
+	// paths: ['Splash',],
 
 	/* Visual options: */
 

@@ -19,9 +19,9 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions';
 import firebase from 'firebase';
 import Spinner from '../../components/spinner/spinner';
-import { styles } from './launchStyle';
+import { styles } from './splashStyle';
 
-class Launch extends Component {
+class Splash extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -60,7 +60,7 @@ class Launch extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Image style={styles.image} source={require('./../../../images/launch.jpg')}>
+				<Image style={styles.image} source={require('./../../../images/splash.jpg')}>
 					<Spinner/>
 				</Image>
 			</View>
@@ -80,4 +80,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, actions)(Launch);
+export default connect(mapStateToProps, actions)(Splash);

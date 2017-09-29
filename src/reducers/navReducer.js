@@ -10,7 +10,7 @@ import {
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from './../navigators/appNavigator';
 
-const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Launch'));
+const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Splash'));
 
 const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
