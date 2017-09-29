@@ -10,7 +10,7 @@ let RouteConfigs = {
 	Add: {
 		screen: Add,
 		navigationOptions: {
-			title: 'Upload',
+			title: 'Create a post..',
 		},
 	},
 }
