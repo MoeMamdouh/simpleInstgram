@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, TouchableWithoutFeedback } from 'react-native';
+import {
+	View,
+	ScrollView,
+	Image,
+	ImageBackground,
+	TouchableWithoutFeedback
+} from 'react-native';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail,List, ListItem, Switch } from 'native-base';
 import { DrawerItems } from "react-navigation";
 import { styles } from './style';
@@ -35,7 +41,7 @@ class Drawer extends Component {
 		return (
 			<View style={styles.container}>
 				<ScrollView>
-					<Image style={styles.cover} source={require('./../../../images/drawer/cover.jpg')}>
+					<ImageBackground style={styles.cover} source={require('./../../../images/drawer/cover.jpg')}>
 						<View style={styles.overlay}>
 							<View style={styles.drawerHeader}>
 								<Thumbnail large source={{uri: config.user.avatar}} />
@@ -45,7 +51,7 @@ class Drawer extends Component {
 								</View>
 							</View>
 						</View>
-					</Image>
+					</ImageBackground>
 					<DrawerItems {...props} />
 					<TouchableWithoutFeedback onPress={()=>this.logout()}>
 						<View>

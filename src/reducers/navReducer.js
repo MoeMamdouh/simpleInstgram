@@ -10,80 +10,61 @@ import {
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from './../navigators/appNavigator';
 
-const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Splash'));
+const navigationRouter = AppNavigator.router.getStateForAction;
+const initialState = navigationRouter(AppNavigator.router.getActionForPathAndParams('Splash'));
 
 const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case 'Splash':
-			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
-				index:0,
-				key: null,
-				actions: [
-					NavigationActions.navigate({ routeName: 'Splash'})
-				]
-			}),
-			state);
+			nextState = navigationRouter(resetTo('Splash'), state);
 		break;
-
-		// case 'Login':
-		// 	nextState = AppNavigator.router.getStateForAction(
-		// 		NavigationActions.navigate({ routeName: 'Login' }),
-		// 		state
-		// 	);
-		// break;
 
 		case 'Login':
-			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
-				index:0,
-				key: null,
-				actions: [
-					NavigationActions.navigate({ routeName: 'Login'})
-				]
-			}),
-			state);
+			nextState = navigationRouter(resetTo('Login'), state);
 		break;
 
-		  
-		// case 'Drawer':
-		// 	nextState = AppNavigator.router.getStateForAction(
-		// 		NavigationActions.navigate({ routeName: 'Drawer' }),
-		// 		state
-		// 	);
-		// break;
-		
 		case 'Drawer':
-			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
-				index:0,
-				key: null,
-				actions: [
-					NavigationActions.navigate({ routeName: 'Drawer'})
-				]
-			}),
-			state);
+			nextState = navigationRouter(resetTo('Drawer'), state);
 		break;
 		
 		case 'Profile':
-			nextState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Profile' }),
-				state
-			);
-		break;
-		
-		case 'App':
-			nextState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'App' }),
-				state
-			);
+			nextState = navigationRouter(navigateTo('Profile'), state);
 		break;
 
 		default:
-		  nextState = AppNavigator.router.getStateForAction(action, state);
+		  nextState = navigationRouter(action, state);
 		  break;
 	}
 
 	// Simply return the original `state` if `nextState` is null or undefined.
 	return nextState || state;
 };
+
+/**
+ * reset navigator
+ * @param {*} route 
+ */
+const resetTo = (route) =>  {
+	return (
+		NavigationActions.reset({
+			index: 0,
+			key: null,
+			actions: [NavigationActions.navigate({ routeName: route })],
+		})
+	)
+}
+
+/**
+ * navigat to navigator
+ * @param {*} route 
+ */
+const navigateTo = (route) =>  {
+	return (
+		NavigationActions.navigate({
+			routeName: route
+		})
+	)
+}
 
 export default navReducer;

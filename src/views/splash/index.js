@@ -6,13 +6,13 @@ import {
 	View,
 	Text,
 	Image,
+	ImageBackground,
 	TouchableOpacity,
 	TextInput,
 	ScrollView,
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
-	
 } from 'react-native'
 
 import { connect } from 'react-redux';
@@ -74,9 +74,9 @@ class Splash extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Image style={styles.image} source={require('./../../../images/splash.jpg')}>
+				<ImageBackground style={styles.image} source={require('./../../../images/splash.jpg')}>
 					<Spinner/>
-				</Image>
+				</ImageBackground>
 			</View>
 		)
 	}
