@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { styles } from './style';
-import { COLORS, textStyles } from './../../config/';
+import { COLORS, textStyles, config } from './../../config/';
 import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 import DoubleClick from 'react-native-double-click';
@@ -137,7 +137,18 @@ class Post extends Component {
 	render() {
 		let that = this;
 		let { postObject } = this.state;
-		let { username, avatar, images, isLiked, numOfLikes, description, created_time, showMore } = postObject;
+		let { username,
+			avatar,
+			images,
+			isLiked,
+			numOfLikes,
+			description,
+			created_time,
+			showMore
+		} = postObject;
+		//show all desciption text if clicked on more button or text less than or equal the minumal text in config
+		let isShowAllDescription = showMore || description.length <= config.post.moreLength;
+		let trimedDescription =  description.substring(0, config.post.moreLength)
 		let postDate = date.getDateFormat(created_time)
 		return (
 			<View style={styles.post}>
@@ -231,12 +242,10 @@ class Post extends Component {
 					<View style={styles.description}>
 						<Text>
 							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username} </Text>
-							{(showMore) ? <Text>{description}</Text> :
+							{isShowAllDescription ? <Text>{description}</Text> :
 								<Text>
-									<Text>{description.substring(0, 80)}</Text>
-									<TouchableWithoutFeedback onPress={() => this.moreDesciption()}>
-										<Text style={textStyles.graySmallD}> ... more</Text>
-									</TouchableWithoutFeedback>
+									<Text>{trimedDescription}</Text>
+									<Text onPress={() => this.moreDesciption()} style={textStyles.graySmallD}> ... more</Text>		
 								</Text>
 							}
 						</Text>

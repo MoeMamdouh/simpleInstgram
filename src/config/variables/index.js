@@ -15,5 +15,8 @@ export const config = {
 		projectId: "simpleinstgram-4e7c0",
 		storageBucket: "simpleinstgram-4e7c0.appspot.com",
 		messagingSenderId: "826640731128"
-	  },
+	},
+	post: {
+		moreLength: 80,
+	}
 };
