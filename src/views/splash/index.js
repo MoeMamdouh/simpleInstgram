@@ -20,6 +20,7 @@ import * as actions from './../../actions';
 import firebase from 'firebase';
 import Spinner from '../../components/spinner';
 import { styles } from './style';
+import { COLORS, textStyles, config } from './../../config/';
 
 class Splash extends Component {
 	constructor(props) {
@@ -28,7 +29,23 @@ class Splash extends Component {
 		}
 	}
 	
-	componentWillMount () {
+	componentWillMount() {
+		// firebase.initializeApp(config.firebase)
+	}
+
+	componentDidUpdate () {
+
+		// alert('a')
+		// firebase.auth().onAuthStateChanged((user) => {
+		// 	if(user) {
+		// 		this.navigateApp();
+		// 	} else {
+		// 		this.navigateLogin();
+		// 	}
+		// });
+	}
+
+	componentDidMount() {
 		firebase.auth().onAuthStateChanged((user) => {
 			if(user) {
 				this.navigateApp();
@@ -36,9 +53,6 @@ class Splash extends Component {
 				this.navigateLogin();
 			}
 		});
-	}
-
-	componentDidMount() {
 	}
 
 	/**

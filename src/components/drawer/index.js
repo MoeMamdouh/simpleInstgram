@@ -6,7 +6,10 @@ import { styles } from './style';
 import { COLORS, textStyles, config } from '../../config/';
 import DrawerItem from './../drawerItem';
 import firebase from 'firebase';
-export default class Drawer extends Component {
+import * as actions from './../../actions';
+import { connect } from 'react-redux';
+
+class Drawer extends Component {
 
 	constructor(props) {
 		super(props)
@@ -21,7 +24,8 @@ export default class Drawer extends Component {
 		let { props } = this.props;
 		let { navigation } = props
 		firebase.auth().signOut();
-		navigation.navigate('Login')
+		const { dispatch } = navigation;
+		dispatch({ type: 'Splash' })
 	}
 
 	render() {
@@ -53,3 +57,10 @@ export default class Drawer extends Component {
 		)
 	}
 }
+
+// const mapStateToProps = state => {
+// 	return {
+// 	};
+// };
+
+export default connect(null, actions)(Drawer);

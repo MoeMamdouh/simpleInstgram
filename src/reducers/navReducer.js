@@ -15,6 +15,17 @@ const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.g
 const navReducer = (state = initialState, action) => {
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
+		case 'Splash':
+			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
+				index:0,
+				key: null,
+				actions: [
+					NavigationActions.navigate({ routeName: 'Splash'})
+				]
+			}),
+			state);
+		break;
+
 		// case 'Login':
 		// 	nextState = AppNavigator.router.getStateForAction(
 		// 		NavigationActions.navigate({ routeName: 'Login' }),
@@ -25,6 +36,7 @@ const navReducer = (state = initialState, action) => {
 		case 'Login':
 			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
 				index:0,
+				key: null,
 				actions: [
 					NavigationActions.navigate({ routeName: 'Login'})
 				]
@@ -43,6 +55,7 @@ const navReducer = (state = initialState, action) => {
 		case 'Drawer':
 			nextState = AppNavigator.router.getStateForAction(NavigationActions.reset({
 				index:0,
+				key: null,
 				actions: [
 					NavigationActions.navigate({ routeName: 'Drawer'})
 				]
