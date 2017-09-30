@@ -162,8 +162,8 @@ class Add extends Component {
 						<Text style={textStyles.BoldBlackMedium}> Create </Text>
 					</TouchableOpacity>*/}
 					<View style={styles.btnsContainer}>
-						<Button danger onPress={() => this.closeModal()}><Text> Cancel </Text></Button>
-						<Button success onPress={() => this.createPost()}><Text> Create </Text></Button>
+						<Button danger onPress={() => this.resetPostData()}><Text> Reset </Text></Button>
+						<Button success onPress={() => this.createPost()}><Text> Post </Text></Button>
 					</View>
 				</View>
 				{/*<KeyboardSpacer topSpacing={50}/>*/}
