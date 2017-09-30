@@ -28,6 +28,10 @@ const navReducer = (state = initialState, action) => {
 			nextState = navigationRouter(resetTo('Drawer'), state);
 		break;
 		
+		case 'Home':
+			nextState = navigationRouter(navigateTo('Home'), state);
+		break;
+
 		case 'Profile':
 			nextState = navigationRouter(navigateTo('Profile'), state);
 		break;

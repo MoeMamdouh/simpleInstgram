@@ -46,6 +46,8 @@ class Add extends Component {
 		let { description, uploadedPhoto } = this.state;
 		//if set descrption and upload photo Enable to create the post
 		if (description && uploadedPhoto) {
+			const { dispatch } = this.props.navigation;
+
 			let postObject = {
 				description,
 				images: [uploadedPhoto],
@@ -55,8 +57,11 @@ class Add extends Component {
 				numOfLikes: 0,
 				isLiked: false,
 			}
+			//navigat to home
+			dispatch({ type: 'Home'})
 			//calling posts reducer
 			this.props.addPost(postObject)
+			this.resetPostData()
 		} else {
 			nativeFunctions.toast('sorry, you have to fill the data!')
 		}

@@ -13,7 +13,7 @@ export default (state = INITIAL_STATE, action) => {
 		case ALL_POSTS:
 			return state;
 		case ADD_POST:
-			return [ ...state , action.payload];
+			return [action.payload, ...state];
 		default:
 			return state;
 	}
