@@ -20,9 +20,6 @@ import { COLORS, textStyles, config } from '../../config/';
 import { rawDataHelper } from '../../lib/index';
 import Post from '../../components/post';
 import SearchInput from '../../components/searchInput';
-// import Navbar from '../../components/navbar';
-// import Tabs from '../../components/tabs/tabs';
-import NewPostModal from '../../modals/newPost/newPostModal';
 import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
 import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail } from 'native-base';
@@ -45,7 +42,6 @@ class Home extends Component {
 		this.state = {
 			allPosts: posts.slice(),
 			posts,
-			showNewPostModal: false,
 			// isSearchBar: true,
 			isSearchBar: false,
 			isNewPostAded: false,
@@ -60,46 +56,6 @@ class Home extends Component {
 
 	componentDidMount() {
 		_this = this;
-	}
-
-	/**
-	 * close Modal
-	 */
-	openNewPostModal() {
-		this.setState({ showNewPostModal: true });
-	}
-
-	/**
-	 * close Modal
-	 */
-	closeNewPostModal() {
-		this.setState({ showNewPostModal: false });
-	}
-
-	/**
-	 * create new post
-	 * @param {*} postObject 
-	 */
-	createPost(postObject) {
-		let { allPosts, posts } = this.state
-		postObject.id = 5;
-		postObject.username = config.user.name;
-		postObject.avatar = config.user.avatar;
-		postObject.numOfLikes = 0;
-		postObject.isLiked = false;
-		//postObject.created_time = "2017-01-09T08:20:15+0000";
-
-		allPosts.push(postObject);
-		posts.push(postObject);
-		// posts.reverse()
-		// posts.unshift(postObject)
-		// posts.splice(0, 0, postObject);
-
-		this.updateAllPosts(allPosts)
-		this.updatePosts(posts)
-		this.closeNewPostModal()
-		//update isNewPostAded in state to scrollDown and show the last Post
-		this.setState({ isNewPostAded: true })
 	}
 
 	/**
@@ -189,14 +145,11 @@ class Home extends Component {
 
 	render() {
 		console.log('=>Home(render), this.props ', this.props)
-		let { showNewPostModal, posts, isSearchBar } = this.state;
+		let { posts, isSearchBar } = this.state;
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<StyleProvider style={getTheme(material)}>
 				<View style={styles.container}>
-					{/*header component*/}
-					{/* <Navbar toggleSearchBar={() => this.toggleSearchBar()} /> */}
-					{/*End header component*/}
 
 					{/*search component*/}
 					{isSearchBar ? <SearchInput search={(text) => this.search(text)} /> : null}
@@ -219,24 +172,6 @@ class Home extends Component {
 						enableEmptySections={true}
 					/>
 					{/*End posts list*/}
-
-					{/*custome bottom bar*/}
-					{/*<View style={styles.bottomBar}>
-						<TouchableOpacity onPress={() => this.openNewPostModal()}>
-							<Image style={styles.addPost} source={ADD} />
-						</TouchableOpacity>
-					</View>*/}
-					{/*End custome bottom bar*/}
-
-					{/*tabs component*/}
-					{/* <Tabs openNewPostModal={() => this.openNewPostModal()} /> */}
-					{/*End tabs component*/}
-
-					<NewPostModal
-						showModal={showNewPostModal}
-						closeModal={() => this.closeNewPostModal()}
-						createPost={(postObject) => this.createPost(postObject)}
-					/>
 				</View>
 			</StyleProvider>
 		)
