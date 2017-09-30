@@ -13,14 +13,16 @@ import {
 	RefreshControl,
 	
 } from 'react-native'
+import { COLORS, textStyles, config } from '../../config/';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { styles } from './style';
 import { i18n, nativeFunctions } from '../../lib/';
-import { textStyles, COLORS } from '../../config/';
 import { Container, Header, Button, Content, Thumbnail, Text, Form, Item, Label, Input, Textarea, Body, Title, Icon } from 'native-base';
+import { connect } from 'react-redux';
+import * as actions from './../../actions';
 
-export default class Add extends Component {
+class Add extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -42,16 +44,19 @@ export default class Add extends Component {
 	 */
 	createPost() {
 		let { description, uploadedPhoto } = this.state;
-		let { showModal, closeModal, createPost } = this.props;
-
 		//if set descrption and upload photo Enable to create the post
 		if (description && uploadedPhoto) {
-			let post = {
+			let postObject = {
 				description,
 				images: [uploadedPhoto],
+				id: 5,
+				username: config.user.name,
+				avatar: config.user.avatar,
+				numOfLikes: 0,
+				isLiked: false,
 			}
-			createPost(post);
-			this.resetPostData();
+			//calling posts reducer
+			this.props.addPost(postObject)
 		} else {
 			nativeFunctions.toast('sorry, you have to fill the data!')
 		}
@@ -161,3 +166,12 @@ export default class Add extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		posts: state.posts, 
+		// currentPost: state.currentPost
+	};
+};
+  
+export default connect(mapStateToProps, actions)(Add);

@@ -145,7 +145,8 @@ class Home extends Component {
 
 	render() {
 		console.log('=>Home(render), this.props ', this.props)
-		let { posts, isSearchBar } = this.state;
+		let { isSearchBar } = this.state;
+		let { posts } = this.props;
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<StyleProvider style={getTheme(material)}>

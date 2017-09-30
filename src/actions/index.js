@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
-	SELECT_USER,
+	ALL_POSTS,
+	ADD_POST,
 	EMAIL_CHANGED,
 	PASSWORD_CHANGED,
 	LOGIN_USER_SUCCESS,
@@ -8,10 +9,15 @@ import {
 	LOGIN_USER
   } from './types';
 
-export const selectUser = (post) => {
-	console.log('==>Action creator function, post: ', post)
+export const allPosts = () => {
 	return {
-		type: SELECT_USER,
+		type: ALL_POSTS,
+	};
+};
+
+export const addPost = (post) => {
+	return {
+		type: ADD_POST,
 		payload: post
 	};
 };
