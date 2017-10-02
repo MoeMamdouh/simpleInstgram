@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, ScrollView } from 'react-native';
 import { DrawerNavigator, DrawerItems } from "react-navigation";
 // import { Icon } from 'react-native-elements'
 import { Icon, Button } from 'native-base';
@@ -14,7 +14,7 @@ import { styles } from './../components/drawer/style';
 let RouteConfigs = {
 	Tab: {
 		screen: TabNav,
-		navigationOptions: (navigation) =>({
+		navigationOptions: (navigation) => ({
 			// Generic title that can be used as a fallback for headerTitle and drawerLabel
 			// title : 'Home',
 			// String, React Element or a function that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar. When undefined, scene title is used
@@ -23,28 +23,28 @@ let RouteConfigs = {
 			// 		<Text>{focused} {tintColor}</Text>
 			// 		<Text> Home </Text>
 			// </View>),
-			drawerLabel : ({ focused, tintColor }  ) => <DrawerItem label="Home" icon="ios-home" tintColor={tintColor} badge={5}/>,
+			drawerLabel: ({ focused, tintColor }) => <DrawerItem label="Home" icon="ios-home" tintColor={tintColor} badge={5} />,
 			// React Element or a function, that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar
 			// drawerIcon : ({ tintColor }) => (
 			// 	<Icon name="ios-home" style={{color:tintColor}}/>
 			// ),
 			// Specifies the lock mode of the drawer. This can also update dynamically by using screenProps.lockMode on your top level router.
-			drawerLockMode : true,	
+			drawerLockMode: true,
 		}),
 	},
 	Settings: {
 		screen: SettingsNavigator,
-		navigationOptions: (navigation) =>({
+		navigationOptions: (navigation) => ({
 			// Generic title that can be used as a fallback for headerTitle and drawerLabel
 			// title : 'Settings',
 			// String, React Element or a function that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar. When undefined, scene title is used
-			drawerLabel : ({ focused, tintColor }  ) => <DrawerItem label="settings" icon="ios-settings" tintColor={tintColor}/>,
+			drawerLabel: ({ focused, tintColor }) => <DrawerItem label="settings" icon="ios-settings" tintColor={tintColor} />,
 			// React Element or a function, that given { focused: boolean, tintColor: string } returns a React.Element, to display in drawer sidebar
 			// drawerIcon : ({ tintColor }) => (
 			// 	<Icon name="ios-settings" style={{color:tintColor}}/>
 			// ),
 			// Specifies the lock mode of the drawer. This can also update dynamically by using screenProps.lockMode on your top level router.
-			drawerLockMode : true,
+			drawerLockMode: true,
 		}),
 	},
 }
@@ -57,9 +57,9 @@ let DrawerNavigatorConfig = {
 	// drawerPosition: 'right',
 
 	// Component used to render the content of the drawer, for example, navigation items. Receives the navigation prop for the drawer. Defaults to DrawerItems. For more information, see below.
-	contentComponent: props => <Drawer props={props}/>,
+	contentComponent: props => <Drawer props={props} />,
 	// contentComponent: props => <ScrollView><DrawerItems {...props} /></ScrollView>,
-	
+
 
 	// Configure the drawer content, see below.
 	contentOptions: {
@@ -107,7 +107,7 @@ let DrawerNavigatorConfig = {
 
 	// Should the back button cause switch to the initial route? If yes, set to initialRoute, otherwise none. Defaults to initialRoute behavior.
 	// backBehavior:
-	
+
 }
 
 const DrawerNav = DrawerNavigator(RouteConfigs, DrawerNavigatorConfig);

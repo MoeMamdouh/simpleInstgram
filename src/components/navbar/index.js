@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
 	Image,
- } from 'react-native';
+} from 'react-native';
 import { Container, Content, Header, Title, Button, Left, Right, Body, Icon, Text, Thumbnail } from 'native-base';
 import { styles } from './index';
 import { nativeFunctions } from './.././../lib/';
@@ -26,7 +26,7 @@ export default class Navbar extends Component {
 				</Left>
 
 				<Body>
-					<Title style={{width:140}}>Light Instagram</Title>
+					<Title style={{ width: 140 }}>Light Instagram</Title>
 				</Body>
 
 				<Right>

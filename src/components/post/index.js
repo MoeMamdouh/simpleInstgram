@@ -32,7 +32,7 @@ class Post extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			postObject: { ...this.props.postObject},
+			postObject: { ...this.props.postObject },
 			lastPress: 0,
 		}
 	}
@@ -60,7 +60,7 @@ class Post extends Component {
 	like() {
 		let { postObject } = this.state;
 		let { isLiked } = this.state.postObject;
-		if(!isLiked) {
+		if (!isLiked) {
 			postObject.isLiked = true;
 			postObject.numOfLikes++;
 			this.setState({
@@ -76,7 +76,7 @@ class Post extends Component {
 	disLike() {
 		let { postObject } = this.state;
 		let { isLiked } = this.state.postObject;
-		if(isLiked) {
+		if (isLiked) {
 			postObject.isLiked = false;
 			postObject.numOfLikes--;
 			this.setState({
@@ -101,23 +101,23 @@ class Post extends Component {
 	 * @param {*} postObject 
 	 */
 	tapOnImage(postObject) {
-		 var delta = new Date().getTime() - this.state.lastPress;
+		var delta = new Date().getTime() - this.state.lastPress;
 
-		if(delta < 500) {
+		if (delta < 500) {
 			// double tap happend
 			this.like(postObject)
-		} 
+		}
 
 		this.setState({
 			lastPress: new Date().getTime()
 		})
 
 	}
-	
+
 	/**
 	 * open user profile
 	 */
-	openProfile(post){
+	openProfile(post) {
 		// console.log('AAthis.props' ,this.props)
 		const { dispatch, setParams } = this.props.navigation;
 		dispatch({ type: 'Profile', payload: post })
@@ -131,7 +131,7 @@ class Post extends Component {
 	 */
 	moreDesciption() {
 		let { postObject } = this.state;
-		this.setState({postObject: { ...postObject, showMore: true }})
+		this.setState({ postObject: { ...postObject, showMore: true } })
 	}
 
 	render() {
@@ -148,28 +148,28 @@ class Post extends Component {
 		} = postObject;
 		//show all desciption text if clicked on more button or text less than or equal the minumal text in config
 		let isShowAllDescription = showMore || description.length <= config.post.moreLength;
-		let trimedDescription =  description.substring(0, config.post.moreLength)
+		let trimedDescription = description.substring(0, config.post.moreLength)
 		let postDate = date.getDateFormat(created_time)
 		return (
 			<View style={styles.post}>
 				{/*user*/}
-				<TouchableWithoutFeedback onPress={()=>this.openProfile(postObject)}>
-				<View style={styles.userBlock}>
-					<View style={styles.userBlockLeft}>
-						<View style={styles.avatar}>
-							<Thumbnail style={styles.avatarImage} source={{ uri: avatar }} />
+				<TouchableWithoutFeedback onPress={() => this.openProfile(postObject)}>
+					<View style={styles.userBlock}>
+						<View style={styles.userBlockLeft}>
+							<View style={styles.avatar}>
+								<Thumbnail style={styles.avatarImage} source={{ uri: avatar }} />
+							</View>
+							<View style={styles.username}>
+								<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username}</Text>
+							</View>
 						</View>
-						<View style={styles.username}>
-							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username}</Text>
-						</View>
-					</View>
-					<View style={styles.userBlockRight}>
-						<Text style={textStyles.graySmall}>{postDate}</Text>
-						{/*<TouchableOpacity>
+						<View style={styles.userBlockRight}>
+							<Text style={textStyles.graySmall}>{postDate}</Text>
+							{/*<TouchableOpacity>
 							<Text style={textStyles.grayMedium}>...</Text>
 						</TouchableOpacity>*/}
+						</View>
 					</View>
-				</View>
 				</TouchableWithoutFeedback>
 				{/*End user*/}
 
@@ -194,7 +194,7 @@ class Post extends Component {
 						return (
 							<View>
 								{/*<DoubleClick onClick={() => that.toggleLikePost(postObject)}>*/}
-								<TouchableWithoutFeedback onPress={()=>that.tapOnImage(postObject)}>
+								<TouchableWithoutFeedback onPress={() => that.tapOnImage(postObject)}>
 									<Image style={styles.imagePost} source={{ uri: image }} />
 								</TouchableWithoutFeedback>
 								{/*</DoubleClick>*/}
@@ -224,7 +224,7 @@ class Post extends Component {
 
 						<View style={styles.actionsRight}>
 							<TouchableOpacity>
-							{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
+								{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>
 						</View>
@@ -245,7 +245,7 @@ class Post extends Component {
 							{isShowAllDescription ? <Text>{description}</Text> :
 								<Text>
 									<Text>{trimedDescription}</Text>
-									<Text onPress={() => this.moreDesciption()} style={textStyles.graySmallD}> ... more</Text>		
+									<Text onPress={() => this.moreDesciption()} style={textStyles.graySmallD}> ... more</Text>
 								</Text>
 							}
 						</Text>
@@ -260,9 +260,9 @@ class Post extends Component {
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts, 
+		posts: state.posts,
 		currentPost: state.currentPost
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Post);

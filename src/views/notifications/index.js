@@ -12,7 +12,7 @@ import {
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
-	
+
 } from 'react-native'
 
 
@@ -23,14 +23,14 @@ export default class Notifications extends Component {
 		}
 		// console.log('Notifications', this.props)
 	}
-	
+
 	componentWillMount() {
 	}
 
 	componentDidMount() {
 	}
 
-	
+
 	render() {
 		return (
 			<Text>Notifications</Text>

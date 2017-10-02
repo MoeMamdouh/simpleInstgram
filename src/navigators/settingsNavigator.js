@@ -11,11 +11,11 @@ import { COLORS, textStyles, config } from '../config/';
 let RouteConfigs = {
 	Add: {
 		screen: Settings,
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			title: 'Settings',
 			headerLeft:
-			<Button transparent onPress={()=>navigation.navigate('DrawerOpen')}>
-				<Icon name='ios-menu' style={{color: COLORS.BLACK}}/>
+			<Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+				<Icon name='ios-menu' style={{ color: COLORS.BLACK }} />
 			</Button>,
 		}),
 	},
@@ -32,7 +32,7 @@ let StackNavigatorConfig = {
 
 	//Default navigation options to use for screens
 	// navigationOptions: ({navigation}) => ({
-		
+
 	// }),
 
 	//A mapping of overrides for the paths set in the route configs

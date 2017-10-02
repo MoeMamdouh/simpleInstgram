@@ -15,11 +15,11 @@ class RawDataHelper {
      * @param {*} array 
      */
     dateSort(array, attr) {
-		array.sort(function(a,b) { 
-			return new Date(a[attr]).getTime() - new Date(b[attr]).getTime() 
-		});
-		return array;
-	}
+        array.sort(function (a, b) {
+            return new Date(a[attr]).getTime() - new Date(b[attr]).getTime()
+        });
+        return array;
+    }
 
 }
 

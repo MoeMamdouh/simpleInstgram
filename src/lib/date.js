@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 import Moment from 'moment';
 class Date {
 	getFullDateFormat(date) {
@@ -36,7 +36,7 @@ class Date {
 	}
 	//get Hours
 	getHours(date) {
-		return Moment(date).format('HH'); 
+		return Moment(date).format('HH');
 	}
 	//get mintes
 	getMinutes(date) {
@@ -56,11 +56,11 @@ class Date {
 	}
 
 	randomColor() {
- 		return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+		return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 	}
 
 	calendarDateFormatHandler(start_date, end_date) {
-		let date =  { 
+		let date = {
 			startDate: new Date(),
 			endDate: new Date()
 		}
@@ -117,7 +117,7 @@ class Date {
 	isSameMonth(date1, data2) {
 		return Moment(date1).isSame(data2, 'month');
 	}
-	
+
 	/**
 	 * check if two dates have same day
 	 */
@@ -156,7 +156,7 @@ class Date {
 			return false;
 		}
 	}
-	
+
 	duration(date) {
 		let now = Moment(); //todays date
 		let end = Moment(date)

@@ -11,7 +11,7 @@ import {
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
-	
+
 } from 'react-native'
 import { COLORS, textStyles, config } from '../../config/';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -58,7 +58,7 @@ class Add extends Component {
 				isLiked: false,
 			}
 			//navigat to home
-			dispatch({ type: 'Home'})
+			dispatch({ type: 'Home' })
 			//calling posts reducer
 			this.props.addPost(postObject)
 			this.resetPostData()
@@ -114,29 +114,29 @@ class Add extends Component {
 		});
 	}
 
-	
+
 	render() {
 		let { description, uploadedPhoto } = this.state;
 		return (
 			<KeyboardAwareScrollView>
 				<View style={styles.content}>
 					<ScrollView>
-					<View style={styles.topContent}>
-						<View style={styles.photoContainer}>
-							<TouchableOpacity onPress={() => this.uploadPhoto()}>
-								{
-									uploadedPhoto ? <Thumbnail large square source={{ uri: uploadedPhoto }} style={styles.uploadedPhoto} />
-										:
-										<View style={styles.selectPhoto}>
-											<Text style={[textStyles.graySmall, styles.selectPhotoText]}>Select photo</Text>
-											<Icon style={styles.addIcon} name='add-circle' />
-										</View>
-								}
-							</TouchableOpacity>
-						</View>
+						<View style={styles.topContent}>
+							<View style={styles.photoContainer}>
+								<TouchableOpacity onPress={() => this.uploadPhoto()}>
+									{
+										uploadedPhoto ? <Thumbnail large square source={{ uri: uploadedPhoto }} style={styles.uploadedPhoto} />
+											:
+											<View style={styles.selectPhoto}>
+												<Text style={[textStyles.graySmall, styles.selectPhotoText]}>Select photo</Text>
+												<Icon style={styles.addIcon} name='add-circle' />
+											</View>
+									}
+								</TouchableOpacity>
+							</View>
 
-						<View style={styles.description}>
-							{/*<TextInput
+							<View style={styles.description}>
+								{/*<TextInput
 								placeholder='description'
 								style={[textStyles.Blacksmall, styles.descriptionTextArea]}
 								multiline={true}
@@ -145,17 +145,17 @@ class Add extends Component {
 								value={description}
 								numberOfLines={8}
 							/>*/}
-							
-							<Item regular>
-								<Textarea
-									style={[textStyles.Blacksmall, styles.descriptionTextArea]}
-									placeholder='Write a caption...'
-									onChangeText={(text) => { this.setState({ description: text }) }}
-									value={description}
-								/>
-							</Item>
+
+								<Item regular>
+									<Textarea
+										style={[textStyles.Blacksmall, styles.descriptionTextArea]}
+										placeholder='Write a caption...'
+										onChangeText={(text) => { this.setState({ description: text }) }}
+										value={description}
+									/>
+								</Item>
+							</View>
 						</View>
-					</View>
 					</ScrollView>
 
 					{/*<TouchableOpacity onPress={() => createPost({aa:"aa"})} style={styles.confirmBtn}>
@@ -174,9 +174,9 @@ class Add extends Component {
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts, 
+		posts: state.posts,
 		// currentPost: state.currentPost
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Add);

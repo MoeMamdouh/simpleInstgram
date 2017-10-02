@@ -1,7 +1,7 @@
 import {
 	ALL_POSTS,
 	ADD_POST,
-  } from './../actions/types';
+} from './../actions/types';
 import data from './../data/posts.json';
 import { SELECT_USER } from './../actions/types';
 

@@ -13,7 +13,7 @@ let RouteConfigs = {
 	Login: {
 		screen: Login,
 		// Optional: Override the `navigationOptions` for the screen
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			// String that can be used as a fallback for headerTitle. Additionally, will be used as a fallback for tabBarLabel (if nested in a TabNavigator) or drawerLabel (if nested in a DrawerNavigator)
 			title: 'Login',
 
@@ -54,9 +54,9 @@ let RouteConfigs = {
 			// gesturesEnabled : false
 		}),
 	},
-	Drawer: { 
+	Drawer: {
 		screen: DrawerNav,
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			// gesturesEnabled : false
 		}),
 	},
@@ -73,8 +73,8 @@ let StackNavigatorConfig = {
 	//initialRouteParams
 
 	//Default navigation options to use for screens
-	navigationOptions: ({navigation}) => ({
-		gesturesEnabled : false
+	navigationOptions: ({ navigation }) => ({
+		gesturesEnabled: false
 	}),
 
 	//A mapping of overrides for the paths set in the route configs

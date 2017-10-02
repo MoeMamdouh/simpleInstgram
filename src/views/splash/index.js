@@ -28,12 +28,12 @@ class Splash extends Component {
 		this.state = {
 		}
 	}
-	
+
 	componentWillMount() {
 		// firebase.initializeApp(config.firebase)
 	}
 
-	componentDidUpdate () {
+	componentDidUpdate() {
 
 		// alert('a')
 		// firebase.auth().onAuthStateChanged((user) => {
@@ -47,7 +47,7 @@ class Splash extends Component {
 
 	componentDidMount() {
 		firebase.auth().onAuthStateChanged((user) => {
-			if(user) {
+			if (user) {
 				this.navigateApp();
 			} else {
 				this.navigateLogin();
@@ -75,7 +75,7 @@ class Splash extends Component {
 		return (
 			<View style={styles.container}>
 				<ImageBackground style={styles.image} source={require('./../../../images/splash.jpg')}>
-					<Spinner/>
+					<Spinner />
 				</ImageBackground>
 			</View>
 		)

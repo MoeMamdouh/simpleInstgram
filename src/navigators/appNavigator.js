@@ -15,7 +15,7 @@ let RouteConfigs = {
 	Splash: {
 		screen: Splash,
 		// Optional: Override the `navigationOptions` for the screen
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			// String that can be used as a fallback for headerTitle. Additionally, will be used as a fallback for tabBarLabel (if nested in a TabNavigator) or drawerLabel (if nested in a DrawerNavigator)
 			title: 'Splash',
 
@@ -60,7 +60,7 @@ let RouteConfigs = {
 	Login: {
 		screen: Login,
 		// Optional: Override the `navigationOptions` for the screen
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			// String that can be used as a fallback for headerTitle. Additionally, will be used as a fallback for tabBarLabel (if nested in a TabNavigator) or drawerLabel (if nested in a DrawerNavigator)
 			title: 'Login',
 
@@ -101,10 +101,10 @@ let RouteConfigs = {
 			// gesturesEnabled : false
 		}),
 	},
-	
-	Drawer: { 
+
+	Drawer: {
 		screen: DrawerNav,
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({ navigation }) => ({
 			// gesturesEnabled : false
 		}),
 	},
@@ -126,8 +126,8 @@ let StackNavigatorConfig = {
 	//initialRouteParams
 
 	//Default navigation options to use for screens
-	navigationOptions: ({navigation}) => ({
-		gesturesEnabled : false
+	navigationOptions: ({ navigation }) => ({
+		gesturesEnabled: false
 	}),
 
 	//A mapping of overrides for the paths set in the route configs
@@ -163,18 +163,18 @@ export const AppNavigator = StackNavigator(RouteConfigs, StackNavigatorConfig)
 
 class App extends React.Component {
 	render() {
-	  return (
-		<AppNavigator navigation={addNavigationHelpers({
-			dispatch: this.props.dispatch,
-			state: this.props.nav,
-		})} />
-	  );
+		return (
+			<AppNavigator navigation={addNavigationHelpers({
+				dispatch: this.props.dispatch,
+				state: this.props.nav,
+			})} />
+		);
 	}
-  }
+}
 
 
 const mapStateToProps = (state) => ({
-  nav: state.nav
+	nav: state.nav
 });
 
 export const AppWithNavigationState = connect(mapStateToProps)(App);

@@ -1,5 +1,5 @@
 export const COLORS = {
-	APP_BG: '#fafafa',
+    APP_BG: '#fafafa',
     BLACK: '#000000',
     GRAY: '#CCCCCC',
     LIGHT_GRAY: '#ededed',
@@ -12,5 +12,5 @@ export const COLORS = {
     LIGHT_ORANGE: '#ed8e28',
     OFF_ORANGE: '#e67428',
     BLUE: '#00aeef',
-    BRAND_COLOR:'#2874F0'
+    BRAND_COLOR: '#2874F0'
 }

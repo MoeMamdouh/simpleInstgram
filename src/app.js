@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Text
+	View, Text
 } from 'react-native';
 import { COLORS, textStyles, config } from './config/';
 import { AppWithNavigationState } from './navigators/appNavigator';
@@ -15,12 +15,12 @@ export class App extends Component {
 		firebase.initializeApp(config.firebase)
 	}
 
-    render() {
+	render() {
 		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
-        return (
+		return (
 			<Provider store={store}>
-				<AppWithNavigationState/>
+				<AppWithNavigationState />
 			</Provider>
-        );
-    }
+		);
+	}
 }

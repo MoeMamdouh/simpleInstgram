@@ -1,10 +1,10 @@
 import { config } from './../config/';
 import {
-  EMAIL_CHANGED,
-  PASSWORD_CHANGED,
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL,
-  LOGIN_USER
+	EMAIL_CHANGED,
+	PASSWORD_CHANGED,
+	LOGIN_USER_SUCCESS,
+	LOGIN_USER_FAIL,
+	LOGIN_USER
 } from './../actions/types';
 
 import { NavigationActions } from 'react-navigation';
@@ -18,27 +18,27 @@ const navReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'Splash':
 			nextState = navigationRouter(resetTo('Splash'), state);
-		break;
+			break;
 
 		case 'Login':
 			nextState = navigationRouter(resetTo('Login'), state);
-		break;
+			break;
 
 		case 'Drawer':
 			nextState = navigationRouter(resetTo('Drawer'), state);
-		break;
-		
+			break;
+
 		case 'Home':
 			nextState = navigationRouter(navigateTo('Home'), state);
-		break;
+			break;
 
 		case 'Profile':
 			nextState = navigationRouter(navigateTo('Profile'), state);
-		break;
+			break;
 
 		default:
-		  nextState = navigationRouter(action, state);
-		  break;
+			nextState = navigationRouter(action, state);
+			break;
 	}
 
 	// Simply return the original `state` if `nextState` is null or undefined.
@@ -49,7 +49,7 @@ const navReducer = (state = initialState, action) => {
  * reset navigator
  * @param {*} route 
  */
-const resetTo = (route) =>  {
+const resetTo = (route) => {
 	return (
 		NavigationActions.reset({
 			index: 0,
@@ -63,7 +63,7 @@ const resetTo = (route) =>  {
  * navigat to navigator
  * @param {*} route 
  */
-const navigateTo = (route) =>  {
+const navigateTo = (route) => {
 	return (
 		NavigationActions.navigate({
 			routeName: route

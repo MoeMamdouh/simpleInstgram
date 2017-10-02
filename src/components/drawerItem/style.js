@@ -10,10 +10,10 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		height: 50,
-		flexDirection:'row',
+		flexDirection: 'row',
 		alignItems: 'center',
 		padding: 10,
-		marginTop:5,
+		marginTop: 5,
 		borderBottomWidth: 0.5,
 		borderBottomColor: COLORS.GRAY,
 		justifyContent: 'space-between'
@@ -24,14 +24,14 @@ export const styles = StyleSheet.create({
 	},
 
 	leftContent: {
-		flexDirection:'row',
+		flexDirection: 'row',
 	},
 
 	icon: {
 		fontSize: 20,
-		marginRight: 20,	
+		marginRight: 20,
 	},
-	
+
 	label: {
 
 	}

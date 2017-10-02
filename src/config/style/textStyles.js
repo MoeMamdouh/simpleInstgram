@@ -48,7 +48,7 @@ export const textStyles = StyleSheet.create({
 		color: COLORS.BLACK,
 		fontWeight: 'bold',
 	},
-	
+
 	BlackBoldSmall: {
 		fontSize: 14,
 		color: COLORS.BLACK,

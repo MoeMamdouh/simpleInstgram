@@ -22,7 +22,7 @@ class ProfileHeaderTitle extends Component {
 		let { currentPost } = this.props
 		let { username } = currentPost;
 		return (
-			<Text>{username? username : 'Visitor'}</Text>
+			<Text>{username ? username : 'Visitor'}</Text>
 		)
 	}
 }
@@ -32,5 +32,5 @@ const mapStateToProps = state => {
 		currentPost: state.currentPost
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(ProfileHeaderTitle);

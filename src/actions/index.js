@@ -7,7 +7,7 @@ import {
 	LOGIN_USER_SUCCESS,
 	LOGIN_USER_FAIL,
 	LOGIN_USER
-  } from './types';
+} from './types';
 
 export const allPosts = () => {
 	return {
@@ -27,8 +27,8 @@ export const emailChanged = (text) => {
 		type: EMAIL_CHANGED,
 		payload: text
 	};
-  };
-  
+};
+
 export const passwordChanged = (text) => {
 	return {
 		type: PASSWORD_CHANGED,
@@ -45,29 +45,29 @@ export const loginUser = ({ email, password }) => {
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.then(user => loginUserSuccess(dispatch, user))
 			.catch((error) => {
-			firebase.auth().createUserWithEmailAndPassword(email, password)
-				.then(user => loginUserSuccess(dispatch, user))
-				.catch((error) => loginUserFail(dispatch, error));
+				firebase.auth().createUserWithEmailAndPassword(email, password)
+					.then(user => loginUserSuccess(dispatch, user))
+					.catch((error) => loginUserFail(dispatch, error));
 			});
 	};
-  };
-  
-	/**
-	 * helper function
-	 */
-	const loginUserFail = (dispatch, error) => {
-		dispatch({
-			type: LOGIN_USER_FAIL,
-			payload: error
-		});
-	};
-	
-	/**
-	 * helper function
-	 */
-	const loginUserSuccess = (dispatch, user) => {
-		dispatch({
-			type: LOGIN_USER_SUCCESS,
-			payload: user
-		});
-	};
+};
+
+/**
+ * helper function
+ */
+const loginUserFail = (dispatch, error) => {
+	dispatch({
+		type: LOGIN_USER_FAIL,
+		payload: error
+	});
+};
+
+/**
+ * helper function
+ */
+const loginUserSuccess = (dispatch, user) => {
+	dispatch({
+		type: LOGIN_USER_SUCCESS,
+		payload: user
+	});
+};

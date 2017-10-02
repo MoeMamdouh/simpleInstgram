@@ -17,7 +17,7 @@ class API {
 		try {
 			let url = `${config.server_url}/${route}`
 			let body = method == 'POST' ? JSON.stringify(params) : null;
-			console.log('request url: ', url,' with params: ', params)
+			console.log('request url: ', url, ' with params: ', params)
 			// let body = method == 'POST' ? this.parseJsonToFormData(params) : null;
 			let response = await fetch(url, {
 				method: method,

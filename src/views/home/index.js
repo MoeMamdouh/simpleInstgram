@@ -12,7 +12,7 @@ import {
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
-	
+
 } from 'react-native'
 import _ from 'lodash';
 import { styles } from './style';
@@ -33,7 +33,7 @@ const ds = new ListView.DataSource({
 let _this = null;
 
 class Home extends Component {
-	
+
 	constructor(props) {
 		super(props);
 		let posts = this.props.posts;
@@ -49,7 +49,7 @@ class Home extends Component {
 		}
 		// this.props.navigation.navigate('DrawerOpen');
 	}
-	
+
 	componentWillMount() {
 		LayoutAnimation.spring();
 	}
@@ -181,9 +181,9 @@ class Home extends Component {
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts, 
+		posts: state.posts,
 		// currentPost: state.currentPost
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Home);

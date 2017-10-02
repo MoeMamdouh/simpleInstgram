@@ -12,7 +12,7 @@ import {
 	ListView,
 	LayoutAnimation,
 	RefreshControl,
-	
+
 } from 'react-native'
 
 
@@ -22,14 +22,14 @@ export default class Settings extends Component {
 		this.state = {
 		}
 	}
-	
+
 	componentWillMount() {
 	}
 
 	componentDidMount() {
 	}
 
-	
+
 	render() {
 		return (
 			<Text>settings</Text>

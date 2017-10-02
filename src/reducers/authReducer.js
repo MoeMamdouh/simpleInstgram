@@ -1,15 +1,15 @@
 import { config } from './../config/';
 import {
-  EMAIL_CHANGED,
-  PASSWORD_CHANGED,
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL,
-  LOGIN_USER
+	EMAIL_CHANGED,
+	PASSWORD_CHANGED,
+	LOGIN_USER_SUCCESS,
+	LOGIN_USER_FAIL,
+	LOGIN_USER
 } from './../actions/types';
 
 const INITIAL_STATE = {
-//   email: '',
-//   password: ''
+	//   email: '',
+	//   password: ''
 	email: config.user.email,
 	password: config.user.password,
 	user: null,
@@ -32,5 +32,5 @@ export default (state = INITIAL_STATE, action) => {
 			return { ...state, error: action.payload.message, password: '', loading: false };
 		default:
 			return state;
-		}
+	}
 };

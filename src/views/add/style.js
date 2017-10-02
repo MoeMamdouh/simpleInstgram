@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
 		borderWidth: 0.5,
 		borderStyle: 'dashed',
 		borderColor: COLORS.GRAY,
-		
+
 	},
 
 	selectPhotoText: {
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
 		padding: 15,
 		paddingTop: 15,
 	},
-	
+
 	btnsContainer: {
 		width: 240,
 		flexDirection: 'row',

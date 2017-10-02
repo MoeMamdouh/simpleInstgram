@@ -22,29 +22,29 @@ import ProfileHeaderTitle from './../../components/profileHeaderTitle'
 class Profile extends Component {
 	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
 	static navigationOptions = (navigation, screenProps) => ({
-		title: <ProfileHeaderTitle/>,
+		title: <ProfileHeaderTitle />,
 	});
-	
+
 	constructor(props) {
 		super(props);
 		this.state = {
 		}
 	}
-	
+
 	componentWillMount() {
 	}
 
 	componentDidMount() {
 	}
 
-	
+
 	render() {
 		console.log('=>Profile(render), this.props ', this.props)
-		let {currentPost} = this.props
+		let { currentPost } = this.props
 		return (
 			<View>
 				<Text>Profile</Text>
-				<TouchableOpacity onPress={() => this.props.navigation.setParams({user: 'Lucy'})}>
+				<TouchableOpacity onPress={() => this.props.navigation.setParams({ user: 'Lucy' })}>
 					<Text>
 						asd
 					</Text>
@@ -72,5 +72,5 @@ const mapStateToProps = state => {
 		currentPost: state.currentPost
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Profile);

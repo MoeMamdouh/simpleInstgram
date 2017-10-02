@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Button } from 'native-base';
 import { COLORS, textStyles, config } from '../../config/';
-import {styles} from './style';
+import { styles } from './style';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
@@ -27,16 +27,16 @@ class Login extends React.Component {
 	// 		}
 	// 	});
 	// }
-	
+
 	onEmailChange(text) {
 		// console.log("=======>", this.props)
 		this.props.emailChanged(text);
 	}
-	
-	  onPasswordChange(text) {
+
+	onPasswordChange(text) {
 		this.props.passwordChanged(text);
 	}
-	
+
 	/**
 	 * on login button pressed
 	 */
@@ -64,7 +64,7 @@ class Login extends React.Component {
 							<Label>Username</Label>
 							<Input
 								onChangeText={this.onEmailChange.bind(this)}
-          						value={this.props.email}
+								value={this.props.email}
 							/>
 						</Item>
 
@@ -73,16 +73,16 @@ class Login extends React.Component {
 							<Input
 								secureTextEntry={true}
 								onChangeText={this.onPasswordChange.bind(this)}
-         					   value={this.props.password}
+								value={this.props.password}
 							/>
 						</Item>
 
 						<Text style={styles.errorTextStyle}>
 							{this.props.error}
 						</Text>
-						
+
 						{
-							loading ? <Spinner/> :
+							loading ? <Spinner /> :
 								<Button block style={styles.btn} onPress={() => this.onButtonPress()}>
 									<Text>Login</Text>
 								</Button>
@@ -93,7 +93,7 @@ class Login extends React.Component {
 						</Button> */}
 					</Form>
 				</Content>
-		  </Container>
+			</Container>
 		);
 	}
 }
@@ -110,5 +110,5 @@ const mapStateToProps = state => {
 		user: state.auth.user,
 	};
 };
-  
+
 export default connect(mapStateToProps, actions)(Login);

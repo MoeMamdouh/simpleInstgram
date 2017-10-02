@@ -6,7 +6,7 @@ import {
 	ImageBackground,
 	TouchableWithoutFeedback
 } from 'react-native';
-import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail,List, ListItem, Switch } from 'native-base';
+import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail, List, ListItem, Switch } from 'native-base';
 import { DrawerItems } from "react-navigation";
 import { styles } from './style';
 import { COLORS, textStyles, config } from '../../config/';
@@ -37,14 +37,14 @@ class Drawer extends Component {
 	render() {
 		let { props } = this.props;
 		// console.log('=>Drawer(render)props ', props)
-		let {activeTintColor, inactiveTintColor, navigation} = props
+		let { activeTintColor, inactiveTintColor, navigation } = props
 		return (
 			<View style={styles.container}>
 				<ScrollView>
 					<ImageBackground style={styles.cover} source={require('./../../../images/drawer/cover.jpg')}>
 						<View style={styles.overlay}>
 							<View style={styles.drawerHeader}>
-								<Thumbnail large source={{uri: config.user.avatar}} />
+								<Thumbnail large source={{ uri: config.user.avatar }} />
 								<View style={styles.draweUser}>
 									<Text style={textStyles.ButtonText}>{config.user.name}</Text>
 									<Text style={textStyles.graySmallD}>{config.user.email}</Text>
@@ -53,9 +53,9 @@ class Drawer extends Component {
 						</View>
 					</ImageBackground>
 					<DrawerItems {...props} />
-					<TouchableWithoutFeedback onPress={()=>this.logout()}>
+					<TouchableWithoutFeedback onPress={() => this.logout()}>
 						<View>
-							<DrawerItem label="Logout" icon="ios-log-out" tintColor={inactiveTintColor}/>
+							<DrawerItem label="Logout" icon="ios-log-out" tintColor={inactiveTintColor} />
 						</View>
 					</TouchableWithoutFeedback>
 				</ScrollView>

@@ -8,7 +8,7 @@ import Toast from 'react-native-simple-toast';
 import Communications from 'react-native-communications';
 
 class NativeFunctions {
-	
+
 	share(title, message) {
 		return Share.share({
 			title,

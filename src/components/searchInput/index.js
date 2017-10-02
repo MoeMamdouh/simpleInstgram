@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {} from 'react-native';
+import { } from 'react-native';
 import { styles } from './style';
 import { COLORS, textStyles } from './../../config/';
 import { date } from './.././../lib/';
@@ -11,7 +11,7 @@ export default class SearchInput extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			
+
 		}
 	}
 
