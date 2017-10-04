@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions';
 
 const { width, height } = Dimensions.get('window');
-
+ 
 const
 	LIKE_ICON = require('../../../images/icons/like.png'),
 	LIKE_ACTIVE_ICON = require('../../../images/icons/like_active.png'),
