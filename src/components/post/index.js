@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions';
 
 const { width, height } = Dimensions.get('window');
- 
+
 const
 	LIKE_ICON = require('../../../images/icons/like.png'),
 	LIKE_ACTIVE_ICON = require('../../../images/icons/like_active.png'),
@@ -121,7 +121,7 @@ class Post extends Component {
 		// console.log('AAthis.props' ,this.props)
 		const { dispatch, setParams } = this.props.navigation;
 		dispatch({ type: 'Profile', payload: post })
-		// setParams({user: post })
+		// setParams({ user: 'post' })
 		// this.props.navigation.navigate('Profile')
 
 	}
@@ -188,11 +188,10 @@ class Post extends Component {
 					paginationStyle={{ bottom: 0 }}
 					dotStyle={styles.dot}
 					activeDotStyle={[styles.dot, styles.activeDot]}
-					ref={(swiper) => { this._swiper = swiper; }}
 				>
 					{images.map(function (image, index) {
 						return (
-							<View>
+							<View key={index}>
 								{/*<DoubleClick onClick={() => that.toggleLikePost(postObject)}>*/}
 								<TouchableWithoutFeedback onPress={() => that.tapOnImage(postObject)}>
 									<Image style={styles.imagePost} source={{ uri: image }} />
@@ -261,7 +260,6 @@ class Post extends Component {
 const mapStateToProps = state => {
 	return {
 		posts: state.posts,
-		currentPost: state.currentPost
 	};
 };
 

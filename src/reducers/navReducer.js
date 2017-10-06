@@ -14,6 +14,7 @@ const navigationRouter = AppNavigator.router.getStateForAction;
 const initialState = navigationRouter(AppNavigator.router.getActionForPathAndParams('Splash'));
 
 const navReducer = (state = initialState, action) => {
+	let nextState;
 	console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case 'Splash':
@@ -33,7 +34,7 @@ const navReducer = (state = initialState, action) => {
 			break;
 
 		case 'Profile':
-			nextState = navigationRouter(navigateTo('Profile'), state);
+			nextState = navigationRouter(navigateTo('Profile', action.payload), state);
 			break;
 
 		default:
@@ -63,12 +64,17 @@ const resetTo = (route) => {
  * navigat to navigator
  * @param {*} route 
  */
-const navigateTo = (route) => {
+const navigateTo = (route, payload) => {
+	// console.log('payload ', payload, 'route: ', route)
 	return (
 		NavigationActions.navigate({
-			routeName: route
+			routeName: route,
+			params: { currentPost: payload },
 		})
 	)
 }
 
 export default navReducer;
+
+
+// ({ routeName: 'Profile', params: { user: 'baz' } })

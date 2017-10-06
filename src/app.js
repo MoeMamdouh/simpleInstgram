@@ -3,7 +3,7 @@ import {
 	View, Text
 } from 'react-native';
 import { COLORS, textStyles, config } from './config/';
-import { AppWithNavigationState } from './navigators/appNavigator';
+import { AppWithNavigationState, AppNavigator } from './navigators/appNavigator';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';

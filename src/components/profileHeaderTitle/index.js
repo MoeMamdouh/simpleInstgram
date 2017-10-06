@@ -12,25 +12,25 @@ import {
 import { connect } from 'react-redux';
 import * as actions from './../../actions';
 
-class ProfileHeaderTitle extends Component {
+export default class ProfileHeaderTitle extends Component {
 
 	constructor(props) {
 		super(props)
 	}
 
 	render() {
-		let { currentPost } = this.props
-		let { username } = currentPost;
+		let { currentPost } = this.props;
+		let username = currentPost.username;
 		return (
 			<Text>{username ? username : 'Visitor'}</Text>
 		)
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		currentPost: state.currentPost
-	};
-};
+// const mapStateToProps = state => {
+// 	return {
+// 		currentPost: state.currentPost
+// 	};
+// };
 
-export default connect(mapStateToProps, actions)(ProfileHeaderTitle);
+// export default connect(mapStateToProps, actions)(ProfileHeaderTitle);

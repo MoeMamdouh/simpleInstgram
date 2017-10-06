@@ -6,7 +6,7 @@ import navReducer from './navReducer';
 
 export default combineReducers({
   posts: postsReducer,
-  currentPost: postSelectionReducer,
+  //currentPost: postSelectionReducer,
   auth: authReducer,
   nav: navReducer,
 });

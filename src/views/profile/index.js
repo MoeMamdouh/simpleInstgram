@@ -21,9 +21,15 @@ import ProfileHeaderTitle from './../../components/profileHeaderTitle'
 
 class Profile extends Component {
 	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
-	static navigationOptions = (navigation, screenProps) => ({
-		title: <ProfileHeaderTitle />,
-	});
+	static navigationOptions = (navigation) => {
+		navigation = navigation.navigation;
+		if (navigation.state.params) {
+			let { currentPost } = navigation.state.params;
+			return ({
+				title: <ProfileHeaderTitle currentPost={currentPost} />,
+			})
+		}
+	};
 
 	constructor(props) {
 		super(props);
@@ -40,16 +46,16 @@ class Profile extends Component {
 
 	render() {
 		console.log('=>Profile(render), this.props ', this.props)
-		let { currentPost } = this.props
+		// let { currentPost } = this.props
 		return (
 			<View>
 				<Text>Profile</Text>
-				<TouchableOpacity onPress={() => this.props.navigation.setParams({ user: 'Lucy' })}>
+				{/* <TouchableOpacity onPress={() => this.props.navigation.setParams({ user: 'Lucy' })}>
 					<Text>
 						asd
 					</Text>
-				</TouchableOpacity>
-				<Text>{currentPost.username}</Text>
+				</TouchableOpacity> */}
+				{/* <Text>{currentPost.username}</Text> */}
 				{/*<Button
 					onPress={() => this.props.navigation.goBack()}
 					title="Go back from this HomeScreen"
