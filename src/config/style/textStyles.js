@@ -69,6 +69,11 @@ export const textStyles = StyleSheet.create({
 		color: COLORS.off_GRAY,
 		fontWeight: 'bold',
 	},
+	grayProfileInfo: {
+		fontSize: 14,
+		color: COLORS.off_GRAY,
+		fontWeight: '500',
+	},
 
 	graySmallD: {
 		fontSize: 13,
