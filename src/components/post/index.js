@@ -240,7 +240,9 @@ class Post extends Component {
 					{/*description*/}
 					<View style={styles.description}>
 						<Text>
-							<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username} </Text>
+							<TouchableWithoutFeedback onPress={() => this.openProfile(postObject)}>
+								<Text style={[textStyles.BlackBoldSmall, styles.usernameText]}>{username} </Text>
+							</TouchableWithoutFeedback>
 							{isShowAllDescription ? <Text>{description}</Text> :
 								<Text>
 									<Text>{trimedDescription}</Text>
