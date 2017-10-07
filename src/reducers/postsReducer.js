@@ -14,7 +14,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
 	let feeds, userId, userPosts;
-	console.log('##>posts Reducer action: ', action, 'State: ', state)
+	// console.log('##>posts Reducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case ALL_POSTS:
 			return state;

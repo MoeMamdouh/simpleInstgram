@@ -9,7 +9,7 @@ import material from './../../../native-base-theme/variables/commonColor';
 import { StyleProvider } from 'native-base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {allPosts} from './../../actions';
+import { allPosts } from './../../actions';
 
 class Home extends Component {
 
@@ -21,10 +21,10 @@ class Home extends Component {
 		// this.props.navigation.navigate('DrawerOpen');
 	}
 
-	componentDidMount () {
+	componentDidMount() {
 		this.props.allPosts();
 	}
-	
+
 	render() {
 		console.log('=>Home(render), this.props ', this.props)
 		let { isSearchBar } = this.state;
@@ -45,11 +45,9 @@ class Home extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		postsData: state.postsData,
-	};
-};
+const mapStateToProps = state => ({
+	postsData: state.postsData,
+});
 
 const mapDispatchToProps = (dispatch) => (
 	bindActionCreators({

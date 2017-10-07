@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {
 	View,
 } from 'react-native'
-import { Container, Content,  Text, Button, Thumbnail } from 'native-base';
+import { Container, Content, Text, Button, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ProfileHeaderTitle from './../../components/profileHeaderTitle'
@@ -28,18 +28,18 @@ class Profile extends Component {
 		super(props);
 		this.state = {
 		}
-
-		// this.props.userPosts(1);
 	}
 
-	componentDidMount () {
-		this.props.userPosts(this.props.navigation.state.params.currentPost.userId);
+	componentDidMount() {
+		const { navigation } = this.props
+		const params = navigation.state.params;
+		if (params) {
+			const { currentPost } = params
+			const { userId } = currentPost
+			this.props.userPosts(userId);
+		}
 	}
 
-	// componentWillReceiveProps (nextProps) {
-	// 	nextProps.userPosts(userId);
-	// }
-	
 	render() {
 		console.log('=>Profile(render), this.props ', this.props)
 		const { navigation, postsData } = this.props
@@ -47,7 +47,7 @@ class Profile extends Component {
 		const params = navigation.state.params;
 		if (params) {
 			const { currentPost } = params
-			const {avatar, username, userId} = currentPost
+			const { avatar, username, userId } = currentPost
 			// this.props.userPosts(userId);
 			return (
 				<Container style={styles.container}>
