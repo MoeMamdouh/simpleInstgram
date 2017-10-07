@@ -93,4 +93,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, actions)(Profile);
+export default connect(mapStateToProps, null)(Profile);

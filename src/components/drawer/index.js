@@ -12,10 +12,10 @@ import { styles } from './style';
 import { COLORS, textStyles, config } from '../../config/';
 import DrawerItem from './../drawerItem';
 import firebase from 'firebase';
-import * as actions from './../../actions';
-import { connect } from 'react-redux';
+// import * as actions from './../../actions';
+// import { connect } from 'react-redux';
 
-class Drawer extends Component {
+export default class Drawer extends Component {
 
 	constructor(props) {
 		super(props)
@@ -69,4 +69,4 @@ class Drawer extends Component {
 // 	};
 // };
 
-export default connect(null, actions)(Drawer);
+// export default connect(null, actions)(Drawer);

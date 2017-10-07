@@ -3,11 +3,12 @@ import {
 	View, Text, TouchableWithoutFeedback,
 } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Button } from 'native-base';
+import { StackNavigator } from 'react-navigation';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { COLORS, textStyles, config } from '../../config/';
 import { styles } from './style';
-import { StackNavigator } from 'react-navigation';
-import { connect } from 'react-redux';
-import * as actions from './../../actions';
+import { emailChanged, passwordChanged, loginUser } from './../../actions';
 import firebase from 'firebase';
 import Spinner from '../../components/spinner';
 
@@ -54,6 +55,7 @@ class Login extends React.Component {
 	}
 
 	render() {
+		console.log('=>Login(render), this.props ', this.props)
 		let { showLoginBtn } = this.state
 		let { loading } = this.props
 		return (
@@ -111,4 +113,12 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, actions)(Login);
+const mapDispatchToProps = (dispatch) => (
+	bindActionCreators({
+		emailChanged,
+		passwordChanged,
+		loginUser,
+	}, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

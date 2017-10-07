@@ -20,7 +20,8 @@ import { styles } from './style';
 import { i18n, nativeFunctions } from '../../lib/';
 import { Container, Header, Button, Content, Thumbnail, Text, Form, Item, Label, Input, Textarea, Body, Title, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import * as actions from './../../actions';
+import { bindActionCreators } from 'redux';
+import { addPost } from './../../actions';
 
 class Add extends Component {
 	constructor(props, context) {
@@ -29,14 +30,6 @@ class Add extends Component {
 			description: '',
 			uploadedPhoto: '',
 		}
-	}
-
-	componentWillMount() {
-
-	}
-
-	componentDidMount() {
-
 	}
 
 	/**
@@ -52,6 +45,7 @@ class Add extends Component {
 				description,
 				images: [uploadedPhoto],
 				id: 5,
+				userId:0,
 				username: config.user.name,
 				avatar: config.user.avatar,
 				numOfLikes: 0,
@@ -60,7 +54,7 @@ class Add extends Component {
 			//navigat to home
 			dispatch({ type: 'Home' })
 			//calling posts reducer
-			this.props.addPost(postObject)
+			this.props.addPost(postObject);
 			this.resetPostData()
 		} else {
 			nativeFunctions.toast('sorry, you have to fill the data!')
@@ -179,4 +173,10 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, actions)(Add);
+const mapDispatchToProps = (dispatch) => (
+	bindActionCreators({
+		addPost,
+	}, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Add);
