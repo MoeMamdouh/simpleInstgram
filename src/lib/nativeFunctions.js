@@ -17,6 +17,7 @@ class NativeFunctions {
 	}
 
 	pickImage(options, cb) {
+		// ImagePicker.launchImageLibrary(options, cb);
 		ImagePicker.showImagePicker(options, cb);
 	}
 

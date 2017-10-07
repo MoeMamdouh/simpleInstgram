@@ -119,9 +119,8 @@ class Post extends Component {
 	 */
 	openProfile(post) {
 		// console.log('AAthis.props' ,this.props)
-		const { dispatch, setParams } = this.props.navigation;
+		const { dispatch } = this.props;
 		dispatch({ type: 'Profile', payload: post })
-		// setParams({ user: 'post' })
 		// this.props.navigation.navigate('Profile')
 
 	}
