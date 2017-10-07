@@ -101,10 +101,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-	// console.log('===>mapStateToProps this.state ', state)
 	return {
-		// posts: state.posts, 
-		// currentPost: state.currentPost,
 		email: state.auth.email,
 		password: state.auth.password,
 		error: state.auth.error,

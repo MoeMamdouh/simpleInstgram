@@ -110,6 +110,7 @@ class Add extends Component {
 
 
 	render() {
+		console.log('=>Add(render), this.props ', this.props)
 		let { description, uploadedPhoto } = this.state;
 		return (
 			<KeyboardAwareScrollView>

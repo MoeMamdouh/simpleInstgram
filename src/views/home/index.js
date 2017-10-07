@@ -1,7 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import { View, } from 'react-native'
-import _ from 'lodash';
+import { View, } from 'react-native';
 import { styles } from './style';
 import PostsList from '../../components/postsList';
 import SearchInput from '../../components/searchInput';
@@ -9,7 +8,8 @@ import getTheme from './../../../native-base-theme/components';
 import material from './../../../native-base-theme/variables/commonColor';
 import { StyleProvider } from 'native-base';
 import { connect } from 'react-redux';
-import * as actions from './../../actions';
+import { bindActionCreators } from 'redux';
+import {allPosts} from './../../actions';
 
 class Home extends Component {
 
@@ -21,10 +21,15 @@ class Home extends Component {
 		// this.props.navigation.navigate('DrawerOpen');
 	}
 
+	componentDidMount () {
+		this.props.allPosts();
+	}
+	
 	render() {
 		console.log('=>Home(render), this.props ', this.props)
 		let { isSearchBar } = this.state;
-		let { posts } = this.props;
+		const { postsData } = this.props;
+		const posts = postsData.feeds;
 		return (
 			<StyleProvider style={getTheme(material)}>
 				<View style={styles.container}>
@@ -42,8 +47,14 @@ class Home extends Component {
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts,
+		postsData: state.postsData,
 	};
 };
 
-export default connect(mapStateToProps, actions)(Home);
+const mapDispatchToProps = (dispatch) => (
+	bindActionCreators({
+		allPosts,
+	}, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

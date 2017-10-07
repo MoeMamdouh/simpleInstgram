@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import {
 	ALL_POSTS,
+	USER_POSTS,
 	ADD_POST,
 	EMAIL_CHANGED,
 	PASSWORD_CHANGED,
@@ -12,6 +13,13 @@ import {
 export const allPosts = () => {
 	return {
 		type: ALL_POSTS,
+	};
+};
+
+export const userPosts = (userId) => {
+	return {
+		type: USER_POSTS,
+		payload: userId
 	};
 };
 

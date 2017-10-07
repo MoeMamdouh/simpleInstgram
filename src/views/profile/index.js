@@ -1,24 +1,16 @@
-
 'use strict';
-
 import React, { Component } from 'react';
 import {
 	View,
-	Image,
-	TouchableOpacity,
-	TextInput,
-	ScrollView,
-	ListView,
-	LayoutAnimation,
-	RefreshControl,
 } from 'react-native'
-import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Thumbnail } from 'native-base';
-// import { Container, Content, Header, Title, Left, Right, Body, Icon, StyleProvider, Text, Button, Badge } from 'native-base';
+import { Container, Content,  Text, Button, Thumbnail } from 'native-base';
 import { connect } from 'react-redux';
-import * as actions from './../../actions';
+import { bindActionCreators } from 'redux';
 import ProfileHeaderTitle from './../../components/profileHeaderTitle'
 import { styles } from './style';
 import { COLORS, textStyles, config } from './../../config/';
+import PostsList from '../../components/postsList';
+import { userPosts } from './../../actions';
 
 class Profile extends Component {
 	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
@@ -36,14 +28,27 @@ class Profile extends Component {
 		super(props);
 		this.state = {
 		}
+
+		// this.props.userPosts(1);
 	}
 
+	componentDidMount () {
+		this.props.userPosts(this.props.navigation.state.params.currentPost.userId);
+	}
+
+	// componentWillReceiveProps (nextProps) {
+	// 	nextProps.userPosts(userId);
+	// }
+	
 	render() {
 		console.log('=>Profile(render), this.props ', this.props)
-		let { navigation } = this.props
-		let params = navigation.state.params
+		const { navigation, postsData } = this.props
+		const userPost = postsData.userPosts;
+		const params = navigation.state.params;
 		if (params) {
 			const { currentPost } = params
+			const {avatar, username, userId} = currentPost
+			// this.props.userPosts(userId);
 			return (
 				<Container style={styles.container}>
 					<Content>
@@ -51,7 +56,7 @@ class Profile extends Component {
 						<View style={styles.userInfo}>
 							{/* user info top */}
 							<View style={styles.userInfoTop}>
-								{<Thumbnail source={{ uri: currentPost.avatar }} style={styles.profilePicture} />}
+								{<Thumbnail source={{ uri: avatar }} style={styles.profilePicture} />}
 								{/* cases icon */}
 								<View style={styles.userIcons}>
 									<View style={styles.iconBlock}>
@@ -73,10 +78,12 @@ class Profile extends Component {
 
 							{/* user info bottom */}
 							<View style={styles.userInfoBottom}>
-								<Text style={[styles.userName, textStyles.BoldBlackMedium]}>{currentPost.username}</Text>
+								<Text style={[styles.userName, textStyles.BoldBlackMedium]}>{username}</Text>
 								<Text style={[styles.userBio, textStyles.grayProfileInfo]}>The allure of exotic spices launched Columbus on his journey of discovery. Today, home chefs can</Text>
 							</View>
 						</View>
+
+						<PostsList posts={userPost} />
 					</Content>
 				</Container>
 			)
@@ -89,8 +96,14 @@ class Profile extends Component {
 
 const mapStateToProps = state => {
 	return {
-		currentPost: state.currentPost
+		postsData: state.postsData,
 	};
 };
 
-export default connect(mapStateToProps, null)(Profile);
+const mapDispatchToProps = (dispatch) => (
+	bindActionCreators({
+		userPosts,
+	}, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

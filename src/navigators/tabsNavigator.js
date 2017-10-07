@@ -62,7 +62,7 @@ let TabNavigatorConfig = {
 	//whether to animate when changing tabs
 	animationEnabled: true,
 	//whether to lazily render tabs as needed as opposed to rendering them upfront
-	// lazy: true,
+	lazy: true,
 	//The routeName for the initial tab route when first loading
 	initialRouteName: 'HomeNavigator',
 	//Array of routeNames which defines the order of the tabs

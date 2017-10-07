@@ -15,7 +15,7 @@ const initialState = navigationRouter(AppNavigator.router.getActionForPathAndPar
 
 const navReducer = (state = initialState, action) => {
 	let nextState;
-	console.log('##>NavReducer action: ', action, 'State: ', state)
+	// console.log('##>NavReducer action: ', action, 'State: ', state)
 	switch (action.type) {
 		case 'Splash':
 			nextState = navigationRouter(resetTo('Splash'), state);
