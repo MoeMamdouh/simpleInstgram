@@ -75,7 +75,7 @@ export const styles = StyleSheet.create({
 	},
 
 	btnsContainer: {
-		width: 240,
+		width: 200,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 	},

@@ -42,11 +42,11 @@ class Add extends Component {
 			const { dispatch } = this.props.navigation;
 
 			let postObject = {
-				description,
-				images: [uploadedPhoto],
-				id: 5,
+				id: 0,
 				userId:0,
 				username: config.user.name,
+				description,
+				images: [uploadedPhoto],
 				avatar: config.user.avatar,
 				numOfLikes: 0,
 				isLiked: false,
