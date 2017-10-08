@@ -13,13 +13,22 @@ import PostsList from '../../components/postsList';
 import { userPosts, deletePost } from './../../actions';
 
 class Profile extends Component {
-	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
+	// static navigationOptions = (navigation) => {
+	// 	navigation = navigation.navigation;
+	// 	if (navigation.state.params) {
+	// 		let { currentPost } = navigation.state.params;
+	// 		return ({
+	// 			title: <ProfileHeaderTitle currentPost={currentPost} />,
+	// 		})
+	// 	}
+	// };
+	
 	static navigationOptions = (navigation) => {
 		navigation = navigation.navigation;
 		if (navigation.state.params) {
 			let { currentPost } = navigation.state.params;
 			return ({
-				title: <ProfileHeaderTitle currentPost={currentPost} />,
+				title: currentPost.username,
 			})
 		}
 	};
