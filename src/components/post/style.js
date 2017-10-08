@@ -89,6 +89,11 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 
+	actionsRight: {
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+
 	actionIcon: {
 		width: 50,
 		height: 50,

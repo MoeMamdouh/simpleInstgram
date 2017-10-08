@@ -10,7 +10,7 @@ import ProfileHeaderTitle from './../../components/profileHeaderTitle'
 import { styles } from './style';
 import { COLORS, textStyles, config } from './../../config/';
 import PostsList from '../../components/postsList';
-import { userPosts } from './../../actions';
+import { userPosts, deletePost } from './../../actions';
 
 class Profile extends Component {
 	// static navigationOptions = (navigation, screenProps) => console.log('@@@',navigation, screenProps) 
@@ -38,6 +38,21 @@ class Profile extends Component {
 			const { userId } = currentPost
 			this.props.userPosts(userId);
 		}
+	}
+
+	/**
+	 * Dispatch action to Navigation reducer to open user profile View
+	 */
+	openProfile(post = {}) {
+		const { dispatch } = this.props.navigation;
+		dispatch({ type: 'Profile', payload: post })
+	}
+
+	/**
+	 * Dispatch action to Delete the Post
+	 */
+	deletePost(post) {
+		this.props.deletePost(post.id);
 	}
 
 	render() {
@@ -83,7 +98,11 @@ class Profile extends Component {
 							</View>
 						</View>
 
-						<PostsList posts={userPost} />
+						<PostsList
+							posts={userPost}
+							openProfile={this.openProfile.bind(this)}
+							deletePost={this.deletePost.bind(this)}
+						/>
 					</Content>
 				</Container>
 			)
@@ -103,6 +122,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => (
 	bindActionCreators({
 		userPosts,
+		deletePost,
 	}, dispatch)
 )
 

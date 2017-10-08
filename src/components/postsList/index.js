@@ -56,8 +56,12 @@ export default class PostsList extends Component {
 	 * render event item
 	 */
 	renderRow(rowData, sectionID, rowID, highlightRow) {
-		let { navigation } = this.props;
-		return <Post postObject={rowData} />
+		let { navigation, openProfile, deletePost } = this.props;
+		return <Post
+			postObject={rowData}
+			openProfile={openProfile}
+			deletePost={deletePost}
+		/>
 	}
 
 	/**
@@ -142,7 +146,7 @@ export default class PostsList extends Component {
 		let postsDataSource = ds.cloneWithRows(posts);
 		return (
 			<View>
-				< ListView
+				<ListView
 					refreshControl={
 						<RefreshControl
 							refreshing={this.state.isRefreshing}

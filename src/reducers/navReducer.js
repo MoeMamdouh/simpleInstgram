@@ -36,7 +36,9 @@ const navReducer = (state = initialState, action) => {
 		case 'Profile':
 			nextState = navigationRouter(navigateTo('Profile', action.payload), state);
 			break;
-
+		case 'Search':
+			nextState = navigationRouter(navigateTo('Search', action.payload), state);
+			break;
 		default:
 			nextState = navigationRouter(action, state);
 			break;

@@ -3,6 +3,7 @@ import {
 	ALL_POSTS,
 	USER_POSTS,
 	ADD_POST,
+	DELETE_POST,
 	EMAIL_CHANGED,
 	PASSWORD_CHANGED,
 	LOGIN_USER_SUCCESS,
@@ -27,6 +28,13 @@ export const addPost = (post) => {
 	return {
 		type: ADD_POST,
 		payload: post
+	};
+};
+
+export const deletePost = (postId) => {
+	return {
+		type: DELETE_POST,
+		payload: postId
 	};
 };
 

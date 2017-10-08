@@ -15,8 +15,6 @@ import { date, nativeFunctions } from './.././../lib/';
 import Swiper from 'react-native-swiper';
 import DoubleClick from 'react-native-double-click';
 import { Thumbnail } from 'native-base';
-import { connect } from 'react-redux';
-import * as actions from './../../actions';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,8 +24,9 @@ const
 	COMMENT_ICON = require('../../../images/icons/comment.png'),
 	SEND_ICON = require('../../../images/icons/send.png'),
 	SAVE_ICON = require('../../../images/icons/save.png');
+	DELETE_ICON = require('../../../images/icons/delete.png');
 
-class Post extends Component {
+export default class Post extends Component {
 
 	constructor(props) {
 		super(props)
@@ -97,6 +96,13 @@ class Post extends Component {
 	}
 
 	/**
+	  delete post
+	 */
+	deletePost(post) {
+		this.props.deletePost(post);
+	}
+	
+	/**
 	 * handle double tap on th post
 	 * @param {*} postObject 
 	 */
@@ -118,11 +124,7 @@ class Post extends Component {
 	 * open user profile
 	 */
 	openProfile(post) {
-		// console.log('AAthis.props' ,this.props)
-		const { dispatch } = this.props;
-		dispatch({ type: 'Profile', payload: post })
-		// this.props.navigation.navigate('Profile')
-
+		this.props.openProfile(post)
 	}
 
 	/**
@@ -148,7 +150,7 @@ class Post extends Component {
 		//show all desciption text if clicked on more button or text less than or equal the minumal text in config
 		let isShowAllDescription = showMore || description.length <= config.post.moreLength;
 		let trimedDescription = description.substring(0, config.post.moreLength)
-		let postDate = date.getDateFormat(created_time)
+		let postDate = date.getDateFormat(created_time);
 		return (
 			<View style={styles.post}>
 				{/*user*/}
@@ -225,6 +227,9 @@ class Post extends Component {
 								{/* <TouchableOpacity onPress={() => nativeFunctions.toast('save posts will be added soon ')}> */}
 								<Image style={[styles.actionIcon, styles.saveIcon]} source={SAVE_ICON} />
 							</TouchableOpacity>
+							<TouchableOpacity onPress={() => this.deletePost(postObject)}>
+								<Image style={[styles.actionIcon, styles.saveIcon]} source={DELETE_ICON} />
+							</TouchableOpacity>
 						</View>
 					</View>
 					{/*End actions btns*/}
@@ -257,11 +262,3 @@ class Post extends Component {
 		)
 	}
 }
-
-const mapStateToProps = state => {
-	return {
-		posts: state.posts,
-	};
-};
-
-export default connect(mapStateToProps, null)(Post);
