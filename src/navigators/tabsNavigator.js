@@ -60,7 +60,7 @@ let TabNavigatorConfig = {
 	//whether to allow swiping between tabs
 	swipeEnabled: true,
 	//whether to animate when changing tabs
-	animationEnabled: true,
+	// animationEnabled: true,
 	//whether to lazily render tabs as needed as opposed to rendering them upfront
 	lazy: true,
 	//The routeName for the initial tab route when first loading
